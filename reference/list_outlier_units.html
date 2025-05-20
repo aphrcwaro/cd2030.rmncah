@@ -72,7 +72,7 @@ suitable for plotting or time-series review at subnational levels.</p>
 
 <dt id="arg-admin-level">admin_level<a class="anchor" aria-label="anchor" href="#arg-admin-level"></a></dt>
 <dd><p>Character. The administrative level to summarize by.
-Options are <code>"adminlevel_1"</code> or <code>"district"</code>.</p></dd>
+Options are <code>'adminlevel_1'</code> or <code>'district'</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -95,10 +95,10 @@ Options are <code>"adminlevel_1"</code> or <code>"district"</code>.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Detect monthly outliers in Penta1 at district level</span></span></span>
-<span class="r-in"><span><span class="va">outliers</span> <span class="op">&lt;-</span> <span class="fu">list_outlier_units</span><span class="op">(</span><span class="va">cd_data</span>, indicator <span class="op">=</span> <span class="st">"penta1"</span>, admin_level <span class="op">=</span> <span class="st">"district"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">outliers</span> <span class="op">&lt;-</span> <span class="fu">list_outlier_units</span><span class="op">(</span><span class="va">cd_data</span>, indicator <span class="op">=</span> <span class="st">'penta1'</span>, admin_level <span class="op">=</span> <span class="st">'district'</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plot flagged points in a specific region</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">outliers</span>, region <span class="op">=</span> <span class="st">"Nakuru"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">outliers</span>, region <span class="op">=</span> <span class="st">'Nakuru'</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

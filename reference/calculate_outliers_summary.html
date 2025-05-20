@@ -56,8 +56,7 @@ flagged when they deviate significantly (beyond five MADs from the median).</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">calculate_outliers_summary</span><span class="op">(</span></span>
 <span>  <span class="va">.data</span>,</span>
-<span>  admin_level <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"national"</span>, <span class="st">"adminlevel_1"</span>, <span class="st">"district"</span><span class="op">)</span>,</span>
-<span>  include_year <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  admin_level <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"national"</span>, <span class="st">"adminlevel_1"</span>, <span class="st">"district"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -75,11 +74,7 @@ outlier and 0 indicates non-outliers).</p></dd>
 
 <dt id="arg-admin-level">admin_level<a class="anchor" aria-label="anchor" href="#arg-admin-level"></a></dt>
 <dd><p>Character. The administrative level at which to calculate
-reporting rates. Must be one of <code>"national"</code>, <code>"adminlevel_1"</code> or <code>"district"</code>.</p></dd>
-
-
-<dt id="arg-include-year">include_year<a class="anchor" aria-label="anchor" href="#arg-include-year"></a></dt>
-<dd><p>Integer. Whether to include the year</p></dd>
+reporting rates. Must be one of <code>'national'</code>, <code>'adminlevel_1'</code> or <code>'district'</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
