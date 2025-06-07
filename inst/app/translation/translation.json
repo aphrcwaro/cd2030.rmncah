@@ -168,6 +168,7 @@
       "fr": "Analyse Countdown",
       "pt": "Análise da contagem regressiva"
     },
+<<<<<<< Updated upstream
    {
   "key": "btn_cache_set",
   "en": "Set Cache Directory",
@@ -2412,6 +2413,2251 @@
   "en": "FPET Projections Options",
   "fr": "Options de projection FPET",
   "pt": "Opções de Projeção do FPET"
+=======
+    {
+      "key": "btn_cache_set",
+      "en": "Set Cache Directory",
+      "fr": "Définir le répertoire de cache",
+      "pt": "Definir diretório de cache"
+    },
+    {
+      "key": "btn_cache_save",
+      "en": "Save Cache",
+      "fr": "Enregistrer le cache",
+      "pt": "Salvar cache"
+    },
+    {
+      "key": "msg_cache_directory_set",
+      "en": "Directory set successfully!",
+      "fr": "Répertoire défini avec succès !",
+      "pt": "Diretório definido com sucesso!"
+    },
+    {
+      "key": "msg_success",
+      "en": "Success",
+      "fr": "Succès",
+      "pt": "Sucesso"
+    },
+    {
+      "key": "error_permission",
+      "en": "Error: {error_message}. Please check you have permission to selected folder",
+      "fr": "Erreur : {error_message}. Veuillez vérifier que vous avez l'autorisation d'accéder au dossier sélectionné",
+      "pt": "Erro: {error_message}. Verifique se você tem permissão para acessar a pasta selecionada"
+    },
+    {
+      "key": "msg_cache_saved_success",
+      "en": "Cache saved successfully!",
+      "fr": "Cache enregistré avec succès !",
+      "pt": "Cache salvo com sucesso!"
+    },
+    {
+      "key": "btn_download_report",
+      "en": "Download Report",
+      "fr": "Télécharger le rapport",
+      "pt": "Baixar relatório"
+    },
+    {
+      "key": "error_download_report_no_data",
+      "en": "The necessary data for generating the report is not available. Please ensure that the data is uploaded and processed correctly.",
+      "fr": "Les données nécessaires à la génération du rapport ne sont pas disponibles. Veuillez vous assurer que les données sont correctement téléchargées et traitées.",
+      "pt": "Os dados necessários para gerar o relatório não estão disponíveis. Verifique se os dados foram carregados e processados corretamente."
+    },
+    {
+      "key": "title_download_options",
+      "en": "Download Options",
+      "fr": "Options de téléchargement",
+      "pt": "Opções de download"
+    },
+    {
+      "key": "title_report_type",
+      "en": "Report Type:",
+      "fr": "Type de rapport :",
+      "pt": "Tipo de relatório:"
+    },
+    {
+      "key": "opt_full_report",
+      "en": "Full Report",
+      "fr": "Rapport complet",
+      "pt": "Relatório completo"
+    },
+    {
+      "key": "opt_one_pager",
+      "en": "National One Pager",
+      "fr": "Page unique nationale",
+      "pt": "Resumo nacional"
+    },
+    {
+      "key": "opt_admin_level_one_pager",
+      "en": "Admin Level One Pager",
+      "fr": "Page unique – Niveau administratif 1",
+      "pt": "Resumo do Nível Administrativo 1"
+    },
+    {
+      "key": "btn_cancel",
+      "en": "Cancel",
+      "fr": "Annuler",
+      "pt": "Cancelar"
+    },
+    {
+      "key": "btn_ok",
+      "en": "OK",
+      "fr": "OK",
+      "pt": "OK"
+    },
+    {
+      "key": "msg_error",
+      "en": "Error",
+      "fr": "Erreur",
+      "pt": "Erro"
+    },
+    {
+      "key": "btn_generate_report",
+      "en": "Generate Report",
+      "fr": "Générer le rapport",
+      "pt": "Gerar Relatório"
+    },
+    {
+      "key": "title_select_format",
+      "en": "Select Format:",
+      "fr": "Sélectionner le format :",
+      "pt": "Selecionar Formato:"
+    },
+    {
+      "key": "msg_report_generating",
+      "en": "Your report is being generated. This might take a few moments.",
+      "fr": "Votre rapport est en cours de génération. Cela peut prendre quelques instants.",
+      "pt": "Seu relatório está sendo gerado. Isso pode levar alguns instantes."
+    },
+    {
+      "key": "msg_loading",
+      "en": "Loading...",
+      "fr": "Chargement...",
+      "pt": "Carregando..."
+    },
+    {
+      "key": "msg_download_ready",
+      "en": "Download Ready",
+      "fr": "Téléchargement prêt",
+      "pt": "Download pronto"
+    },
+    {
+      "key": "msg_downloading",
+      "en": "Downloading...",
+      "fr": "Téléchargement en cours...",
+      "pt": "Baixando..."
+    },
+    {
+      "key": "sheet_penta3_derived_coverage",
+      "en": "Penta 3 Derived Coverage",
+      "fr": "Couverture dérivée Penta 3",
+      "pt": "Cobertura Derivada Penta 3"
+    },
+    {
+      "key": "sheet_penta1_derived_coverage",
+      "en": "Penta 1 Derived Coverage",
+      "fr": "Couverture dérivée Penta 1",
+      "pt": "Cobertura Derivada Penta 1"
+    },
+    {
+      "key": "sheet_measles1_derived_coverage",
+      "en": "Measles 1 Derived Coverage",
+      "fr": "Couverture dérivée Rougeole 1",
+      "pt": "Cobertura Derivada Sarampo 1"
+    },
+    {
+      "key": "sheet_custom_derived_coverage",
+      "en": "{indicator} Derived Coverage",
+      "fr": "Couverture dérivée {indicator}",
+      "pt": "Cobertura Derivada de {indicator}"
+    },
+    {
+      "key": "msg_report_generated",
+      "en": "The report has been successfully generated. Click below to download it.",
+      "fr": "Le rapport a été généré avec succès. Cliquez ci-dessous pour le télécharger.",
+      "pt": "O relatório foi gerado com sucesso. Clique abaixo para baixá-lo."
+    },
+    {
+      "key": "msg_report_generated_dialog",
+      "en": "This dialog will remain open until you download the report or click 'Dismiss.'",
+      "fr": "Cette boîte de dialogue restera ouverte jusqu'à ce que vous téléchargiez le rapport ou cliquiez sur 'Fermer'.",
+      "pt": "Esta janela permanecerá aberta até que você baixe o relatório ou clique em 'Fechar'."
+    },
+    {
+      "key": "btn_dismiss",
+      "en": "Dismiss",
+      "fr": "Fermer",
+      "pt": "Fechar"
+    },
+    {
+      "key": "error_report_generation",
+      "en": "An error occurred while generating the report. Please try again.",
+      "fr": "Une erreur s'est produite lors de la génération du rapport. Veuillez réessayer.",
+      "pt": "Ocorreu um erro ao gerar o relatório. Por favor, tente novamente."
+    },
+    {
+      "key": "msg_generating_report",
+      "en": "Generating Report",
+      "fr": "Génération du rapport",
+      "pt": "Gerando Relatório"
+    },
+    {
+      "key": "btn_add_notes",
+      "en": "Add Notes",
+      "fr": "Ajouter des notes",
+      "pt": "Adicionar Notas"
+    },
+    {
+      "key": "title_document_page",
+      "en": "Document Page:",
+      "fr": "Page à documenter :",
+      "pt": "Página do Documento:"
+    },
+    {
+      "key": "title_document_select_object",
+      "en": "Select Object",
+      "fr": "Sélectionner l'objet",
+      "pt": "Selecionar Objeto"
+    },
+    {
+      "key": "opt_document_object_to_document",
+      "en": "Select object to document:",
+      "fr": "Sélectionnez l’objet à documenter :",
+      "pt": "Selecione o objeto a documentar:"
+    },
+    {
+      "key": "title_document_interpretation_pointers",
+      "en": "Interpretation Pointers:",
+      "fr": "Pistes d'interprétation :",
+      "pt": "Orientações para Interpretação:"
+    },
+    {
+      "key": "title_document_enter_notes",
+      "en": "Enter your notes or observations:",
+      "fr": "Entrez vos notes ou observations :",
+      "pt": "Insira suas notas ou observações:"
+    },
+    {
+      "key": "msg_add_documentation",
+      "en": "Add documentation for this object...",
+      "fr": "Ajouter une documentation pour cet objet...",
+      "pt": "Adicionar documentação para este objeto..."
+    },
+    {
+      "key": "title_document_associated_parameters",
+      "en": "Associated Parameters:",
+      "fr": "Paramètres associés :",
+      "pt": "Parâmetros Associados:"
+    },
+    {
+      "key": "btn_save",
+      "en": "Save",
+      "fr": "Enregistrer",
+      "pt": "Salvar"
+    },
+    {
+      "key": "msg_none",
+      "en": "None",
+      "fr": "Aucun",
+      "pt": "Nenhum"
+    },
+    {
+      "key": "btn_document_include_in_page_report",
+      "en": "Include this note in the report (Always included)",
+      "fr": "Inclure cette note dans le rapport (Toujours incluse)",
+      "pt": "Incluir esta nota no relatório (Sempre incluída)"
+    },
+    {
+      "key": "btn_document_include_final",
+      "en": "Include this note in the final report",
+      "fr": "Inclure cette note dans le rapport final",
+      "pt": "Incluir esta nota no relatório final"
+    },
+    {
+      "key": "btn_include_plot_in_page_report",
+      "en": "Include plot/table in the page report",
+      "fr": "Inclure graphique/tableau dans le rapport de page",
+      "pt": "Incluir gráfico/tabela no relatório da página"
+    },
+    {
+      "key": "error_evaluating_parameters",
+      "en": "Error evaluating parameters. Please check your input.",
+      "fr": "Erreur lors de l’évaluation des paramètres. Veuillez vérifier votre saisie.",
+      "pt": "Erro ao avaliar os parâmetros. Por favor, verifique sua entrada."
+    },
+    {
+      "key": "msg_documentation_saved",
+      "en": "Documentation saved successfully!",
+      "fr": "Documentation enregistrée avec succès !",
+      "pt": "Documentação salva com sucesso!"
+    },
+    {
+      "key": "msg_documentation_save_failed",
+      "en": "Failed to save documentation. Please try again.",
+      "fr": "Échec de l’enregistrement de la documentation. Veuillez réessayer.",
+      "pt": "Falha ao salvar a documentação. Por favor, tente novamente."
+    },
+    {
+      "key": "btn_help",
+      "en": "Get Help",
+      "fr": "Obtenir de l'aide",
+      "pt": "Obter Ajuda"
+    },
+    {
+      "key": "title_upload_data",
+      "en": "Upload Data",
+      "fr": "Téléverser les données",
+      "pt": "Carregar Dados"
+    },
+    {
+      "key": "btn_upload",
+      "en": "Upload",
+      "fr": "Téléverser",
+      "pt": "Carregar"
+    },
+    {
+      "key": "btn_upload_hfd_data",
+      "en": "Upload HFD data",
+      "fr": "Téléverser les données HFD",
+      "pt": "Carregar dados HFD"
+    },
+    {
+      "key": "btn_browse_or_drop",
+      "en": "Browse or Drop...",
+      "fr": "Parcourir ou déposer...",
+      "pt": "Procurar ou Soltar..."
+    },
+    {
+      "key": "msg_supported_formats_xls_xlsx_dta_rds",
+      "en": "Supported formats: .xls, .xlsx, .dta, .rds",
+      "fr": "Formats pris en charge : .xls, .xlsx, .dta, .rds",
+      "pt": "Formatos suportados: .xls, .xlsx, .dta, .rds"
+    },
+    {
+      "key": "error_upload_failed_unsupported_format",
+      "en": "Upload failed: Unsupported file format.",
+      "fr": "Échec du téléversement : format de fichier non pris en charge.",
+      "pt": "Falha no carregamento: Formato de arquivo não suportado."
+    },
+    {
+      "key": "msg_cache_loading",
+      "en": "Loading from cache",
+      "fr": "Chargement depuis le cache",
+      "pt": "Carregando do cache"
+    },
+    {
+      "key": "msg_cache_loaded",
+      "en": "Upload successful: File loaded from cache",
+      "fr": "Téléversement réussi : Fichier chargé depuis le cache",
+      "pt": "Carregamento bem-sucedido: Arquivo carregado do cache"
+    },
+    {
+      "key": "msg_upload_success",
+      "en": "Upload successful: File {file_name} is ready.",
+      "fr": "Téléversement réussi : le fichier {file_name} est prêt.",
+      "pt": "Carregamento bem-sucedido: O arquivo {file_name} está pronto."
+    },
+    {
+      "key": "error_upload_failed",
+      "en": "Upload failed: {clean_message}",
+      "fr": "Échec du téléversement : {clean_message}",
+      "pt": "Falha no carregamento: {clean_message}"
+    },
+    {
+      "key": "btn_download_master_dataset",
+      "en": "Download Master Dataset",
+      "fr": "Télécharger le jeu de données principal",
+      "pt": "Baixar Conjunto de Dados Principal"
+    },
+    {
+      "key": "msg_awaiting_upload",
+      "en": "Awaiting file upload...",
+      "fr": "En attente du téléchargement du fichier...",
+      "pt": "Aguardando o carregamento do arquivo..."
+    },
+    {
+      "key": "msg_files_uploaded",
+      "en": "Files uploaded.",
+      "fr": "Fichiers téléversés.",
+      "pt": "Arquivos carregados."
+    },
+    {
+      "key": "msg_survey_mapping_files_uploaded",
+      "en": "Survey mapping data is uploaded",
+      "fr": "Les données de cartographie de l’enquête sont téléversées",
+      "pt": "Os dados de mapeamento da pesquisa foram carregados"
+    },
+    {
+      "key": "msg_waiting",
+      "en": "Waiting ...",
+      "fr": "En attente ...",
+      "pt": "Aguardando ..."
+    },
+    {
+      "key": "error_invalid_status",
+      "en": "Invalid status. Choose from 'info', 'success', 'error', or 'warning'.",
+      "fr": "Statut invalide. Choisissez parmi 'info', 'success', 'error' ou 'warning'.",
+      "pt": "Status inválido. Escolha entre 'info', 'success', 'error' ou 'warning'."
+    },
+    {
+      "key": "msg_dataset_not_adjusted",
+      "en": "Dataset not adjusted",
+      "fr": "Ensemble de données non ajusté",
+      "pt": "Conjunto de dados não ajustado"
+    },
+    {
+      "key": "msg_no_years_removed",
+      "en": "No years have been removed yet.",
+      "fr": "Aucune année n'a encore été supprimée.",
+      "pt": "Nenhum ano foi removido ainda."
+    },
+    {
+      "key": "msg_survey_not_set",
+      "en": "Survey folder not set",
+      "fr": "Dossier des enquêtes non défini",
+      "pt": "Pasta da pesquisa não definida"
+    },
+    {
+      "key": "title_dhis2_import",
+      "en": "Import from DHIS2",
+      "fr": "Importer depuis DHIS2",
+      "pt": "Importar do DHIS2"
+    },
+    {
+      "key": "title_country",
+      "en": "Country",
+      "fr": "Pays",
+      "pt": "País"
+    },
+    {
+      "key": "title_period",
+      "en": "Period",
+      "fr": "Période",
+      "pt": "Período"
+    },
+    {
+      "key": "title_dhis2_username",
+      "en": "DHIS2 User Name",
+      "fr": "Nom d'utilisateur DHIS2",
+      "pt": "Nome de Usuário DHIS2"
+    },
+    {
+      "key": "title_dhis2_password",
+      "en": "DHIS2 Password",
+      "fr": "Mot de passe DHIS2",
+      "pt": "Senha do DHIS2"
+    },
+    {
+      "key": "btn_login",
+      "en": "Login",
+      "fr": "Connexion",
+      "pt": "Entrar"
+    },
+    {
+      "key": "btn_download_master_file",
+      "en": "Download Master File",
+      "fr": "Télécharger le fichier principal",
+      "pt": "Baixar Arquivo Principal"
+    },
+    {
+      "key": "btn_download_excel_file",
+      "en": "Download Excel File",
+      "fr": "Télécharger le fichier Excel",
+      "pt": "Baixar Arquivo Excel"
+    },
+    {
+      "key": "opt_select_country",
+      "en": "Select Country",
+      "fr": "Sélectionner un pays",
+      "pt": "Selecionar País"
+    },
+    {
+      "key": "error_country",
+      "en": "Error: Country must be selected",
+      "fr": "Erreur : un pays doit être sélectionné",
+      "pt": "Erro: É necessário selecionar um país"
+    },
+    {
+      "key": "opt_select_all",
+      "en": "Select All",
+      "fr": "Tout sélectionner",
+      "pt": "Selecionar Todos"
+    },
+    {
+      "key": "error_username",
+      "en": "Error: Username must be provided",
+      "fr": "Erreur : le nom d'utilisateur doit être fourni",
+      "pt": "Erro: Nome de usuário deve ser fornecido"
+    },
+    {
+      "key": "error_password",
+      "en": "Error: Password must be provided",
+      "fr": "Erreur : le mot de passe doit être fourni",
+      "pt": "Erro: Senha deve ser fornecida"
+    },
+    {
+      "key": "msg_dhis2_connect",
+      "en": "Connecting to DHIS2...",
+      "fr": "Connexion à DHIS2...",
+      "pt": "Conectando ao DHIS2..."
+    },
+    {
+      "key": "error_download_error",
+      "en": "Download Error: {clean_message}",
+      "fr": "Erreur de téléchargement : {clean_message}",
+      "pt": "Erro de Download: {clean_message}"
+    },
+    {
+      "key": "msg_fetching_data",
+      "en": "Fetching data...",
+      "fr": "Récupération des données...",
+      "pt": "Buscando dados..."
+    },
+    {
+      "key": "msg_saving_data",
+      "en": "Saving data...",
+      "fr": "Enregistrement des données...",
+      "pt": "Salvando dados..."
+    },
+    {
+      "key": "msg_download_success",
+      "en": "Data successfully downloaded!",
+      "fr": "Données téléchargées avec succès !",
+      "pt": "Dados baixados com sucesso!"
+    },
+    {
+      "key": "error_download",
+      "en": "Download Error: ",
+      "fr": "Erreur de téléchargement : ",
+      "pt": "Erro de Download: "
+    },
+    {
+      "key": "title_dhis2_download",
+      "en": "DHIS2 Download",
+      "fr": "Téléchargement DHIS2",
+      "pt": "Download do DHIS2"
+    },
+    {
+      "key": "title_to",
+      "en": " to ",
+      "fr": " à ",
+      "pt": " até "
+    },
+    {
+      "key": "title_overall_score_options",
+      "en": "Overall Score Options",
+      "fr": "Options de score global",
+      "pt": "Opções de Pontuação Geral"
+    },
+    {
+      "key": "title_reporting_rate_options",
+      "en": "Reporting Rate Options",
+      "fr": "Options de taux de notification",
+      "pt": "Opções de Taxa de Notificação"
+    },
+    {
+      "key": "title_performance_threshold",
+      "en": "Performance Threshold",
+      "fr": "Seuil de performance",
+      "pt": "Limite de Desempenho"
+    },
+    {
+      "key": "title_admin_level",
+      "en": "Admin Level",
+      "fr": "Niveau administratif",
+      "pt": "Nível Administrativo"
+    },
+    {
+      "key": "opt_admin_level_1",
+      "en": "Admin Level 1",
+      "fr": "Niveau administratif 1",
+      "pt": "Nível Administrativo 1"
+    },
+    {
+      "key": "opt_district",
+      "en": "District",
+      "fr": "District",
+      "pt": "Distrito"
+    },
+    {
+      "key": "title_indicator",
+      "en": "Indicator",
+      "fr": "Indicateur",
+      "pt": "Indicador"
+    },
+    {
+      "key": "title_districts_coverage_rate",
+      "en": "Sub-National with coverage >90%",
+      "fr": "Zones infranationales avec une couverture > 90",
+      "pt": "Cobertura Subnacional >90%"
+    },
+    {
+      "key": "opt_anc",
+      "en": "ANC",
+      "fr": "CPN",
+      "pt": "CPN"
+    },
+    {
+      "key": "opt_vaccination",
+      "en": "Vaccination",
+      "fr": "Vaccination",
+      "pt": "Vacinação"
+    },
+    {
+      "key": "title_subnational_reporting_rate",
+      "en": "Sub-National Reporting Rate",
+      "fr": "Taux de notification infranational",
+      "pt": "Taxa de Notificação Subnacional"
+    },
+    {
+      "key": "title_heat_map",
+      "en": "Heat Map",
+      "fr": "Carte thermique",
+      "pt": "Mapa de Calor"
+    },
+    {
+      "key": "title_bar_graph",
+      "en": "Bar Graph",
+      "fr": "Diagramme en barres",
+      "pt": "Gráfico de Barras"
+    },
+    {
+      "key": "title_national_reporting_rate",
+      "en": "National Reporting Rate",
+      "fr": "Taux de notification national",
+      "pt": "Taxa Nacional de Notificação"
+    },
+    {
+      "key": "title_region_reporting_rate",
+      "en": "District Reporting Rate in {region_name}",
+      "fr": "Taux de notification des districts dans {region_name}",
+      "pt": "Taxa de Notificação dos Distritos em {region_name}"
+    },
+    {
+      "key": "title_subnational_low_reporting",
+      "en": "Sub-National Units with Low Reporting",
+      "fr": "Unités infranationales à faible notification",
+      "pt": "Unidades Subnacionais com Baixa Notificação"
+    },
+    {
+      "key": "title_year",
+      "en": "Year",
+      "fr": "Année",
+      "pt": "Ano"
+    },
+    {
+      "key": "title_average_rr",
+      "en": "Average RR by year",
+      "fr": "TR moyen par année",
+      "pt": "TR médio por ano"
+    },
+    {
+      "key": "table_reporting_rate",
+      "en": "Table 1 - average reporting rates for all indicators, by year",
+      "fr": "Tableau 1 - taux moyens de notification pour tous les indicateurs, par année",
+      "pt": "Tabela 1 - taxas médias de notificação para todos os indicadores, por ano"
+    },
+    {
+      "key": "sheet_reporting_district",
+      "en": "RR >= {input$threshold} (districts)",
+      "fr": "TR >= {input$threshold} (districts)",
+      "pt": "RR >= {input$threshold} (distritos)"
+    },
+    {
+      "key": "table_district_reporting",
+      "en": "Table 2 - Percentage of districts with reporting rates >= {input$threshold}, by year",
+      "fr": "Tableau 2 - Pourcentage de districts avec TR >= {input$threshold}, par année",
+      "pt": "Tabela 2 - Percentual de distritos com taxas de notificação >= {input$threshold}, por ano"
+    },
+    {
+      "key": "title_districts_low_reporting",
+      "en": "Districts Low Reporting Rating",
+      "fr": "Districts à faible taux de notification",
+      "pt": "Distritos com baixa taxa de notificação"
+    },
+    {
+      "key": "table_district_reporting_year",
+      "en": "Table 3 - Districts with Reporting Rate < {input$threshold} for {input$indicator} in {input$year}",
+      "fr": "Tableau 3 - Districts avec TR < {input$threshold} pour {input$indicator} en {input$year}",
+      "pt": "Tabela 3 - Distritos com taxa de notificação < {input$threshold} para {input$indicator} em {input$year}"
+    },
+    {
+      "key": "opt_select_indicator",
+      "en": "Select Indicator",
+      "fr": "Sélectionner un indicateur",
+      "pt": "Selecionar Indicador"
+    },
+    {
+      "key": "title_indicators_with_outlier",
+      "en": "Indicators with Outliers",
+      "fr": "Indicateurs avec des valeurs aberrantes",
+      "pt": "Indicadores com valores discrepantes"
+    },
+    {
+      "key": "title_indicator_bar_graph",
+      "en": "Indicator Bar Graph",
+      "fr": "Graphique en barres des indicateurs",
+      "pt": "Gráfico de barras do indicador"
+    },
+    {
+      "key": "title_region_bar_graph",
+      "en": "Region Bar Graph",
+      "fr": "Graphique en barres des régions",
+      "pt": "Gráfico de barras por região"
+    },
+    {
+      "key": "title_district_outliers",
+      "en": "Sub-National Units with Extreme Outliers",
+      "fr": "Unités infranationales avec des valeurs extrêmes",
+      "pt": "Unidades subnacionais com valores discrepantes extremos"
+    },
+    {
+      "key": "title_district_trends",
+      "en": "Sub-National Trends",
+      "fr": "Tendances infranationales",
+      "pt": "Tendências Subnacionais"
+    },
+    {
+      "key": "title_outliers",
+      "en": "Outliers",
+      "fr": "Valeurs aberrantes",
+      "pt": "Valores discrepantes"
+    },
+    {
+      "key": "table_outliers",
+      "en": "Table 2a: Percentage of monthly values that are not extreme outliers, by year",
+      "fr": "Tableau 2a : Pourcentage de valeurs mensuelles qui ne sont pas des valeurs aberrantes extrêmes, par année",
+      "pt": "Tabela 2a: Percentual de valores mensais que não são discrepantes extremos, por ano"
+    },
+    {
+      "key": "sheet_district_outliers",
+      "en": "Outliers (districts)",
+      "fr": "Valeurs aberrantes (districts)",
+      "pt": "Valores discrepantes (distritos)"
+    },
+    {
+      "key": "table_district_outliers",
+      "en": "Table 2b: Percentage of districts with no extreme outliers, by year",
+      "fr": "Tableau 2b : Pourcentage de districts sans valeurs aberrantes extrêmes, par année",
+      "pt": "Tabela 2b: Percentual de distritos sem discrepantes extremos, por ano"
+    },
+    {
+      "key": "title_district_extreme_outlier",
+      "en": "Districts with Extreme Outliers",
+      "fr": "Districts avec des valeurs aberrantes extrêmes",
+      "pt": "Distritos com valores discrepantes extremos"
+    },
+    {
+      "key": "title_district_extreme_outlier_gen",
+      "en": "Districts with extreme outliers for {input$indicator} in {input$year}",
+      "fr": "Districts avec des valeurs aberrantes extrêmes pour {input$indicator} en {input$year}",
+      "pt": "Distritos com valores discrepantes extremos para {input$indicator} em {input$year}"
+    },
+    {
+      "key": "btn_download_outlier",
+      "en": "Download Outliers",
+      "fr": "Télécharger les valeurs aberrantes",
+      "pt": "Baixar Valores Discrepantes"
+    },
+    {
+      "key": "btn_download_plot",
+      "en": "Download Plot",
+      "fr": "Télécharger le graphique",
+      "pt": "Baixar Gráfico"
+    },
+    {
+      "key": "btn_download_data",
+      "en": "Download Data",
+      "fr": "Télécharger les données",
+      "pt": "Baixar Dados"
+    },
+    {
+      "key": "title_consistency_checks",
+      "en": "Consistency Checks",
+      "fr": "Vérifications de cohérence",
+      "pt": "Verificações de Consistência"
+    },
+    {
+      "key": "opt_anc1_and_penta1",
+      "en": "ANC1 and Penta1",
+      "fr": "ANC1 et Penta1",
+      "pt": "ANC1 e Penta1"
+    },
+    {
+      "key": "opt_penta1_and_penta3",
+      "en": "Penta1 and Penta3",
+      "fr": "Penta1 et Penta3",
+      "pt": "Penta1 e Penta3"
+    },
+    {
+      "key": "opt_opv1_and_opv3",
+      "en": "OPV1 and OPV3",
+      "fr": "OPV1 et OPV3",
+      "pt": "OPV1 e OPV3"
+    },
+    {
+      "key": "opt_custom_check",
+      "en": "Custom Check",
+      "fr": "Vérification personnalisée",
+      "pt": "Verificação Personalizada"
+    },
+    {
+      "key": "title_x_axis",
+      "en": "X axis",
+      "fr": "Axe X",
+      "pt": "Eixo X"
+    },
+    {
+      "key": "title_y_axis",
+      "en": "Y axis",
+      "fr": "Axe Y",
+      "pt": "Eixo Y"
+    },
+    {
+      "key": "title_completeness_options",
+      "en": "Completeness Options",
+      "fr": "Options de complétude",
+      "pt": "Opções de Completude"
+    },
+    {
+      "key": "title_completeness_indicators",
+      "en": "Indicators with Missing Data",
+      "fr": "Indicateurs avec des données manquantes",
+      "pt": "Indicadores com Dados Faltantes"
+    },
+    {
+      "key": "title_complete_indicators",
+      "en": "Complete Indicators",
+      "fr": "Indicateurs complets",
+      "pt": "Indicadores Completos"
+    },
+    {
+      "key": "title_missing_indicators_by_region",
+      "en": "Missing Indicators by Region",
+      "fr": "Indicateurs manquants par région",
+      "pt": "Indicadores Faltantes por Região"
+    },
+    {
+      "key": "title_districts_with_missing_data",
+      "en": "Sub-National Units with Missing Data",
+      "fr": "Unités infranationales avec des données manquantes",
+      "pt": "Unidades Subnacionais com Dados Faltantes"
+    },
+    {
+      "key": "title_missing",
+      "en": "Missings",
+      "fr": "Données manquantes",
+      "pt": "Dados Faltantes"
+    },
+    {
+      "key": "table_complete_monthly",
+      "en": "Table 4a: Percentage of monthly values with complete data, by year",
+      "fr": "Tableau 4a : Pourcentage des valeurs mensuelles avec des données complètes, par année",
+      "pt": "Tabela 4a: Percentual de valores mensais com dados completos, por ano"
+    },
+    {
+      "key": "sheet_districts_missing",
+      "en": "Missings (districts)",
+      "fr": "Données manquantes (districts)",
+      "pt": "Dados faltantes (distritos)"
+    },
+    {
+      "key": "table_districts_missing",
+      "en": "Table 4a: Percentage of Districts with complete data, by year",
+      "fr": "Tableau 4a : Pourcentage de districts avec des données complètes, par année",
+      "pt": "Tabela 4a: Percentual de distritos com dados completos, por ano"
+    },
+    {
+      "key": "btn_download_districts",
+      "en": "Download Districts",
+      "fr": "Télécharger les districts",
+      "pt": "Baixar Distritos"
+    },
+    {
+      "key": "title_districts_with_missing_data_1",
+      "en": "Districts with incomplete data",
+      "fr": "Districts avec des données incomplètes",
+      "pt": "Distritos com dados incompletos"
+    },
+    {
+      "key": "title_districts_with_missing_indicator",
+      "en": "Districts with incomplete data for {input$indicator} in {input$year}",
+      "fr": "Districts avec des données incomplètes pour {input$indicator} en {input$year}",
+      "pt": "Distritos com dados incompletos para {input$indicator} em {input$year}"
+    },
+    {
+      "key": "title_districts_with_complete_data",
+      "en": "Percent of districts with complete data by vaccine",
+      "fr": "Pourcentage de districts avec des données complètes par vaccin",
+      "pt": "Percentual de distritos com dados completos por vacina"
+    },
+    {
+      "key": "title_ratio_options",
+      "en": "Ratio Options",
+      "fr": "Options de ratio",
+      "pt": "Opções de Razão"
+    },
+    {
+      "key": "title_anc1_coverage",
+      "en": "ANC1 Coverage (%)",
+      "fr": "Couverture ANC1 (%)",
+      "pt": "Cobertura ANC1 (%)"
+    },
+    {
+      "key": "title_penta1_coverage",
+      "en": "Penta1 Coverage (%)",
+      "fr": "Couverture Penta1 (%)",
+      "pt": "Cobertura Penta1 (%)"
+    },
+    {
+      "key": "title_penta3_coverage_pct",
+      "en": "Penta3 Coverage (%)",
+      "fr": "Couverture Penta3 (%)",
+      "pt": "Cobertura Penta3 (%)"
+    },
+    {
+      "key": "title_ratio_plots",
+      "en": "Ratio Plots",
+      "fr": "Graphiques de ratios",
+      "pt": "Gráficos de Razões"
+    },
+    {
+      "key": "title_ratios",
+      "en": "Ratios",
+      "fr": "Ratios",
+      "pt": "Razões"
+    },
+    {
+      "key": "title_monthly_completeness",
+      "en": "1. Completeness of monthly facility reporting (mean of ANC, delivery, immunization, OPD)",
+      "fr": "1. Complétude des rapports mensuels des établissements (moyenne de CPN, accouchement, vaccination, consultations externes)",
+      "pt": "1. Completude dos relatórios mensais das unidades (média de ANC, parto, vacinação, OPD)"
+    },
+    {
+      "key": "title_extreme_outliers",
+      "en": "2. Extreme outliers (mean of ANC, delivery, immunization, OPD)",
+      "fr": "2. Valeurs aberrantes extrêmes (moyenne de CPN, accouchement, vaccination, consultations externes)",
+      "pt": "2. Valores discrepantes extremos (média de ANC, parto, vacinação, OPD)"
+    },
+    {
+      "key": "title_consistency_annual_reporting",
+      "en": "3. Consistency of annual reporting",
+      "fr": "3. Cohérence des rapports annuels",
+      "pt": "3. Consistência dos relatórios anuais"
+    },
+    {
+      "key": "title_remove_years",
+      "en": "Remove Years with Erratic Data",
+      "fr": "Supprimer les années avec des données erratiques",
+      "pt": "Remover anos com dados erráticos"
+    },
+    {
+      "key": "msg_removal_info",
+      "en": "This module allows you to remove years with erratic data from the dataset. Erratic data may result from low reporting completeness, extreme outliers, or inconsistent trends, which can compromise analysis integrity.",
+      "fr": "Ce module vous permet de supprimer les années présentant des données erratiques. Les données erratiques peuvent résulter d’une complétude faible des rapports, de valeurs aberrantes extrêmes ou de tendances incohérentes, ce qui peut compromettre l’intégrité de l’analyse.",
+      "pt": "Este módulo permite remover anos com dados erráticos do conjunto de dados. Dados erráticos podem resultar de baixa completude de relatórios, valores discrepantes extremos ou tendências inconsistentes, comprometendo a integridade da análise."
+    },
+    {
+      "key": "title_select_removal_years",
+      "en": "Select Years to Remove:",
+      "fr": "Sélectionner les années à supprimer :",
+      "pt": "Selecionar anos para remover:"
+    },
+    {
+      "key": "btn_confirm_removal",
+      "en": "Confirm Removal",
+      "fr": "Confirmer la suppression",
+      "pt": "Confirmar Remoção"
+    },
+    {
+      "key": "msg_removed_year",
+      "en": "Data for the following years has been removed: {years}",
+      "fr": "Les données des années suivantes ont été supprimées : {years}",
+      "pt": "Dados para os seguintes anos foram removidos: {years}"
+    },
+    {
+      "key": "title_factors",
+      "en": "K-Factors (Adjustment Factors)",
+      "fr": "Facteurs K (Facteurs d'ajustement)",
+      "pt": "Fatores K (Fatores de Ajuste)"
+    },
+    {
+      "key": "title_anc_factor",
+      "en": "ANC K-Factor",
+      "fr": "Facteur K ANC",
+      "pt": "Fator K ANC"
+    },
+    {
+      "key": "title_delivery_factor",
+      "en": "Delivery K-Factor",
+      "fr": "Facteur K Accouchement",
+      "pt": "Fator K Parto"
+    },
+    {
+      "key": "title_vaccines_factor",
+      "en": "Vaccines K-Factor",
+      "fr": "Facteur K Vaccins",
+      "pt": "Fator K Vacinas"
+    },
+    {
+      "key": "title_opd_factor",
+      "en": "OPD K-Factor",
+      "fr": "Facteur K OPD",
+      "pt": "Fator K OPD"
+    },
+    {
+      "key": "title_ipd_factor",
+      "en": "IPD K-Factor",
+      "fr": "Facteur K IPD",
+      "pt": "Fator K IPD"
+    },
+    {
+      "key": "btn_adjust",
+      "en": "Adjust",
+      "fr": "Ajuster",
+      "pt": "Ajustar"
+    },
+    {
+      "key": "msg_adjustment_info",
+      "en": "Adjusting the data applies custom corrections, such as removing specific years and scaling selected indicators. This process modifies the current dataset to align with predefined criteria for completeness and consistency.",
+      "fr": "L'ajustement des données applique des corrections personnalisées, telles que la suppression d'années spécifiques et la mise à l'échelle de certains indicateurs. Ce processus modifie l'ensemble de données actuel pour l'aligner sur des critères prédéfinis de complétude et de cohérence.",
+      "pt": "Ajustar os dados aplica correções personalizadas, como remover anos específicos e redimensionar indicadores selecionados. Este processo modifica o conjunto de dados atual para alinhá-lo com critérios predefinidos de completude e consistência."
+    },
+    {
+      "key": "btn_adjust_data",
+      "en": "Adjust Data",
+      "fr": "Ajuster les données",
+      "pt": "Ajustar Dados"
+    },
+    {
+      "key": "title_data_adjustment",
+      "en": "Data Adjustments",
+      "fr": "Ajustements des données",
+      "pt": "Ajustes de Dados"
+    },
+    {
+      "key": "btn_download_adjusted_dataset",
+      "en": "Download Adjusted Dataset",
+      "fr": "Télécharger l'ensemble de données ajusté",
+      "pt": "Baixar Conjunto de Dados Ajustado"
+    },
+    {
+      "key": "msg_data_adjusted",
+      "en": "Data Adjusted",
+      "fr": "Données ajustées",
+      "pt": "Dados Ajustados"
+    },
+    {
+      "key": "msg_adjusting",
+      "en": "Adjusting ...",
+      "fr": "Ajustement en cours...",
+      "pt": "Ajustando..."
+    },
+    {
+      "key": "title_visualize_changes",
+      "en": "Visualize effects of changes",
+      "fr": "Visualiser les effets des changements",
+      "pt": "Visualizar efeitos das mudanças"
+    },
+    {
+      "key": "opt_live_births",
+      "en": "Live Births",
+      "fr": "Naissances vivantes",
+      "pt": "Nascimentos Vivos"
+    },
+    {
+      "key": "opt_penta1",
+      "en": "Penta 1",
+      "fr": "Penta 1",
+      "pt": "Penta 1"
+    },
+    {
+      "key": "opt_bcg",
+      "en": "BCG",
+      "fr": "BCG",
+      "pt": "BCG"
+    },
+    {
+      "key": "opt_measles",
+      "en": "Measles",
+      "fr": "Rougeole",
+      "pt": "Sarampo"
+    },
+    {
+      "key": "opt_anc1",
+      "en": "ANC1",
+      "fr": "ANC1",
+      "pt": "ANC1"
+    },
+    {
+      "key": "opt_ideliv",
+      "en": "Institutional Delivery",
+      "fr": "Accouchement en établissement",
+      "pt": "Parto Institucional"
+    },
+    {
+      "key": "opt_opd_under5",
+      "en": "OPD Under 5",
+      "fr": "Consultations externes des enfants de moins de 5 ans",
+      "pt": "Consultas ambulatoriais para menores de 5 anos"
+    },
+    {
+      "key": "figure_live_births_outlier",
+      "en": "Figure 1c: Comparison of number of live births before and after adjustments for completness and outliers",
+      "fr": "Figure 1c : Comparaison du nombre de naissances vivantes avant et après ajustements pour complétude et valeurs aberrantes",
+      "pt": "Figura 1c: Comparação do número de nascimentos vivos antes e depois dos ajustes de completude e valores discrepantes"
+    },
+    {
+      "key": "figure_penta_outlier",
+      "en": "Figure 1d: Comparison of number of penta1 vaccination before and after adjustments for completness and outliers",
+      "fr": "Figure 1d : Comparaison du nombre de vaccinations Penta1 avant et après ajustements pour complétude et valeurs aberrantes",
+      "pt": "Figura 1d: Comparação do número de vacinas Penta1 antes e depois dos ajustes de completude e valores discrepantes"
+    },
+    {
+      "key": "figure_anc1_outlier",
+      "en": "Figure 1e: Comparison of number of ANC1 before and after adjustments for completness and outliers",
+      "fr": "Figure 1e : Comparaison du nombre de ANC1 avant et après ajustements pour complétude et valeurs aberrantes",
+      "pt": "Figura 1e: Comparação do número de ANC1 antes e depois dos ajustes de completude e valores discrepantes"
+    },
+    {
+      "key": "figure_mcv1_outlier",
+      "en": "Figure 1f: Comparison of number of measles vaccination before and after adjustments for completness and outliers",
+      "fr": "Figure 1f : Comparaison du nombre de vaccinations contre la rougeole avant et après ajustements pour complétude et valeurs aberrantes",
+      "pt": "Figura 1f: Comparação do número de vacinas contra sarampo antes e depois dos ajustes de completude e valores discrepantes"
+    },
+    {
+      "key": "figure_ideliv_outlier",
+      "en": "Figure 1f: Comparison of number of institutional deliveries before and after adjustments for completness and outliers",
+      "fr": "Figure 1f : Comparaison du nombre d'accouchements en établissement avant et après ajustements pour complétude et valeurs aberrantes",
+      "pt": "Figura 1f: Comparação do número de partos institucionais antes e depois dos ajustes de completude e valores discrepantes"
+    },
+    {
+      "key": "figure_opd_total_outlier",
+      "en": "Figure 1f: Comparison of number of OPD Visits before and after adjustments for completeness and outliers",
+      "fr": "Figure 1f : Comparaison du nombre total de consultations externes avant et après ajustements pour la complétude et les valeurs aberrantes",
+      "pt": "Figura 1f: Comparação do número total de visitas ambulatoriais antes e depois dos ajustes de completude e valores discrepantes"
+    },
+    {
+      "key": "title_national_rates",
+      "en": "National Rates for Denominator Calculation (Based on the most recent survey)",
+      "fr": "Taux nationaux pour le calcul du dénominateur (d’après la dernière enquête)",
+      "pt": "Taxas nacionais para cálculo do denominador (com base na pesquisa mais recente)"
+    },
+    {
+      "key": "title_nmr",
+      "en": "Neonatal Mortality (/1k LB, proportion)",
+      "fr": "Mortalité néonatale (/1k NV, proportion)",
+      "pt": "Mortalidade Neonatal (/1k NV, proporção)"
+    },
+    {
+      "key": "title_pnmr",
+      "en": "Post-Neonatal Mortality (/1k LB, proportion)",
+      "fr": "Mortalité post-néonatale (/1k NV, proportion)",
+      "pt": "Mortalidade Pós-Neonatal (/1k NV, proporção)"
+    },
+    {
+      "key": "title_twin_rate",
+      "en": "Twin Births (% deliveries, proportion)",
+      "fr": "Naissances gémellaires (% accouchements, proportion)",
+      "pt": "Nascimentos Gemelares (% partos, proporção)"
+    },
+    {
+      "key": "title_pregnancy_loss",
+      "en": "Pregnancy Loss (% pregnancies, proportion)",
+      "fr": "Perte de grossesse (% grossesses, proportion)",
+      "pt": "Perda Gestacional (% gestações, proporção)"
+    },
+    {
+      "key": "title_still_birth_rate",
+      "en": "Stillbirth Rate (/1k births, proportion)",
+      "fr": "Taux de mortinatalité (/1k naissances, proportion)",
+      "pt": "Taxa de Natimortalidade (/1k nascimentos, proporção)"
+    },
+    {
+      "key": "title_anc1_survey",
+      "en": "ANC1 Coverage from Survey (%)",
+      "fr": "Couverture ANC1 selon l’enquête (%)",
+      "pt": "Cobertura ANC1 pela Pesquisa (%)"
+    },
+    {
+      "key": "title_penta1_survey",
+      "en": "Penta1 Coverage from Survey (%)",
+      "fr": "Couverture Penta1 selon l’enquête (%)",
+      "pt": "Cobertura Penta1 pela Pesquisa (%)"
+    },
+    {
+      "key": "title_penta3_survey",
+      "en": "Penta3 Survey",
+      "fr": "Enquête Penta3",
+      "pt": "Pesquisa Penta3"
+    },
+    {
+      "key": "title_measles1_survey",
+      "en": "Measles1 Survey",
+      "fr": "Enquête Rougeole1",
+      "pt": "Pesquisa Sarampo1"
+    },
+    {
+      "key": "title_bcg_survey",
+      "en": "BCG Survey",
+      "fr": "Enquête BCG",
+      "pt": "Pesquisa BCG"
+    },
+    {
+      "key": "title_upload_un_estimates",
+      "en": "Upload UN Estimates data",
+      "fr": "Téléverser les estimations des Nations Unies",
+      "pt": "Carregar dados das estimativas da ONU"
+    },
+    {
+      "key": "title_upload_un_mortality",
+      "en": "Upload UN Mortality data",
+      "fr": "Téléverser les estimations des Nations Unies",
+      "pt": "Carregar dados de mortalidade da ONU"
+    },
+    {
+      "key": "title_district_low_reporting",
+      "en": "Sub-National Units Meeting Targets",
+      "fr": "Zones infranationales atteignant les cibles",
+      "pt": "Unidades Subnacionais que Atingem Metas"
+    },
+    {
+      "key": "title_upload_wuenic",
+      "en": "Upload WUENIC estimates",
+      "fr": "Téléverser les estimations WUENIC",
+      "pt": "Carregar estimativas WUENIC"
+    },
+    {
+      "key": "title_upload_survey",
+      "en": "Upload Survey Folder",
+      "fr": "Téléverser le dossier d'enquête",
+      "pt": "Carregar Pasta de Pesquisa"
+    },
+    {
+      "key": "title_subnational_mapping_opt",
+      "en": "Subnational Manual Data Mapping (Optional)",
+      "fr": "Cartographie manuelle des données infranationales (optionnel)",
+      "pt": "Mapeamento Manual de Dados Subnacionais (Opcional)"
+    },
+    {
+      "key": "btn_map_survey",
+      "en": "Map Survey Data",
+      "fr": "Associer les données d'enquête",
+      "pt": "Mapear Dados da Pesquisa"
+    },
+    {
+      "key": "btn_map_mapping",
+      "en": "Map Mapping Data",
+      "fr": "Associer les données de cartographie",
+      "pt": "Mapear Dados de Mapeamento"
+    },
+    {
+      "key": "btn_save_mapping",
+      "en": "Save Mapping",
+      "fr": "Enregistrer la cartographie",
+      "pt": "Salvar Mapeamento"
+    },
+    {
+      "key": "msg_survey_mapping_not_done",
+      "en": "Survey mapping has not been done",
+      "fr": "La cartographie de l'enquête n'a pas été effectuée",
+      "pt": "O mapeamento da pesquisa não foi realizado"
+    },
+    {
+      "key": "msg_map_mapping_not_done",
+      "en": "Map mapping has not been done",
+      "fr": "La cartographie de la carte n'a pas été effectuée",
+      "pt": "O mapeamento de dados geográficos não foi realizado"
+    },
+    {
+      "key": "msg_map_mapping_uploaded",
+      "en": "Map mapping data is uploaded",
+      "fr": "La cartographie de la carte n'a pas été effectuée",
+      "pt": "Os dados de mapeamento foram carregados"
+    },
+    {
+      "key": "opt_total_population",
+      "en": "Total Population",
+      "fr": "Population totale",
+      "pt": "População Total"
+    },
+    {
+      "key": "opt_births",
+      "en": "Births",
+      "fr": "Naissances",
+      "pt": "Nascimentos"
+    },
+    {
+      "key": "opt_penta3",
+      "en": "Penta 3",
+      "fr": "Penta 3",
+      "pt": "Penta 3"
+    },
+    {
+      "key": "opt_mcv1",
+      "en": "Measles 1",
+      "fr": "Rougeole 1",
+      "pt": "Sarampo 1"
+    },
+    {
+      "key": "opt_mcv2",
+      "en": "Measles 2",
+      "fr": "Rougeole 2",
+      "pt": "Sarampo 2"
+    },
+    {
+      "key": "opt_anc4",
+      "en": "ANC 4",
+      "fr": "CPN 4",
+      "pt": "CPN 4"
+    },
+    {
+      "key": "opt_lbw",
+      "en": "Low Birth Weight",
+      "fr": "Faible poids à la naissance",
+      "pt": "Baixo Peso ao Nascer"
+    },
+    {
+      "key": "title_analysis_options",
+      "en": "Analysis Options",
+      "fr": "Options d'analyse",
+      "pt": "Opções de Análise"
+    },
+    {
+      "key": "title_denominator",
+      "en": "Select Denominator",
+      "fr": "Sélectionner le dénominateur",
+      "pt": "Selecionar Denominador"
+    },
+    {
+      "key": "title_maternal_denominator",
+      "en": "Select Maternal Denominator",
+      "fr": "Sélectionner le dénominateur maternel",
+      "pt": "Selecionar Denominador Materno"
+    },
+    {
+      "key": "title_survey_data_year",
+      "en": "Survey Data Start Year",
+      "fr": "Année de début des données de l'enquête",
+      "pt": "Ano de Início dos Dados da Pesquisa"
+    },
+    {
+      "key": "title_survey_year",
+      "en": "Vaccines Survey Year",
+      "fr": "Année de l'enquête",
+      "pt": "Ano da Pesquisa de Vacinas"
+    },
+    {
+      "key": "title_national_coverage_trend",
+      "en": "National Coverage Trend",
+      "fr": "Tendance de la couverture nationale",
+      "pt": "Tendência da Cobertura Nacional"
+    },
+    {
+      "key": "title_penta3_mcv1_dropout",
+      "en": "Penta 3 to Measles 1 Dropout",
+      "fr": "Abandon entre Penta 3 et Rougeole 1",
+      "pt": "Evasão de Penta 3 para Sarampo 1"
+    },
+    {
+      "key": "title_mcv1_coverage",
+      "en": "Measles 1 Coverage",
+      "fr": "Couverture Rougeole 1",
+      "pt": "Cobertura de Sarampo 1"
+    },
+    {
+      "key": "title_penta3_coverage",
+      "en": "Penta 3 Coverage",
+      "fr": "Couverture Penta 3",
+      "pt": "Cobertura Penta 3"
+    },
+    {
+      "key": "title_penta13_dropout",
+      "en": "Penta 1 to Penta 3 Dropout",
+      "fr": "Abandon entre Penta 1 et Penta 3",
+      "pt": "Evasão de Penta 1 para Penta 3"
+    },
+    {
+      "key": "title_coverage",
+      "en": "Coverage",
+      "fr": "Couverture",
+      "pt": "Cobertura"
+    },
+    {
+      "key": "title_subnational_coverage_trend",
+      "en": "Sub-National Coverage Trend",
+      "fr": "Tendance de la couverture infranationale",
+      "pt": "Tendência da Cobertura Subnacional"
+    },
+    {
+      "key": "title_penta3_mcv1_inequality",
+      "en": "Penta 3 to Measles 1 Dropout Inequality",
+      "fr": "Inégalités d’abandon entre Penta 3 et Rougeole 1",
+      "pt": "Desigualdade na Evasão de Penta 3 para Sarampo 1"
+    },
+    {
+      "key": "title_penta13_inequality",
+      "en": "Penta 1 to Penta 3 Dropout Inequality",
+      "fr": "Inégalités d’abandon entre Penta 1 et Penta 3",
+      "pt": "Desigualdade na Evasão de Penta 1 para Penta 3"
+    },
+    {
+      "key": "title_inequality",
+      "en": "Inequality",
+      "fr": "Inégalités",
+      "pt": "Desigualdade"
+    },
+    {
+      "key": "title_penta3_inequality",
+      "en": "Penta 3 Inequality",
+      "fr": "Inégalités de couverture Penta 3",
+      "pt": "Desigualdade na Cobertura de Penta 3"
+    },
+    {
+      "key": "title_mcv1_inequality",
+      "en": "Measles 1 Inequality",
+      "fr": "Inégalités de couverture Rougeole 1",
+      "pt": "Desigualdade na Cobertura de Sarampo 1"
+    },
+    {
+      "key": "dropout",
+      "en": "Dropout",
+      "fr": "Abandon",
+      "pt": "Desistência"
+    },
+    {
+      "key": "title_select_years",
+      "en": "Select Years",
+      "fr": "Sélectionner les années",
+      "pt": "Selecionar Anos"
+    },
+    {
+      "key": "title_palette",
+      "en": "Palette",
+      "fr": "Palette",
+      "pt": "Paleta"
+    },
+    {
+      "key": "title_coverage_level",
+      "en": "Coverage/Utilization Level",
+      "fr": "Niveau de couverture/utilisation",
+      "pt": "Nível de Cobertura/Utilização"
+    },
+    {
+      "key": "title_distribution_of_anc4",
+      "en": "Distribution of ANC4 in {country()} by Regions",
+      "fr": "Répartition de la CPN 4 en {country()} par région",
+      "pt": "Distribuição do CPN4 em {country()} por regiões"
+    },
+    {
+      "key": "title_distribution_of_ideliv",
+      "en": "Distribution of Institutional Deliveries in {country()} by Regions",
+      "fr": "Répartition des accouchements en établissement en {country()} par région",
+      "pt": "Distribuição dos Partos Institucionais em {country()} por regiões"
+    },
+    {
+      "key": "title_distribution_of_lbw",
+      "en": "Distribution of Low Birth Weight in {country()} by Regions",
+      "fr": "Répartition des cas de faible poids à la naissance en {country()} par région",
+      "pt": "Distribuição de Baixo Peso ao Nascer em {country()} por regiões"
+    },
+    {
+      "key": "title_distribution_of_penta1",
+      "en": "Distribution of Penta1 Coverage in {country()} by Regions",
+      "fr": "Répartition de la couverture Penta1 en {country()} par région",
+      "pt": "Distribuição da Cobertura de Penta1 em {country()} por regiões"
+    },
+    {
+      "key": "title_distribution_of_measles1",
+      "en": "Distribution of Measles 1 Coverage in {country()} by Regions",
+      "fr": "Répartition de la couverture Rougeole 1 en {country()} par région",
+      "pt": "Distribuição da Cobertura de Sarampo 1 em {country()} por regiões"
+    },
+    {
+      "key": "title_distribution_of_indicator",
+      "en": "Distribution of {input$indicator} Coverage in {country()} by Regions",
+      "fr": "Répartition de la couverture {input$indicator} en {country()} par région",
+      "pt": "Distribuição da Cobertura de {input$indicator} em {country()} por regiões"
+    },
+    {
+      "key": "title_equity_type",
+      "en": "Equity Type",
+      "fr": "Type d'équité",
+      "pt": "Tipo de Equidade"
+    },
+    {
+      "key": "title_equity_analysis",
+      "en": "Equity Analysis",
+      "fr": "Analyse de l'équité",
+      "pt": "Análise de Equidade"
+    },
+    {
+      "key": "msg_select_region",
+      "en": "Select Region",
+      "fr": "Sélectionnez une région",
+      "pt": "Selecionar Região"
+    },
+    {
+      "key": "title_survey_setup",
+      "en": "Survey Setup (percentage based on the most recent survey)",
+      "fr": "Configuration de l'enquête (pourcentage basé sur l'enquête la plus récente)",
+      "pt": "Configuração da Pesquisa (percentual com base na pesquisa mais recente)"
+    },
+    {
+      "key": "reporting_rate_reporting_rate_1",
+      "en": "Interpret the differences between the different admin1 units: are there any admin1s that stand out as more or less complete? What are some explanations?",
+      "fr": "Interprétez les différences entre les différentes unités admin1 : y a-t-il des admin1 qui se distinguent comme étant plus ou moins complètes ? Quelles sont les explications possibles ?",
+      "pt": "Interprete as diferenças entre as diferentes unidades admin1: há alguma que se destaque como mais ou menos completa? Quais são algumas explicações?"
+    },
+    {
+      "key": "reporting_rate_reporting_rate_2",
+      "en": "Interpret the differences between different years: are there any years that stand out as being more or less complete? What are some explanations?",
+      "fr": "Interprétez les différences entre les différentes années : y a-t-il des années qui se distinguent comme étant plus ou moins complètes ? Quelles sont les explications possibles ?",
+      "pt": "Interprete as diferenças entre os diferentes anos: há algum ano que se destaque como mais ou menos completo? Quais são algumas explicações?"
+    },
+    {
+      "key": "outlier_detection_outlier_detection_1",
+      "en": "Make a statement about the presence of outliers in the immunization data: are there many or few, is the number of outliers increasing or decreasing?",
+      "fr": "Faites une déclaration sur la présence de valeurs aberrantes dans les données de vaccination : y en a-t-il beaucoup ou peu, le nombre de valeurs aberrantes augmente-t-il ou diminue-t-il ?",
+      "pt": "Faça uma observação sobre a presença de valores atípicos nos dados de imunização: há muitos ou poucos? O número está aumentando ou diminuindo?"
+    },
+    {
+      "key": "outlier_detection_outlier_detection_2",
+      "en": "Interpret the differences between the different regions and years: are there any regions that have more outliers? Are there any years that have more outliers? What are some explanations (e.g. campaigns or catch-up activities with older kids that may have been recorded incorrectly)?",
+      "fr": "Interprétez les différences entre les différentes régions et années : y a-t-il des régions qui ont plus de valeurs aberrantes ? Y a-t-il des années qui ont plus de valeurs aberrantes ? Quelles sont les explications possibles (par exemple, des campagnes ou des activités de rattrapage avec des enfants plus âgés qui ont pu être mal enregistrées) ?",
+      "pt": "Interprete as diferenças entre as diferentes regiões e anos: há regiões com mais valores atípicos? Há anos com mais valores atípicos? Quais são algumas explicações (por exemplo, campanhas ou ações de reforço com crianças mais velhas que podem ter sido registradas incorretamente)?"
+    },
+    {
+      "key": "outlier_detection_outlier_detection_3",
+      "en": "Interpret the differences between the outliers across different vaccines and regions: are there any vaccines that stand out as having more or less outliers? What are some explanations?",
+      "fr": "Interprétez les différences entre les valeurs aberrantes selon les différents vaccins et régions : y a-t-il des vaccins qui se distinguent par un nombre plus ou moins élevé de valeurs aberrantes ? Quelles sont les explications possibles ?",
+      "pt": "Interprete as diferenças entre os valores atípicos de diferentes vacinas e regiões: há vacinas que se destacam por ter mais ou menos valores atípicos? Quais são algumas explicações?"
+    },
+    {
+      "key": "outlier_detection_outlier_detection_4",
+      "en": "Interpret the example outliers: are they likely to be errors or is there an explanation for why they may be true values?",
+      "fr": "Interprétez les valeurs aberrantes exemples : sont-elles probablement des erreurs ou existe-t-il une explication pour laquelle elles pourraient être des valeurs réelles ?",
+      "pt": "Interprete os valores atípicos de exemplo: provavelmente são erros ou há uma explicação para que possam ser valores verdadeiros?"
+    },
+    {
+      "key": "data_completeness_data_completeness_1",
+      "en": "Interpret the differences between the different vaccines: are there any vaccines that stand out as more or less complete? What are some explanations?",
+      "fr": "Interprétez les différences entre les différents vaccins : y a-t-il des vaccins qui se distinguent comme étant plus ou moins complets ? Quelles sont les explications possibles ?",
+      "pt": "Interprete as diferenças entre as vacinas: há vacinas que se destacam como mais ou menos completas? Quais são algumas explicações?"
+    },
+    {
+      "key": "data_completeness_data_completeness_2",
+      "en": "Interpret the differences between the different regions: are there any regions that stand out as more or less complete? What are some explanations (e.g. stockout)?",
+      "fr": "Interprétez les différences entre les différentes régions : y a-t-il des régions qui se distinguent comme étant plus ou moins complètes ? Quelles sont les explications possibles (par exemple, rupture de stock) ?",
+      "pt": "Interprete as diferenças entre as regiões: há regiões que se destacam como mais ou menos completas? Quais são algumas explicações (ex: falta de estoque)?"
+    },
+    {
+      "key": "adjustment_changes_penta1_1",
+      "en": "Consider the effect of the adjustment on the number of DTP1 doses administered, and mention the difference in the number, as well as the percent increase in 2023; highlight the year with the greatest impact if there is one; interpret if the impact of the adjustment on coverage rates is large or small",
+      "fr": "Considérez l'effet de l'ajustement sur le nombre de doses de DTC1 administrées, et mentionnez la différence en nombre ainsi que l'augmentation en pourcentage en 2023 ; mettez en évidence l'année avec le plus grand impact, s'il y en a une ; interprétez si l'impact sur les taux de couverture est important ou faible",
+      "pt": "Considere o efeito do ajuste no número de doses de DTP1 administradas, mencione a diferença no número e o aumento percentual em 2023; destaque o ano com maior impacto, se houver; interprete se o impacto do ajuste nas taxas de cobertura é grande ou pequeno"
+    },
+    {
+      "key": "adjustment_changes_bcg_1",
+      "en": "Consider the effect of the adjustment on the number of BCG doses administered, and mention the difference in the number, as well as the percent increase in 2023; highlight the year with the greatest impact if there is one; interpret if the impact of the adjustment on coverage rates is large or small",
+      "fr": "Considérez l'effet de l'ajustement sur le nombre de doses de BCG administrées, et mentionnez la différence en nombre ainsi que l'augmentation en pourcentage en 2023 ; mettez en évidence l'année avec le plus grand impact, s'il y en a une ; interprétez si l'impact sur les taux de couverture est important ou faible",
+      "pt": "Considere o efeito do ajuste no número de doses de BCG administradas, mencione a diferença no número e o aumento percentual em 2023; destaque o ano com maior impacto, se houver; interprete se o impacto do ajuste nas taxas de cobertura é grande ou pequeno"
+    },
+    {
+      "key": "adjustment_changes_measles1_1",
+      "en": "Consider the effect of the adjustment on the number of Measles doses administered, and mention the difference in the number, as well as the percent increase in 2023; highlight the year with the greatest impact if there is one; interpret if the impact of the adjustment on coverage rates is large or small",
+      "fr": "Considérez l'effet de l'ajustement sur le nombre de doses de rougeole administrées, et mentionnez la différence en nombre ainsi que l'augmentation en pourcentage en 2023 ; mettez en évidence l'année avec le plus grand impact, s'il y en a une ; interprétez si l'impact sur les taux de couverture est important ou faible",
+      "pt": "Considere o efeito do ajuste no número de doses de sarampo administradas, mencione a diferença no número e o aumento percentual em 2023; destaque o ano com maior impacto, se houver; interprete se o impacto do ajuste nas taxas de cobertura é grande ou pequeno"
+    },
+    {
+      "key": "adjustment_changes_custom_check_1",
+      "en": "Consider the effect of the adjustment on the number of doses administered, and mention the difference in the number, as well as the percent increase in 2023; highlight the year with the greatest impact if there is one; interpret if the impact of the adjustment on coverage rates is large or small",
+      "fr": "Considérez l'effet de l'ajustement sur le nombre total de doses administrées, et mentionnez la différence en nombre ainsi que l'augmentation en pourcentage en 2023 ; mettez en évidence l'année avec le plus grand impact, s'il y en a une ; interprétez si l'impact sur les taux de couverture est important ou faible",
+      "pt": "Considere o efeito do ajuste no número total de doses administradas, mencione a diferença no número e o aumento percentual em 2023; destaque o ano com maior impacto, se houver; interprete se o impacto do ajuste nas taxas de cobertura é grande ou pequeno"
+    },
+    {
+      "key": "denominator_assessment_total_population_1",
+      "en": "How do the estimates of total population differ compared to the UN projection?",
+      "fr": "Comment les estimations de la population totale diffèrent-elles des projections de l'ONU ?",
+      "pt": "Como as estimativas da população total diferem em relação à projeção da ONU?"
+    },
+    {
+      "key": "denominator_assessment_births_1",
+      "en": "How do the estimates of births differ compared to the UN projection?",
+      "fr": "Comment les estimations du nombre de naissances diffèrent-elles des projections de l'ONU ?",
+      "pt": "Como as estimativas de nascimentos diferem em relação à projeção da ONU?"
+    },
+    {
+      "key": "denominator_selection_1",
+      "en": "What is the selected denominator for the key vaccination indicators and why?  Note that one best denominator should be selected to be applied for all immunization data.",
+      "fr": "Quel est le dénominateur sélectionné pour les principaux indicateurs de vaccination et pourquoi ? Un seul dénominateur optimal doit être utilisé pour toutes les données de vaccination.",
+      "pt": "Qual é o denominador selecionado para os principais indicadores de vacinação e por quê? Observe que deve ser selecionado um único melhor denominador para ser aplicado a todos os dados de imunização."
+    },
+    {
+      "key": "national_coverage_measles1_1",
+      "en": "First address data quality: Are the levels and trends plausible? Is there good consistency between the facility and survey data?",
+      "fr": "Commencez par évaluer la qualité des données : les niveaux et tendances sont-ils plausibles ? Y a-t-il une bonne cohérence entre les données des établissements et les enquêtes ?",
+      "pt": "Primeiro, avalie a qualidade dos dados: os níveis e tendências são plausíveis? Há boa consistência entre os dados dos estabelecimentos e os dados das pesquisas?"
+    },
+    {
+      "key": "national_coverage_measles1_2",
+      "en": "Then, interpret the data if there is sufficient confidence in the observed levels and trends. How does the coverage compare to global targets to reach 90% coverage? Is this a positive trend? Are there explanations for the observed levels and trends?",
+      "fr": "Ensuite, interprétez les données s'il y a suffisamment de confiance dans les niveaux et les tendances observés. Comment la couverture se compare-t-elle aux objectifs mondiaux de 90 % ? S'agit-il d'une tendance positive ? Quelles sont les explications possibles pour les niveaux et tendances observés ?",
+      "pt": "Depois, interprete os dados se houver confiança suficiente nos níveis e tendências observados. Como a cobertura se compara às metas globais de atingir 90%? É uma tendência positiva? Quais são as explicações para os níveis e tendências observados?"
+    },
+    {
+      "key": "national_coverage_penta3_1",
+      "en": "First address data quality: Are the levels and trends plausible? Is there good consistency between the facility and survey data?",
+      "fr": "Commencez par évaluer la qualité des données : les niveaux et tendances sont-ils plausibles ? Y a-t-il une bonne cohérence entre les données des établissements et les enquêtes ?",
+      "pt": "Primeiro, avalie a qualidade dos dados: os níveis e tendências são plausíveis? Há boa consistência entre os dados dos estabelecimentos e os dados das pesquisas?"
+    },
+    {
+      "key": "national_coverage_penta3_2",
+      "en": "Then, interpret the data if there is sufficient confidence in the observed levels and trends. How does the coverage compare to global targets to reach 90% coverage? Is this a positive trend? Are there explanations for the observed levels and trends?",
+      "fr": "Ensuite, interprétez les données s'il y a suffisamment de confiance dans les niveaux et les tendances observés. Comment la couverture se compare-t-elle aux objectifs mondiaux de 90 % ? S'agit-il d'une tendance positive ? Quelles sont les explications possibles pour les niveaux et tendances observés ?",
+      "pt": "Depois, interprete os dados se houver confiança suficiente nos níveis e tendências observados. Como a cobertura se compara às metas globais de atingir 90%? É uma tendência positiva? Quais são as explicações para os níveis e tendências observados?"
+    },
+    {
+      "key": "national_coverage_penta1_to_penta3_dropout_1",
+      "en": "Are the dropout rates similar to the survey data? What is the dropout in surveys among those with cards vs those without?",
+      "fr": "Les taux d'abandon sont-ils similaires aux données d'enquête ? Quel est le taux d'abandon dans les enquêtes parmi ceux avec une carte par rapport à ceux sans carte ?",
+      "pt": "As taxas de abandono são semelhantes às dos dados da pesquisa? Qual é a taxa de abandono entre aqueles com cartão em comparação com os que não têm?"
+    },
+    {
+      "key": "national_coverage_penta1_to_penta3_dropout_2",
+      "en": "Is dropout improving, staying the same or getting worse?",
+      "fr": "Le taux d'abandon s'améliore-t-il, reste-t-il stable ou se détériore-t-il ?",
+      "pt": "A taxa de abandono está melhorando, permanecendo a mesma ou piorando?"
+    },
+    {
+      "key": "national_coverage_penta3_to_measles1_dropout_1",
+      "en": "Are the dropout rates similar to the survey data? What is the dropout in surveys among those with cards vs those without?",
+      "fr": "Les taux d'abandon sont-ils similaires aux données d'enquête ? Quel est le taux d'abandon dans les enquêtes parmi ceux avec une carte par rapport à ceux sans carte ?",
+      "pt": "As taxas de abandono são semelhantes às dos dados da pesquisa? Qual é a taxa de abandono entre aqueles com cartão em comparação com os que não têm?"
+    },
+    {
+      "key": "national_coverage_penta3_to_measles1_dropout_2",
+      "en": "Is dropout improving, staying the same or getting worse?",
+      "fr": "Le taux d'abandon s'améliore-t-il, reste-t-il stable ou se détériore-t-il ?",
+      "pt": "A taxa de abandono está melhorando, permanecendo a mesma ou piorando?"
+    },
+    {
+      "key": "national_coverage_custom_checks_1",
+      "en": "First address data quality: Are the levels and trends plausible? Is there good consistency between the facility and survey data?",
+      "fr": "Commencez par évaluer la qualité des données : les niveaux et tendances sont-ils plausibles ? Y a-t-il une bonne cohérence entre les données des établissements et les enquêtes ?",
+      "pt": "Primeiro, avalie a qualidade dos dados: os níveis e tendências são plausíveis? Há boa consistência entre os dados dos estabelecimentos e os dados das pesquisas?"
+    },
+    {
+      "key": "national_coverage_custom_checks_2",
+      "en": "Then, interpret the data if there is sufficient confidence in the observed levels and trends. How does the coverage compare to global targets to reach 90% coverage? Is this a positive trend? Are there explanations for the observed levels and trends?",
+      "fr": "Ensuite, interprétez les données s'il y a suffisamment de confiance dans les niveaux et les tendances observés. Comment la couverture se compare-t-elle aux objectifs mondiaux de 90 % ? S'agit-il d'une tendance positive ? Quelles sont les explications possibles pour les niveaux et tendances observés ?",
+      "pt": "Depois, interprete os dados se houver confiança suficiente nos níveis e tendências observados. Como a cobertura se compara às metas globais de atingir 90%? É uma tendência positiva? Quais são as explicações para os níveis e tendências observados?"
+    },
+    {
+      "key": "subnational_coverage_measles1_1",
+      "en": "Are there regions that have especially high or especially low Measles1 coverage?",
+      "fr": "Existe-t-il des régions avec une couverture Rougeole 1 particulièrement élevée ou faible ?",
+      "pt": "Existem regiões com cobertura de Sarampo 1 especialmente alta ou baixa?"
+    },
+    {
+      "key": "subnational_coverage_measles1_2",
+      "en": "Comment on the variation between highest-coverage and lowest-coverage regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant la couverture la plus élevée et la plus faible.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com maior e menor cobertura."
+    },
+    {
+      "key": "subnational_coverage_penta3_1",
+      "en": "Are there regions that have especially high or especially low Penta3 coverage?",
+      "fr": "Y a-t-il des régions avec une couverture Penta3 particulièrement élevée ou faible ?",
+      "pt": "Existem regiões com cobertura de Penta3 especialmente alta ou baixa?"
+    },
+    {
+      "key": "subnational_coverage_penta3_2",
+      "en": "Comment on the variation between highest-coverage and lowest-coverage regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant la couverture la plus élevée et la plus faible.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com maior e menor cobertura."
+    },
+    {
+      "key": "subnational_coverage_penta1_to_penta3_dropout_1",
+      "en": "Are there regions that have especially high or especially low Penta dropout rates? How do they compare to regions with high or low Penta coverage?",
+      "fr": "Y a-t-il des régions avec des taux d'abandon Penta particulièrement élevés ou faibles ? Comment cela se compare-t-il aux taux de couverture Penta ?",
+      "pt": "Existem regiões com taxas de abandono de Penta especialmente altas ou baixas? Como elas se comparam às regiões com cobertura de Penta alta ou baixa?"
+    },
+    {
+      "key": "subnational_coverage_penta1_to_penta3_dropout_2",
+      "en": "Comment on the variation between highest-dropout and lowest-dropout regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant les taux d’abandon les plus élevés et les plus faibles.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com as maiores e menores taxas de abandono."
+    },
+    {
+      "key": "subnational_coverage_penta3_to_measles1_dropout_1",
+      "en": "Are there regions that have especially high or especially low Penta measles dropout rates? How do they compare to regions with high or low Penta coverage?",
+      "fr": "Existe-t-il des régions avec des taux d'abandon entre Penta3 et Rougeole1 particulièrement élevés ou faibles ? Comment cela se compare-t-il aux régions ayant une couverture Penta élevée ou faible ?",
+      "pt": "Existem regiões com taxas de abandono entre Penta3 e Sarampo1 especialmente altas ou baixas? Como elas se comparam às regiões com cobertura de Penta alta ou baixa?"
+    },
+    {
+      "key": "subnational_coverage_penta3_to_measles1_dropout_2",
+      "en": "Comment on the variation between highest-dropout and lowest-dropout regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant les taux d’abandon les plus élevés et les plus faibles.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com as maiores e menores taxas de abandono."
+    },
+    {
+      "key": "subnational_coverage_custom_checks_1",
+      "en": "Are there regions that have especially high or especially low coverage?",
+      "fr": "Y a-t-il des régions avec une couverture particulièrement élevée ou faible ?",
+      "pt": "Existem regiões com cobertura especialmente alta ou baixa?"
+    },
+    {
+      "key": "subnational_coverage_custom_checks_2",
+      "en": "Comment on the variation between highest-coverage and lowest-coverage regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant la couverture la plus élevée et la plus faible.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com maior e menor cobertura."
+    },
+    {
+      "key": "subnational_inequality_measles1_1",
+      "en": "Are there regions that have especially high or especially low Measles1 coverage?",
+      "fr": "Existe-t-il des régions avec une couverture Rougeole 1 particulièrement élevée ou faible ?",
+      "pt": "Existem regiões com cobertura de Sarampo 1 especialmente alta ou baixa?"
+    },
+    {
+      "key": "subnational_inequality_measles1_2",
+      "en": "Comment on the variation between highest-coverage and lowest-coverage regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant la couverture la plus élevée et la plus faible.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com maior e menor cobertura."
+    },
+    {
+      "key": "subnational_inequality_penta3_1",
+      "en": "Are there regions that have especially high or especially low Penta3 coverage?",
+      "fr": "Y a-t-il des régions avec une couverture Penta3 particulièrement élevée ou faible ?",
+      "pt": "Existem regiões com cobertura de Penta3 especialmente alta ou baixa?"
+    },
+    {
+      "key": "subnational_inequality_penta3_2",
+      "en": "Comment on the variation between highest-coverage and lowest-coverage regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant la couverture la plus élevée et la plus faible.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com maior e menor cobertura."
+    },
+    {
+      "key": "subnational_inequality_penta1_to_penta3_dropout_1",
+      "en": "Are there regions that have especially high or especially low Penta dropout rates? How do they compare to regions with high or low Penta coverage?",
+      "fr": "Y a-t-il des régions avec des taux d'abandon Penta particulièrement élevés ou faibles ? Comment cela se compare-t-il aux taux de couverture Penta ?",
+      "pt": "Existem regiões com taxas de abandono de Penta especialmente altas ou baixas? Como elas se comparam às regiões com alta ou baixa cobertura de Penta?"
+    },
+    {
+      "key": "subnational_inequality_penta1_to_penta3_dropout_2",
+      "en": "Comment on the variation between highest-dropout and lowest-dropout regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant les taux d’abandon les plus élevés et les plus faibles.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com as maiores e menores taxas de abandono."
+    },
+    {
+      "key": "subnational_inequality_penta3_to_measles1_dropout_1",
+      "en": "Are there regions that have especially high or especially low Penta measles dropout rates? How do they compare to regions with high or low Penta coverage?",
+      "fr": "Existe-t-il des régions avec des taux d’abandon entre Penta3 et Rougeole1 particulièrement élevés ou faibles ? Comment cela se compare-t-il aux régions ayant une couverture Penta élevée ou faible ?",
+      "pt": "Existem regiões com taxas de abandono entre Penta3 e Sarampo1 especialmente altas ou baixas? Como elas se comparam às regiões com alta ou baixa cobertura de Penta?"
+    },
+    {
+      "key": "subnational_inequality_penta3_to_measles1_dropout_2",
+      "en": "Comment on the variation between highest-dropout and lowest-dropout regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant les taux d’abandon les plus élevés et les plus faibles.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com as maiores e menores taxas de abandono."
+    },
+    {
+      "key": "subnational_inequality_custom_checks_1",
+      "en": "Are there regions that have especially high or especially low coverage?",
+      "fr": "Y a-t-il des régions avec une couverture particulièrement élevée ou faible ?",
+      "pt": "Existem regiões com cobertura especialmente alta ou baixa?"
+    },
+    {
+      "key": "subnational_inequality_custom_checks_2",
+      "en": "Comment on the variation between highest-coverage and lowest-coverage regions and districts.",
+      "fr": "Commentez la variation entre les régions et districts ayant la couverture la plus élevée et la plus faible.",
+      "pt": "Comente sobre a variação entre as regiões e distritos com maior e menor cobertura."
+    },
+    {
+      "key": "low_reporting_coverage_1",
+      "en": "Reflect on the percent of districts that are meeting performance targets for coverage: has it increased or decreased over time? Does it vary between different vaccines?",
+      "fr": "Réfléchissez au pourcentage de districts atteignant les objectifs de performance pour la couverture : a-t-il augmenté ou diminué avec le temps ? Varie-t-il selon les vaccins ?",
+      "pt": "Reflita sobre a porcentagem de distritos que estão alcançando as metas de desempenho de cobertura: isso aumentou ou diminuiu ao longo do tempo? Isso varia entre diferentes vacinas?"
+    },
+    {
+      "key": "low_reporting_coverage_2",
+      "en": "Do these results using the adjusted data and alternative denominator align with performance indicators in the DHIS2 data? If they are different, why?",
+      "fr": "Ces résultats utilisant les données ajustées et un dénominateur alternatif sont-ils conformes aux indicateurs de performance dans les données DHIS2 ? S’ils diffèrent, pourquoi ?",
+      "pt": "Esses resultados usando os dados ajustados e denominador alternativo estão alinhados com os indicadores de desempenho nos dados do DHIS2? Se forem diferentes, por quê?"
+    },
+    {
+      "key": "low_reporting_coverage_3",
+      "en": "Then, make the same reflections for the percent of districts that are meeting performance targets for dropout.",
+      "fr": "Ensuite, faites les mêmes réflexions pour le pourcentage de districts atteignant les objectifs de performance en matière d’abandon.",
+      "pt": "Em seguida, faça as mesmas reflexões para a porcentagem de distritos que estão atingindo as metas de desempenho para abandono."
+    },
+    {
+      "key": "low_reporting_dropout_1",
+      "en": "Reflect on the percent of districts that are meeting performance targets for coverage: has it increased or decreased over time? Does it vary between different vaccines?",
+      "fr": "Réfléchissez au pourcentage de districts atteignant les objectifs de performance pour la couverture : a-t-il augmenté ou diminué avec le temps ? Varie-t-il selon les vaccins ?",
+      "pt": "Reflita sobre a porcentagem de distritos que estão alcançando as metas de desempenho de cobertura: isso aumentou ou diminuiu ao longo do tempo? Isso varia entre diferentes vacinas?"
+    },
+    {
+      "key": "low_reporting_dropout_2",
+      "en": "Do these results using the adjusted data and alternative denominator align with performance indicators in the DHIS2 data? If they are different, why?",
+      "fr": "Ces résultats utilisant les données ajustées et un dénominateur alternatif sont-ils conformes aux indicateurs de performance dans les données DHIS2 ? S’ils diffèrent, pourquoi ?",
+      "pt": "Esses resultados usando os dados ajustados e denominador alternativo estão alinhados com os indicadores de desempenho nos dados do DHIS2? Se forem diferentes, por quê?"
+    },
+    {
+      "key": "low_reporting_dropout_3",
+      "en": "Then, make the same reflections for the percent of districts that are meeting performance targets for dropout.",
+      "fr": "Ensuite, faites les mêmes réflexions pour le pourcentage de districts atteignant les objectifs de performance en matière d’abandon.",
+      "pt": "Em seguida, faça as mesmas reflexões para a porcentagem de distritos que estão atingindo as metas de desempenho para abandono."
+    },
+    {
+      "key": "equity_assessment_measles1_1",
+      "en": "Residence: are the gaps between the urban and rural areas large, have they changed over time? What pattern of inequality (bottom, linear, top)?",
+      "fr": "Résidence : les écarts entre les zones urbaines et rurales sont-ils importants, ont-ils évolué au fil du temps ? Quel est le modèle d'inégalité (bas, linéaire, haut) ?",
+      "pt": "Residência: as diferenças entre as áreas urbanas e rurais são grandes? Elas mudaram ao longo do tempo? Qual é o padrão de desigualdade (baixo, linear, alto)?"
+    },
+    {
+      "key": "equity_assessment_measles1_2",
+      "en": "Region:  Are the gaps between regions large? Have they changed over time?",
+      "fr": "Région : les écarts entre les régions sont-ils importants ? Ont-ils évolué au fil du temps ?",
+      "pt": "Região: As diferenças entre as regiões são grandes? Elas mudaram ao longo do tempo?"
+    },
+    {
+      "key": "equity_assessment_measles1_3",
+      "en": "Wealth: are the gaps between the rich and poor large, have they changed over time? What pattern of inequality (bottom, linear, top)?",
+      "fr": "Richesse : les écarts entre les riches et les pauvres sont-ils importants, ont-ils évolué au fil du temps ? Quel est le modèle d'inégalité (bas, linéaire, haut) ?",
+      "pt": "Riqueza: as diferenças entre ricos e pobres são grandes? Elas mudaram ao longo do tempo? Qual é o padrão de desigualdade (baixo, linear, alto)?"
+    },
+    {
+      "key": "equity_assessment_measles1_4",
+      "en": "Education: are the gaps in coverage by mother’s education large, have they changed over time?",
+      "fr": "Éducation : les écarts de couverture selon le niveau d'éducation de la mère sont-ils importants, ont-ils changé au fil du temps ?",
+      "pt": "Educação: as diferenças na cobertura segundo a educação da mãe são grandes? Elas mudaram ao longo do tempo?"
+    },
+    {
+      "key": "equity_assessment_measles1_5",
+      "en": "How do these results link to immunization strategies like fixed post, mobile and outreach?",
+      "fr": "Comment ces résultats sont-ils liés aux stratégies de vaccination telles que les postes fixes, mobiles et les activités de proximité ?",
+      "pt": "Como esses resultados se relacionam com estratégias de imunização como posto fixo, móvel e busca ativa?"
+    },
+    {
+      "key": "equity_assessment_penta3_1",
+      "en": "Residence: are the gaps between the urban and rural areas large, have they changed over time? What pattern of inequality (bottom, linear, top)?",
+      "fr": "Résidence : les écarts entre les zones urbaines et rurales sont-ils importants, ont-ils évolué au fil du temps ? Quel est le modèle d'inégalité (bas, linéaire, haut) ?",
+      "pt": "Residência: as diferenças entre as áreas urbanas e rurais são grandes? Elas mudaram ao longo do tempo? Qual é o padrão de desigualdade (baixo, linear, alto)?"
+    },
+    {
+      "key": "equity_assessment_penta3_2",
+      "en": "Region:  Are the gaps between regions large? Have they changed over time?",
+      "fr": "Région : les écarts entre les régions sont-ils importants ? Ont-ils évolué au fil du temps ?",
+      "pt": "Região: As diferenças entre as regiões são grandes? Elas mudaram ao longo do tempo?"
+    },
+    {
+      "key": "equity_assessment_penta3_3",
+      "en": "Wealth: are the gaps between the rich and poor large, have they changed over time? What pattern of inequality (bottom, linear, top)?",
+      "fr": "Richesse : les écarts entre les riches et les pauvres sont-ils importants, ont-ils évolué au fil du temps ? Quel est le modèle d'inégalité (bas, linéaire, haut) ?",
+      "pt": "Riqueza: as diferenças entre ricos e pobres são grandes? Elas mudaram ao longo do tempo? Qual é o padrão de desigualdade (baixo, linear, alto)?"
+    },
+    {
+      "key": "equity_assessment_penta3_4",
+      "en": "Education: are the gaps in coverage by mother’s education large, have they changed over time?",
+      "fr": "Éducation : les écarts de couverture selon le niveau d'éducation de la mère sont-ils importants, ont-ils changé au fil du temps ?",
+      "pt": "Educação: as diferenças na cobertura segundo a educação da mãe são grandes? Elas mudaram ao longo do tempo?"
+    },
+    {
+      "key": "equity_assessment_penta3_5",
+      "en": "How do these results link to immunization strategies like fixed post, mobile and outreach?",
+      "fr": "Comment ces résultats sont-ils liés aux stratégies de vaccination telles que les postes fixes, mobiles et les activités de proximité ?",
+      "pt": "Como esses resultados se relacionam com estratégias de imunização como posto fixo, móvel e busca ativa?"
+    },
+    {
+      "key": "equity_assessment_custom_checks_1",
+      "en": "Residence: are the gaps between the urban and rural areas large, have they changed over time? What pattern of inequality (bottom, linear, top)?",
+      "fr": "Résidence : les écarts entre les zones urbaines et rurales sont-ils importants, ont-ils évolué au fil du temps ? Quel est le modèle d'inégalité (bas, linéaire, haut) ?",
+      "pt": "Residência: as diferenças entre as áreas urbanas e rurais são grandes? Elas mudaram ao longo do tempo? Qual é o padrão de desigualdade (inferior, linear, superior)?"
+    },
+    {
+      "key": "equity_assessment_custom_checks_2",
+      "en": "Region:  Are the gaps between regions large? Have they changed over time?",
+      "fr": "Région : les écarts entre les régions sont-ils importants ? Ont-ils évolué au fil du temps ?",
+      "pt": "Região: As diferenças entre as regiões são grandes? Elas mudaram ao longo do tempo?"
+    },
+    {
+      "key": "equity_assessment_custom_checks_3",
+      "en": "Wealth: are the gaps between the rich and poor large, have they changed over time? What pattern of inequality (bottom, linear, top)?",
+      "fr": "Richesse : les écarts entre les riches et les pauvres sont-ils importants, ont-ils évolué au fil du temps ? Quel est le modèle d'inégalité (bas, linéaire, haut) ?",
+      "pt": "Riqueza: as diferenças entre ricos e pobres são grandes? Elas mudaram ao longo do tempo? Qual é o padrão de desigualdade (inferior, linear, superior)?"
+    },
+    {
+      "key": "equity_assessment_custom_checks_4",
+      "en": "Education: are the gaps in coverage by mother’s education large, have they changed over time?",
+      "fr": "Éducation : les écarts de couverture selon le niveau d'éducation de la mère sont-ils importants, ont-ils changé au fil du temps ?",
+      "pt": "Educação: as diferenças na cobertura conforme a escolaridade da mãe são grandes? Elas mudaram ao longo do tempo?"
+    },
+    {
+      "key": "equity_assessment_custom_checks_5",
+      "en": "How do these results link to immunization strategies like fixed post, mobile and outreach?",
+      "fr": "Comment ces résultats sont-ils liés aux stratégies de vaccination telles que les postes fixes, mobiles et les activités de proximité ?",
+      "pt": "Como esses resultados estão relacionados às estratégias de imunização como postos fixos, unidades móveis e atividades de extensão?"
+    },
+    {
+      "key": "msg_manual_mapping",
+      "en": "Manual Mapping of Survey Data",
+      "fr": "Cartographie manuelle des données d’enquête",
+      "pt": "Mapeamento manual dos dados da pesquisa"
+    },
+    {
+      "key": "msg_cache_loaded_national",
+      "en": "Loaded national survey data from cache.",
+      "fr": "Données d’enquête nationale chargées depuis le cache.",
+      "pt": "Dados da pesquisa nacional carregados do cache."
+    },
+    {
+      "key": "msg_cache_loaded_regional",
+      "en": "Loaded regional survey data from cache.",
+      "fr": "Données d’enquête régionale chargées depuis le cache.",
+      "pt": "Dados da pesquisa regional carregados do cache."
+    },
+    {
+      "key": "msg_cache_loaded_wealth_index",
+      "en": "Loaded wealth index quintile survey data from cache.",
+      "fr": "Données de quintiles de l’indice de richesse chargées depuis le cache.",
+      "pt": "Dados da pesquisa de quintis do índice de riqueza carregados do cache."
+    },
+    {
+      "key": "msg_cache_loaded_area",
+      "en": "Loaded area survey data from cache.",
+      "fr": "Données d’enquête par zone chargées depuis le cache.",
+      "pt": "Dados da pesquisa por área carregados do cache."
+    },
+    {
+      "key": "msg_cache_loaded_maternal_education",
+      "en": "Loaded maternal education survey data from cache.",
+      "fr": "Données d’éducation maternelle chargées depuis le cache.",
+      "pt": "Dados da pesquisa sobre educação materna carregados do cache."
+    },
+    {
+      "key": "msg_missing_required_files",
+      "en": "Missing required files: {files}",
+      "fr": "Fichiers requis manquants : {files}",
+      "pt": "Arquivos obrigatórios ausentes: {files}"
+    },
+    {
+      "key": "log_loaded_national_survey",
+      "en": "Loaded national survey data: {filename}.",
+      "fr": "Données d’enquête nationale chargées : {filename}.",
+      "pt": "Dados da pesquisa nacional carregados: {filename}."
+    },
+    {
+      "key": "log_loaded_regional_survey",
+      "en": "Loaded regional survey data: {filename}.",
+      "fr": "Données d’enquête régionale chargées : {filename}.",
+      "pt": "Dados da pesquisa regional carregados: {filename}."
+    },
+    {
+      "key": "log_loaded_area_survey",
+      "en": "Loaded area survey data: {filename}.",
+      "fr": "Données d’enquête par zone chargées : {filename}.",
+      "pt": "Dados da pesquisa por área carregados: {filename}."
+    },
+    {
+      "key": "log_loaded_maternal_education_survey",
+      "en": "Loaded maternal education survey data: {filename}.",
+      "fr": "Données d’éducation maternelle chargées : {filename}.",
+      "pt": "Dados da pesquisa sobre educação materna carregados: {filename}."
+    },
+    {
+      "key": "log_loaded_wealth_index_survey",
+      "en": "Loaded wealth index quintile survey data: {filename}.",
+      "fr": "Données de quintiles de l’indice de richesse chargées : {filename}.",
+      "pt": "Dados da pesquisa de quintis do índice de riqueza carregados: {filename}."
+    },
+    {
+      "key": "log_unknown_file_pattern",
+      "en": "File '{filename}' does not match any known pattern.",
+      "fr": "Le fichier « {filename} » ne correspond à aucun modèle connu.",
+      "pt": "O arquivo '{filename}' não corresponde a nenhum padrão conhecido."
+    },
+    {
+      "key": "log_file_processing_error",
+      "en": "Error processing file {filename}: {error}",
+      "fr": "Erreur lors du traitement du fichier {filename} : {error}",
+      "pt": "Erro ao processar o arquivo {filename}: {error}"
+    },
+    {
+      "key": "msg_download",
+      "en": "Download",
+      "fr": "Télécharger",
+      "pt": "Baixar"
+    },
+    {
+      "key": "title_derived_coverage",
+      "en": "Population growth derived coverage",
+      "fr": "Couverture dérivée de la croissance démographique",
+      "pt": "Cobertura derivada do crescimento populacional"
+    },
+    {
+      "key": "title_national_health_system",
+      "en": "National Health System",
+      "fr": "Système de santé national",
+      "pt": "Sistema Nacional de Saúde"
+    },
+    {
+      "key": "title_subnational_health_system",
+      "en": "Sub-National Health System",
+      "fr": "Système de santé infranational",
+      "pt": "Sistema Subnacional de Saúde"
+    },
+    {
+      "key": "title_health_system_comparison",
+      "en": "Health System Comparison",
+      "fr": "Comparaison des systèmes de santé",
+      "pt": "Comparação dos Sistemas de Saúde"
+    },
+    {
+      "key": "opt_health_system_performance",
+      "en": "Health System Performance",
+      "fr": "Performance du système de santé",
+      "pt": "Desempenho do Sistema de Saúde"
+    },
+    {
+      "key": "opt_health_system_density",
+      "en": "Health system Indicators",
+      "fr": "Indicateurs du système de santé",
+      "pt": "Indicadores do Sistema de Saúde"
+    },
+    {
+      "key": "opt_score_total",
+      "en": "Overall",
+      "fr": "Performance globale",
+      "pt": "Geral"
+    },
+    {
+      "key": "opt_score_infrastructure",
+      "en": "Health Infrastructure",
+      "fr": "Infrastructure sanitaire",
+      "pt": "Infraestrutura de Saúde"
+    },
+    {
+      "key": "opt_score_workforce",
+      "en": "Health Workforce",
+      "fr": "Personnel de santé",
+      "pt": "Força de Trabalho em Saúde"
+    },
+    {
+      "key": "opt_score_utilization",
+      "en": "Service Utilization",
+      "fr": "Utilisation des services",
+      "pt": "Utilização de Serviços"
+    },
+    {
+      "key": "opt_ratio_fac_pop",
+      "en": "Health Facility Density",
+      "fr": "Densité des établissements de santé",
+      "pt": "Densidade de Unidades de Saúde"
+    },
+    {
+      "key": "opt_ratio_hos_pop",
+      "en": "Hospital Density/10,000 population",
+      "fr": "Densité des hôpitaux pour 10 000 habitants",
+      "pt": "Densidade Hospitalar por 10.000 habitantes"
+    },
+    {
+      "key": "opt_ratio_hstaff_pop",
+      "en": "Workforce Density",
+      "fr": "Densité du personnel de santé",
+      "pt": "Densidade da Força de Trabalho"
+    },
+    {
+      "key": "opt_ratio_bed_pop",
+      "en": "Bed Density",
+      "fr": "Densité des lits d’hôpital",
+      "pt": "Densidade de Leitos"
+    },
+    {
+      "key": "opt_ratio_opd_pop",
+      "en": "OPD Visits",
+      "fr": "Consultations externes (OPD)",
+      "pt": "Consultas Ambulatoriais (OPD)"
+    },
+    {
+      "key": "opt_ratio_ipd_pop",
+      "en": "IPD Admissions",
+      "fr": "Admissions en hospitalisation (IPD)",
+      "pt": "Internações Hospitalares (IPD)"
+    },
+    {
+      "key": "opt_ratio_opd_u5_pop",
+      "en": "Under 5 OPD Visits",
+      "fr": "Consultations externes des moins de 5 ans",
+      "pt": "Consultas OPD para menores de 5 anos"
+    },
+    {
+      "key": "opt_ratio_ipd_u5_bed",
+      "en": "Under 5 IPD/Bed",
+      "fr": "Hospitalisations des <5 ans/Lit",
+      "pt": "Internações <5 anos por Leito"
+    },
+    {
+      "key": "opt_ratio_opd_u5_hos",
+      "en": "OPD Under 5/Hospitals",
+      "fr": "Consultations externes <5 ans/Hôpitaux",
+      "pt": "OPD <5 anos/Hospitais"
+    },
+    {
+      "key": "opt_cov_instdeliveries_bed",
+      "en": "Deliveries/Beds",
+      "fr": "Accouchements/Lits",
+      "pt": "Partos/Leitos"
+    },
+    {
+      "key": "opt_ratio_opd_u5_hstaff",
+      "en": "OPD Under 5/Workforce",
+      "fr": "Consultations externes <5 ans/Personnel",
+      "pt": "OPD <5 anos/Profissionais de Saúde"
+    },
+    {
+      "key": "title_service_utilization",
+      "en": "Service Utilization",
+      "fr": "Utilisation des services",
+      "pt": "Utilização dos Serviços"
+    },
+    {
+      "key": "opt_opd_visits",
+      "en": "OPD Visits",
+      "fr": "Consultations externes",
+      "pt": "Consultas OPD"
+    },
+    {
+      "key": "opt_ipd_admissions",
+      "en": "IPD Admissions",
+      "fr": "Admissions hospitalières",
+      "pt": "Internações IPD"
+    },
+    {
+      "key": "opt_under5",
+      "en": "Under 5",
+      "fr": "Enfants de moins de 5 ans",
+      "pt": "Menores de 5 anos"
+    },
+    {
+      "key": "opt_cfr",
+      "en": "Case Fatality Rate",
+      "fr": "Taux de létalité",
+      "pt": "Taxa de Letalidade"
+    },
+    {
+      "key": "opt_deaths",
+      "en": "Deaths",
+      "fr": "Décès",
+      "pt": "Óbitos"
+    },
+    {
+      "key": "title_mortality",
+      "en": "Mortality",
+      "fr": "Mortalité",
+      "pt": "Mortalidade"
+    },
+    {
+      "key": "opt_mmr_inst",
+      "en": "Maternal Mortality",
+      "fr": "Mortalité maternelle",
+      "pt": "Mortalidade Materna"
+    },
+    {
+      "key": "opt_ratio_md_sb",
+      "en": "SBR to Maternal Death Ratio",
+      "fr": "Ratio mortinatalité/décès maternels",
+      "pt": "Razão entre nascimentos mortos e mortes maternas"
+    },
+    {
+      "key": "opt_sbr_inst",
+      "en": "Still Birth Rate",
+      "fr": "Taux de mortinatalité",
+      "pt": "Taxa de Natimortalidade"
+    },
+    {
+      "key": "opt_nn_inst",
+      "en": "Neonatal Deaths",
+      "fr": "Décès néonatals",
+      "pt": "Óbitos Neonatais"
+    },
+    {
+      "key": "title_mortality_completeness",
+      "en": "Mortality Completeness",
+      "fr": "Exhaustivité des données sur la mortalité",
+      "pt": "Exaustividade dos Dados de Mortalidade"
+    },
+    {
+      "key": "opt_mmr_ratio",
+      "en": "Institutional MMR",
+      "fr": "Taux de mortalité maternelle institutionnelle",
+      "pt": "Razão de Mortalidade Materna Institucional"
+    },
+    {
+      "key": "opt_sbr_ratio",
+      "en": "Institutional SBR",
+      "fr": "Taux de mortinaissance institutionnelle",
+      "pt": "Taxa Institucional de Natimortalidade"
+    },
+    {
+      "key": "opt_maternal_coverage",
+      "en": "Maternal Indicators",
+      "fr": "Indicateurs de santé maternelle",
+      "pt": "Indicadores Maternos"
+    },
+    {
+      "key": "opt_vaccine_coverage",
+      "en": "Vaccine Indicators",
+      "fr": "Indicateurs de vaccination",
+      "pt": "Indicadores de Vacinação"
+    },
+    {
+      "key": "title_anc4_survey",
+      "en": "ANC4 Survey",
+      "fr": "Enquête sur les quatre consultations prénatales",
+      "pt": "Pesquisa ANC4"
+    },
+    {
+      "key": "title_ideliv_survey",
+      "en": "Institutional Delivery Survey",
+      "fr": "Enquête sur les accouchements en établissement",
+      "pt": "Pesquisa sobre Parto Institucional"
+    },
+    {
+      "key": "title_lbw_survey",
+      "en": "Low Birth Weight Survey",
+      "fr": "Enquête sur l’insuffisance pondérale à la naissance",
+      "pt": "Pesquisa sobre Baixo Peso ao Nascer"
+    },
+    {
+      "key": "title_csection_survey",
+      "en": "Caesarean Section Survey",
+      "fr": "Enquête sur les accouchements par césarienne",
+      "pt": "Pesquisa sobre Parto Cesáreo"
+    },
+    {
+      "key": "title_family_planning",
+      "en": "Family Planning",
+      "fr": "Planification familiale",
+      "pt": "Planejamento Familiar"
+    },
+    {
+      "key": "title_fpet",
+      "en": "FPET FP Projection",
+      "fr": "Projection de la PF par FPET",
+      "pt": "Projeção de PF com FPET"
+    },
+    {
+      "key": "btn_upload_fpet_data",
+      "en": "Upload FPET data",
+      "fr": "Téléverser les données FPET",
+      "pt": "Carregar dados do FPET"
+    },
+    {
+      "key": "fpet_projection_option",
+      "en": "FPET Projections Options",
+      "fr": "Options de projection FPET",
+      "pt": "Opções de Projeção do FPET"
+>>>>>>> Stashed changes
     }
   ]
 }
