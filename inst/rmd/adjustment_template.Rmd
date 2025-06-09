@@ -43,15 +43,11 @@ data <- cache$countdown_data
 k_factors <- cache$k_factors
 ```
 
-## Health Facility Data Adjustments {-}
+## Health Facility Data Adjustments {.unnumbered}
 
 ### Background
 
-Completeness of reporting affects analysis, especially if it is low or varies between 
-years. Extreme outliers can have a large impact, especially on subnational numbers.
-Several steps are necessary to obtain a clean data set for “endline” analysis, 
-including adjusting for incomplete reporting and correcting for extreme outliers. 
-These graphs show the impact on the numbers.
+Completeness of reporting affects analysis, especially if it is low or varies between years. Extreme outliers can have a large impact, especially on sub-national numbers. Several steps are necessary to obtain a clean data set for “endline” analysis, including adjusting for incomplete reporting and correcting for extreme outliers. These graphs show the impact on the numbers.
 
 ```{r}
 adjustments <- data %>%
@@ -76,16 +72,15 @@ plot(adjustments,
   cd_report_theme()
 ```
 
-#### 📝 Notes 
+#### 📝 Notes
 
 ::: {custom-style="Style1"}
 
----
+------------------------------------------------------------------------
 
 Consider the effect of the adjustment on live births in health facilities, and mention the difference in the number, as well as the percent increase in 2023; highlight the year with the greatest impact if there is one; interpret if the impact of the adjustment on coverage rates is is large or small
 
-Make the same description and interpretations for penta1 vaccinations 
+Make the same description and interpretations for penta1 vaccinations
 
----
-
+------------------------------------------------------------------------
 :::
