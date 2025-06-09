@@ -1,0 +1,121 @@
+---
+title: "Curative Health Services for `r params$country` --- Countdown Analysis"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    highlight: kate
+  officedown::rdocx_document:
+    reference_docx: report-template.docx
+  pdf_document:
+    toc: false
+    latex_engine: lualatex
+params:
+  cache: NULL
+  country: NULL
+  adminlevel_1: NULL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  include = TRUE,
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  fig.width=7, 
+  fig.height=5, 
+  dpi=1200
+)
+
+library(cd2030.rmncah)
+library(dplyr)
+library(purrr)
+library(reactable)
+library(officedown)
+library(officer)
+
+cache <- params$cache
+```
+
+## Curative health services: admission and case fatality rates among children under-5
+
+### Background
+
+Data on inpatient admissions among under-fives are indicators of access to curative services. In-patient mortality (case fatality rates) is an indicator of quality of care. 
+
+
+```{r, fig.cap='Figure 6a: OPD service use by children and all ages, national'}
+service_utilization <- cache$compute_service_utilization('national')
+service_utilization %>% 
+  filter_service_utilization_map('opd') %>% 
+  plot() +
+  cd_report_theme()
+```
+
+```{r, fig.cap='Figure 6b : map with OPD service use by children, by region'}
+admin1_service_utilization <- cache$compute_service_utilization('adminlevel_1')
+min_year <- min(admin1_service_utilization$year)
+max_year <- max(admin1_service_utilization$year)
+
+years <- if (is.null(cache$mapping_years)) c(min_year, max_year) else cache$mapping_years
+admin1_filtered <- admin1_service_utilization %>% 
+  cache$filter_service_utilization(indicator = 'opd', map_years = years)
+plot(admin1_filtered) +
+  cd_report_theme()
+```
+
+#### 📝 Notes 
+
+::: {custom-style="Style1"}
+
+---
+
+What can be said about the data quality for OPD visits? Is there consistency of reported numbers between years? What is the % of OPD visits that are under-5 and are they within an expected range of 15-40%?? 
+
+What is the number of OPD visits per child per year during 2019-2023, is it increasing?  Is it lower than 1 visit per year, which is considered indicative of low access? What % of OPD visits are for children under 5? 
+
+What can be said about the OPD visits per child per year by region/province in 2023? How large is the difference between top and bottom regions? 
+
+---
+
+:::
+
+## Curative health services: admission and case fatality rates among children under-5
+
+### Background
+
+Data on inpatient admissions among under-fives are indicators of access to curative services. In-patient mortality (case fatality rates) is an indicator of quality of care. 
+
+```{r, fig.cap='Figure 6c: Admissions per 100 children and case fatality rates per 100 admissions under-5, national'}
+service_utilization %>% 
+  filter_service_utilization_map('ipd') %>% 
+  plot() +
+  cd_report_theme()
+```
+
+```{r, fig.cap='Figure 6d : Admission rates per 100 children under-5, by region'}
+admin1_filtered <- admin1_service_utilization %>% 
+  cache$filter_service_utilization(indicator = 'ipd', map_years = years)
+plot(admin1_filtered) +
+  cd_report_theme()
+```
+
+#### 📝 Notes 
+
+::: {custom-style="Style1"}
+
+---
+
+What can be said about the data quality? Is there consistency of reported numbers of admissions / admission rates over time? Is the percent of admissions that are children under-5 plausible (within an expected range 15-40%) 
+
+What is the number of admission per 100 children under 5 per year during 2019-2024?  Trend? Is it low or high?
+What is the case fatality rate among admissions under-5, what is the trend? What does this say about the quality of care?
+
+What can be said about admissions per 100 children under-5 per year by region/province in 2024?
+
+---
+
+:::

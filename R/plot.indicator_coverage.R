@@ -256,7 +256,7 @@ plot.cd_indicator_coverage_filtered <- function(x, ...) {
   coverage <- attr_or_abort(x, 'coverage')
 
   # Auto-generate title based on the selected indicator
-  title_text <- paste("Fig 2c:", indicator, "coverage, DHIS2-based with different denominators, and survey coverage")
+  title_text <- paste(indicator, "Coverage, DHIS2-based with different denominators, and survey coverage")
 
   # Plot
   ggplot(x, aes(x = category, y = value)) +

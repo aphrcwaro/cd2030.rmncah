@@ -1,41 +1,21 @@
 #' Plot Service Utilization Indicators
 #'
-#' Visualizes service utilization over time from a `cd_service_utilization` object.
+#' Visualizes service utilization over time from a `cd_service_utilization_map` object.
 #'
-#' @param x A `cd_service_utilization` object created by [compute_service_utilization()].
-#' @param plot_type One of:
-#'   - `"opd"`: OPD visits per person
-#'   - `"ipd"`: IPD admissions per person
-#'   - `"under5"`: Under-5 share of OPD and IPD
-#'   - `"cfr"`: Case fatality rate (under-5 and total)
-#'   - `"deaths"`: Proportion of deaths that are under-5
-#' @param region Character description
+#' @param x A `cd_service_utilization_map` object created by [filter_service_utilization_map()].
+#' @param ... not used
 #'
 #' @return A `ggplot2` plot object.
 #'
 #' @examples
 #' \dontrun{
-#' plot(compute_service_utilization(dat), plot_type = "opd")
+#' plot(filter_service_utilization_map(dat, indicator = 'opd'))
 #' }
 #'
 #' @export
-plot.cd_service_utilization <- function(x, plot_type = c('opd', 'ipd', 'under5', 'cfr', 'deaths'), region = NULL) {
+plot.cd_service_utilization_map <- function(x, ...) {
 
-  plot_type <- arg_match(plot_type)
-  admin_level <- attr_or_abort(x, 'admin_level')
-
-  if (admin_level == 'national' && !is.null(region)) {
-    cd_abort('x' = '{.arg region} cannot be specified in {.field national} data.')
-  }
-
-  if (admin_level != 'national' && (is.null(region) || !is_scalar_character(region))) {
-    cd_abort('x' = '{.arg region} must be a scalar string.')
-  }
-
-  if (admin_level != 'national') {
-    x <- x %>%
-      filter(!!sym(admin_level) == region)
-  }
+  indicator <- attr_or_abort(x, 'indicator')
 
   labels <- list(
     opd = list(
@@ -80,7 +60,11 @@ plot.cd_service_utilization <- function(x, plot_type = c('opd', 'ipd', 'under5',
     )
   )
 
-  labels_val <- labels[[plot_type]]
+  labels_val <- labels[[indicator]]
+
+  max_y <- max(c(x[[labels_val$y1]], x[[labels_val$y2]]))
+  limits <- c(0, max_y)
+  breaks <- scales::pretty_breaks(n = 11)(limits)
 
   x %>%
     ggplot(aes(x = year)) +
@@ -89,6 +73,75 @@ plot.cd_service_utilization <- function(x, plot_type = c('opd', 'ipd', 'under5',
     geom_point(aes(y = !!sym(labels_val$y2), color = labels_val$y2_label), size = 2) +
     geom_line(aes(y = !!sym(labels_val$y2), color = labels_val$y2_label), size = 1) +
     labs(title = labels_val$title, y = labels_val$y_label, x = 'Year') +
-    scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, 25), expand = expansion(mult = c(0, 0.1))) +
+    scale_y_continuous(limits = limits, breaks = breaks, expand = expansion(mult = c(0, 0.1))) +
     cd_plot_theme()
+}
+
+#' Plot Filtered Service Utilization Indicators
+#'
+#' Generates a faceted map of service utilization metrics across subnational units
+#' (admin level 1) for each available year. Uses spatial polygons filled by the selected indicator.
+#'
+#' @param x A `cd_service_utilization_filtered` object returned by [filter_service_utilization()].
+#' @param ... Additional arguments (currently unused).
+#'
+#' @return A `ggplot2` object representing faceted service utilization maps by year.
+#'
+#' @details
+#' This function:
+#' - Extracts the appropriate indicator (`mean_opd_under5` or `mean_ipd_under5`)
+#' - Projects the data to WGS84 for map consistency
+#' - Renders the spatial data using `geom_sf()` with a sequential purple color scale
+#' - Facets by year and applies the package's custom plot theme
+#'
+#' @examples
+#' \dontrun{
+#' filtered <- filter_service_utilization(service_data, "UGA", indicator = "opd", plot_years = 2019:2022)
+#' plot(filtered)
+#' }
+#'
+#' @export
+plot.cd_service_utilization_filtered <- function(x, ...) {
+
+  indicator <- attr_or_abort(x, 'indicator')
+
+  title <- switch (indicator,
+                   mean_opd_under5 = 'OPD under-five by Region',
+                   mean_ipd_under5 = 'IPD under-five by Region'
+  )
+
+  legend <- switch (indicator,
+                    mean_opd_under5 = 'Mean OPD per child per year',
+                    mean_ipd_under5 = 'Mean IPD per 100 children per year'
+  )
+
+  x %>%
+    st_set_geometry('geometry') %>%
+    st_as_sf() %>%
+    st_set_crs(4326) %>%
+    st_transform(crs = 4326) %>%
+    ggplot() +
+    geom_sf(aes(fill = !!sym(indicator)), color = "white") +
+    facet_wrap(~ year, scales = "fixed", ncol = 5) +
+    scale_fill_gradientn(
+      colours = brewer.pal(9, "Purples"),
+      na.value = "grey90",
+      name =  legend
+    ) +
+    cd_plot_theme() +
+    labs(title = title) +
+    theme(
+      panel.border = element_blank(),
+      panel.spacing = unit(1, "lines"),
+      legend.key.size = unit(6, "mm"),
+      legend.background = element_blank(),
+      legend.title = element_text(size = 11),
+      legend.text = element_text(size = 9),
+      axis.text = element_blank(),
+      axis.ticks = element_blank(),
+      axis.title = element_blank(),
+      axis.line = element_blank(),
+      strip.text = element_text(size = 12, face = "bold"),
+      aspect.ratio = 1
+    )
 }

@@ -18,7 +18,7 @@ create_mortality_summary <- function(.data) {
 
   new_tibble(
     scatter,
-    class = 'cd_mortality_rate'
+    class = 'cd_mortality_summary'
   )
 }
 
@@ -32,18 +32,16 @@ create_mortality_summary <- function(.data) {
 #' @return A tibble of class `cd_mortality_ratio` with latest available values and UN means.
 #'
 #' @export
-create_mortality_ratios <- function(.data, mortality_data, admin_level = c('national', 'adminlevel_1', 'district')) {
+create_mortality_ratios <- function(.data, mortality_data) {
+  check_cd_class(.data, 'cd_mortality_summary')
   check_un_mortality(mortality_data)
 
-  admin_level <- arg_match(admin_level)
-  admin_col <- get_admin_columns(admin_level)
-
-  un_national <- summarised_data(.data, admin_level = admin_level) %>%
-    summarise(across(c('sbr_inst', 'mmr_inst'), mean, na.rm = TRUE), .by = all_of(c(admin_col, 'year'))) %>%
+  un_national <- .data %>%
+    filter(adminlevel_1 == 'National') %>%
+    select(year, sbr_inst, mmr_inst) %>%
     mutate(
       mean_mmr = mean(mmr_inst, na.rm = TRUE),
-      mean_sbr = mean(sbr_inst, na.rm = TRUE),
-      .by =
+      mean_sbr = mean(sbr_inst, na.rm = TRUE)
     ) %>%
     left_join(mortality_data, join_by(year)) %>%
     select(-contains('inst'), -contains('nmr'))
@@ -57,6 +55,67 @@ create_mortality_ratios <- function(.data, mortality_data, admin_level = c('nati
     ungroup() %>%
     left_join(un_national %>% select(year, contains('mean')), join_by(year)) %>%
     new_tibble(class = 'cd_mortality_ratio')
+}
+
+#' Filter and Prepare Mortality Rate Data for Mapping
+#'
+#' Filters a `cd_mortality_summary` object by country, indicator, and year. Optionally joins
+#' subnational mapping data and renames geometry for spatial plotting.
+#'
+#' @param .data A `cd_mortality_summary` object created by [create_mortality_summary()].
+#' @param country_iso A character string. ISO3 code of the country.
+#' @param indicator Character. Mortality indicator to filter (`"mmr"` or `"sbr"`). Defaults to `"mmr"`.
+#' @param plot_year Optional integer or vector of years to filter.
+#' @param subnational_map Optional. A data frame to join with the shapefile to add metadata.
+#'
+#' @return A tibble of class `cd_mortality_summary_filtered`, ready for geospatial plotting.
+#'
+#' @details
+#' This function:
+#' - Selects the specified mortality indicator (`mmr_inst` or `sbr_inst`)
+#' - Filters by `plot_year` if provided
+#' - Merges mortality rates with spatial geometry using internal or custom subnational mappings
+#' - Ensures geometry is correctly renamed for mapping (`geometry`)
+#'
+#' @examples
+#' \dontrun{
+#' filter_mortality_rate(
+#'   mortality_data,
+#'   country_iso = "NGA",
+#'   indicator = "sbr",
+#'   plot_year = 2021:2023
+#' )
+#' }
+#'
+#' @export
+filter_mortality_summary <- function(.data, country_iso, indicator = c('mmr', 'sbr'), plot_year = NULL, subnational_map = NULL) {
+
+  check_cd_class(.data, expected_class = 'cd_mortality_summary')
+  check_required(country_iso)
+  indicator <- arg_match(indicator)
+  indicator <- paste0(indicator, '_inst')
+
+  shapefile <- get_country_shapefile(country_iso, 'admin_level_1')
+
+  shapefile <- if (is.null(subnational_map)) {
+    shapefile %>% mutate(adminlevel_1 = NAME_1)
+  } else {
+    shapefile %>%
+      left_join(subnational_map, by = "NAME_1") %>%
+      rename(adminlevel_1 = admin_level_1)
+  }
+
+  merged_data <- .data %>%
+    left_join(shapefile, by = join_by(adminlevel_1)) %>%
+    filter(if (is.null(plot_year)) TRUE else year %in% plot_year) %>%
+    select(any_of(c('adminlevel_1', 'district', 'year', indicator)), starts_with('geom')) %>%
+    rename_with(~ 'geometry', starts_with('geom'))
+
+  new_tibble(
+    merged_data,
+    class = 'cd_mortality_summary_filtered',
+    indicator = indicator
+  )
 }
 
 #' Summarise Mortality and Birth Data by Administrative Level

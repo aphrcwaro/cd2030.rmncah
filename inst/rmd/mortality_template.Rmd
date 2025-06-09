@@ -1,0 +1,143 @@
+---
+title: "Mortality for `r params$country` --- Countdown Analysis"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    highlight: kate
+  officedown::rdocx_document:
+    reference_docx: report-template.docx
+  pdf_document:
+    toc: false
+    latex_engine: lualatex
+params:
+  cache: NULL
+  country: NULL
+  adminlevel_1: NULL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  include = TRUE,
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  fig.width=7, 
+  fig.height=5, 
+  dpi=1200
+)
+
+library(cd2030.rmncah)
+library(dplyr)
+library(purrr)
+library(reactable)
+library(officedown)
+library(officer)
+
+cache <- params$cache
+```
+
+## Maternal Mortality in Health Facilities
+
+### Background
+
+The main challenge with mortality data from health facilities is underreporting of deaths. Deaths may not be recorded in the maternity register, or not reported. Also, maternal deaths in other hospital wards are more likely to be missed, e.g., deaths associated with abortion or sepsis. The main aim is to estimate the level of underreporting in DHIS2 or MPDSR.
+
+```{r, fig.cap='Figure 5a: Maternal mortality per 100,000 live births in health facilities, based on the reported data in DHIS2'}
+mortality_summary <- cache$create_mortality_summary()
+plot(mortality_summary, indicator = 'mmr_inst') +
+  cd_report_theme()
+```
+
+```{r}
+min_year <- min(mortality_summary$year)
+max_year <- max(mortality_summary$year)
+
+years <- if (is.null(cache$mapping_years)) c(min_year, max_year) else cache$mapping_years
+mmr_plot <- mortality_summary %>% 
+  cache$filter_mortality_summary('mmr', years)
+plot(mmr_plot) +
+  cd_report_theme()
+```
+
+
+```{r, fig.cap='Figure 5b: Ratio of stillbirths to maternal deaths in health facilities, based on the reported data in DHIS2'}
+plot(mortality_summary, indicator = 'ratio_md_sb') +
+  cd_report_theme()
+```
+
+```{r, fig.cap='Figure 5c: Still Birth rates per 1000 births in health facilities, based on the reported data in DHIS2'}
+plot(mortality_summary, indicator = 'sbr_inst') +
+  cd_report_theme()
+```
+
+```{r}
+sbr_plot <- mortality_summary %>% 
+  cache$filter_mortality_summary('sbr', years)
+plot(sbr_plot) +
+  cd_report_theme()
+```
+
+```{r, fig.cap='Figure 5d: Neonatal mortality before discharge per 1,000 live births in health facilities, based on the reported data in DHIS2'}
+plot(mortality_summary, indicator = 'nn_inst') +
+  cd_report_theme()
+```
+
+#### 📝 Notes 
+
+::: {custom-style="Style1"}
+
+---
+
+Is the level of MMR from the facility data as expected? What can be said about the regional variation? Are there regions with low MMR and is this plausible?
+
+What can be said about the regional variation? What percent of regions has very low MMR (< 25) and very low SBR (<6)? Is this plausible or is underreporting of deaths likely?
+
+What is the ratio stillbirth to maternal deaths? Is it in the range of 5-15? How can this be interpreted? Is this suggestive of underreporting of maternal deaths relative to stillbirths? 
+
+Is the level of stillbirths from the facility data as expected? What can be said about the regional variation? Are there regions with low stillbirth rates, and is this plausible?
+
+What can be said about the estimated level of completeness of reporting of stillbirths? Which assumptions are most plausible, in terms of population level of SBR (e.g., median, lower or upper bound from UN estimates) and the ratio community to institutional mortality?
+
+What is the neonatal mortality (before discharge) nationally? How do these compare with the national estimate of neonatal mortality per 1,000 live births? What can be said about reporting completeness, are the health facility rates plausible?
+
+---
+
+:::
+
+## Underreporting of maternal deaths and stillbirths
+
+### Background
+
+The main challenge with health facility data on stillbirths and neonatal deaths is underreporting.  We can estimate the level of underreporting of stillbirths based on different assumptions: 1) using population mortality estimates from the UN: lower bound, best estimate and upper bound 2) community to institutional mortality ratio: assumptions ranging from half as low to at least 2 times higher community mortality.
+
+```{r, fig.cap='Fig 5e: Completeness of facility maternal death reporting (%), based on UN MMR estimates and community to institutional ratio'}
+mortality_ratio <- mortality_summary %>% 
+  cache$create_mortality_ratios()
+plot(cache$summarise_completeness_ratio(mortality_ratio, 'mmr')) +
+  cd_report_theme()
+```
+
+```{r, fig.cap='Fig 5f: Completeness of facility stillbirth reporting (%), based on UN stillbirth estimates and community to institutional ratio'}
+plot(cache$summarise_completeness_ratio(mortality_ratio, 'sbr')) +
+  cd_report_theme()
+```
+
+#### 📝 Notes 
+
+::: {custom-style="Style1"}
+
+---
+
+Is the level of stillbirths from the facility data as expected? What can be said about the regional variation? Are there regions with low stillbirth rates, and is this plausible?
+
+What can be said about the estimated level of completeness of reporting of stillbirths? Which assumptions are most plausible, in terms of population level of SBR (e.g., median, lower or upper bound from UN estimates) and the ratio community to institutional mortality?
+
+What is the neonatal mortality (before discharge) nationally? How do these compare with the national estimate of neonatal mortality per 1,000 live births? What can be said about reporting completeness, are the health facility rates plausible?
+
+---
+
+:::

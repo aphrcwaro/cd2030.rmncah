@@ -59,7 +59,7 @@ plot.cd_ratios_summary <- function(x, ...) {
     scale_y_continuous(breaks = scales::pretty_breaks(6)) +
     scale_fill_manual(values = color_mapping) +
     labs(
-      title = "Figure 1b: Ratio of number of facility reported ANC1 to penta1, and penta1 to penta3 compared to expected ratios",
+      title = "Ratio of number of facility reported ANC1 to penta1, and penta1 to penta3 compared to expected ratios",
       x = NULL,
       y = NULL
     ) +

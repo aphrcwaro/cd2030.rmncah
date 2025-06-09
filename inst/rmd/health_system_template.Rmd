@@ -1,0 +1,145 @@
+---
+title: "Health System Performance for `r params$country` --- Countdown Analysis"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    highlight: kate
+  officedown::rdocx_document:
+    reference_docx: report-template.docx
+  pdf_document:
+    toc: false
+    latex_engine: lualatex
+params:
+  cache: NULL
+  country: NULL
+  adminlevel_1: NULL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  include = TRUE,
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  fig.width=7, 
+  fig.height=5, 
+  dpi=1200
+)
+
+library(cd2030.rmncah)
+library(dplyr)
+library(purrr)
+library(reactable)
+library(officedown)
+library(officer)
+
+cache <- params$cache
+data <- cache$adjusted_data
+```
+
+## Health system performance assessment: indicators
+
+### Background
+
+Subnational analyses of health system inputs and service outputs are critical: districts and regions are key units of the health systems and their service delivery. This includes assessment of system inputs (health workforce, infrastructure) and outputs (use, coverage).
+
+### National Health System Indicators
+
+```{r}
+national_metrics <- calculate_health_system_metrics(data, 'national')
+plot_national_health_metric(national_metrics, 'density') +
+  cd_report_theme()
+```
+
+### Subnational Health System Indicators
+
+```{r}
+subnational_metrics <- calculate_health_system_metrics(data, 'adminlevel_1')
+
+plot(subnational_metrics, indicator = 'ratio_fac_pop',
+        national_score = national_metrics$ratio_fac_pop,
+        target = 2) +
+  cd_report_theme()
+```
+
+```{r}
+plot(subnational_metrics, indicator = 'ratio_hos_pop',
+        national_score = national_metrics$ratio_hos_pop,
+        target = 2) +
+  cd_report_theme()
+```
+
+```{r}
+plot(subnational_metrics, indicator = 'ratio_hstaff_pop',
+        national_score = national_metrics$ratio_hstaff_pop,
+        target = 23) +
+  cd_report_theme()
+```
+
+```{r}
+plot(subnational_metrics, indicator = 'ratio_bed_pop',
+        national_score = national_metrics$ratio_bed_pop,
+        target = 25) +
+  cd_report_theme()
+```
+
+#### 📝 Notes 
+
+::: {custom-style="Style1"}
+
+---
+
+What can be said about the data quality?
+
+Describe comparison with health system data in WHO database and other countries? Does this suggest under- or overreporting?
+
+Is the pattern by region/province as expected?
+
+Any reasons for unusual data?
+
+---
+
+:::
+
+## Health System Comparisons
+
+```{r}
+comparison <- cache$calculate_health_system_comparison()
+plot(comparison, indicator = 'cov_instdeliveries_hstaff',
+        denominator = cache$maternal_denominator) +
+  cd_report_theme()
+```
+
+```{r}
+plot(comparison, indicator = 'ratio_opd_u5_hstaff') +
+  cd_report_theme()
+```
+
+```{r}
+plot(comparison, indicator = 'ratio_opd_u5_hos') +
+  cd_report_theme()
+```
+
+```{r}
+plot(comparison, indicator = 'ratio_ipd_u5_bed') +
+  cd_report_theme()
+```
+
+
+#### 📝 Notes 
+
+::: {custom-style="Style1"}
+
+---
+
+The interpretation should focus on whether the obtained picture has validity. This may be posited if it confirms some expectations such as more developed regions doing better
+
+Describe poor and good performing regions/provinces.
+
+---
+
+:::

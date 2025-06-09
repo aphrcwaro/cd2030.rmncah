@@ -315,6 +315,78 @@ CacheConnection <- R6::R6Class(
       )
     },
 
+    #' @description Creates mortality summary
+    create_mortality_summary = function() {
+      if (!self$check_mortality_params) {
+        cd_abort(c('x' = 'One or more parameters is missing for {.fun create_mortality_summary}'))
+      }
+      create_mortality_summary(self$adjusted_data)
+    },
+
+    #' @description creates mortality ratios from the mortality summary
+    #' @param .data A `cd_mortality_summary` object
+    create_mortality_ratios = function(.data) {
+      if (!self$check_mortality_params) {
+        cd_abort(c('x' = 'One or more parameters is missing for {.fun create_mortality_summary}'))
+      }
+      check_cd_class(.data, expected_class = 'cd_mortality_summary')
+      .data %>%
+        create_mortality_ratios(self$un_mortality_estimates)
+    },
+
+    #' @description generates the mean institutional livebirths
+    lbr_mean = function() {
+      indicator <- paste0('cov_instlivebirths_', self$maternal_denominator)
+      self$calculate_indicator_coverage('national') %>%
+        select(year, all_of(indicator)) %>%
+        summarise(lbr_mean = mean(!!sym(indicator))) %>%
+        pull(lbr_mean)
+    },
+
+    #' @description creates mortality ratios completeness summary
+    #' @param .data A `cd_mortality_ratio` object
+    #' @param indicator The indicator to generate the summary
+    summarise_completeness_ratio = function(.data, indicator) {
+      check_cd_class(.data, expected_class = 'cd_mortality_ratio')
+      .data %>%
+        summarise_completeness_ratio(indicator, self$lbr_mean())
+    },
+
+    #' @description Return the appropriate summary based on the indicator type to plot.
+    #' @param .data A `cd_mortality_summary` object.
+    #' @param indicator Character. Indicator name.
+    #' @param map_years the years to include in a map
+    #' @return Character. Either the maternal or vaccination denominator.
+    filter_mortality_summary = function(.data, indicator, map_years = NULL) {
+      check_cd_class(.data, expected_class = 'cd_mortality_summary')
+      years <- if (is.null(map_years)) self$mapping_years else map_years
+      .data %>%
+        filter_mortality_summary(self$country_iso, indicator, years, self$map_mapping)
+    },
+
+    #' @description Computed service utilization for various indicators.
+    #' @param admin_level The level to aggregate data at.
+    compute_service_utilization = function(admin_level) {
+      if (is.null(self$adjusted_data)) {
+        cd_abort(c('x' = 'Adjusted data is required'))
+      }
+      check_required(admin_level)
+
+      self$adjusted_data %>%
+        compute_service_utilization(admin_level)
+    },
+
+    #' @description Return the appropriate summary based on the indicator type to plot.
+    #' @param .data A `cd_service_utilization` object.
+    #' @param indicator Character. Indicator name.
+    #' @param map_years the years to include in a map
+    filter_service_utilization = function(.data, indicator, map_years = NULL) {
+      check_cd_class(.data, expected_class = 'cd_service_utilization')
+      years <- if (is.null(map_years)) self$mapping_years else map_years
+      .data %>%
+        filter_service_utilization(self$country_iso, indicator, years, self$map_mapping)
+    },
+
     #' @description Return the appropriate denominator based on the indicator type.
     #' @param indicator Character. Indicator name.
     #' @return Character. Either the maternal or vaccination denominator.
@@ -700,6 +772,12 @@ CacheConnection <- R6::R6Class(
         !is.null(self$wuenic_estimates) &&
         !is.null(self$national_survey) &&
         !is.null(self$regional_survey)
+    },
+
+    #' @field check_mortality_params checks if inputs for mortality calculations are available
+    check_mortality_params = function() {
+      !is.null(self$adjusted_data) &&
+        !is.null(self$un_mortality_estimates)
     }
   ),
   private = list(

@@ -158,7 +158,7 @@ plot_comparison_anc1_penta1 <- function(.data) {
     plot_comparison(
       x_var = "anc1",
       y_var = "penta1",
-      title = "Figure 3a1 - Comparison of numbers of ANC1 and Penta1 by year",
+      title = "Comparison of numbers of ANC1 and Penta1 by year",
       x_label = "ANC1",
       y_label = "Penta1"
     )
@@ -176,7 +176,7 @@ plot_comparison_penta1_penta3 <- function(.data) {
     plot_comparison(
       x_var = "penta1",
       y_var = "penta3",
-      title = "Figure 3b1 - Comparison of numbers of Penta1 and Penta3 by year",
+      title = "Comparison of numbers of Penta1 and Penta3 by year",
       x_label = "Penta1",
       y_label = "Penta3"
     )
@@ -194,7 +194,7 @@ plot_comparison_opv1_opv3 <- function(.data) {
     plot_comparison(
       x_var = "opv1",
       y_var = "opv3",
-      title = "Figure 3b2 - Comparison of numbers of opv1 and opv3 by year",
+      title = "Comparison of numbers of opv1 and opv3 by year",
       x_label = "OPV1",
       y_label = "OPV3"
     )

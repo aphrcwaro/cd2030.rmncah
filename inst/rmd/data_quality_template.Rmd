@@ -135,7 +135,7 @@ Interpret the data on the percent of districts that have ANC1 to penta1 ratios w
 
 \newpage
 
-## ANC1/Penta1 and Penta/Penta3 Ratios
+### ANC1/Penta1 and Penta/Penta3 Ratios
 
 ```{r}
 plot(calculate_ratios_summary(data, region = adminlevel_1)) +

@@ -1,66 +1,30 @@
 adjustmentChangesUI <- function(id, i18n) {
   ns <- NS(id)
 
-  tagList(
-    contentHeader(ns('adjustment_changes'), i18n$t("title_adjustment_changes"), i18n = i18n),
-    contentBody(
-      tabBox(
-        title = i18n$t("title_visualize_changes"),
-        id = 'visualize_changes',
-        width = 12,
+  contentDashboard(
+    dashboardId = ns('adjustment'),
+    dashboardTitle = i18n$t('title_adjustment_changes'),
+    i18n = i18n,
 
-        tabPanel(
-          title = i18n$t("opt_live_births"),
-          fluidRow(
-            column(12, plotCustomOutput(ns('live_births'))),
-            column(3, downloadButtonUI(ns('live_births_plot')))
-          )
+    include_report = TRUE,
+
+    tabBox(
+      title = i18n$t('title_visualize_changes'),
+      width = 12,
+
+      tabPanel(title = i18n$t("opt_live_births"), downloadCoverageUI(ns('live_births'))),
+      tabPanel(title = i18n$t("opt_penta1"), downloadCoverageUI(ns('penta1'))),
+      tabPanel(title = i18n$t("opt_anc1"), downloadCoverageUI(ns('anc1'))),
+      tabPanel(title = i18n$t("opt_ideliv"), downloadCoverageUI(ns('ideliv'))),
+      tabPanel(title = i18n$t("opt_opd_under5"), downloadCoverageUI(ns('opd_total'))),
+      tabPanel(
+        title = i18n$t("opt_custom_check"),
+        fluidRow(
+          column(3, selectizeInput(ns('indicator'),
+                                   label = i18n$t("title_indicator"),
+                                   choices = c('Select Indicator' = '', get_all_indicators())))
         ),
-
-        tabPanel(
-          title = i18n$t("opt_penta1"),
-          fluidRow(
-            column(12, plotCustomOutput(ns('penta1'))),
-            column(3, downloadButtonUI(ns('penta1_plot')))
-          )
-        ),
-
-        tabPanel(
-          title = i18n$t("opt_anc1"),
-          fluidRow(
-            column(12, plotCustomOutput(ns('anc1'))),
-            column(3, downloadButtonUI(ns('anc1_plot')))
-          )
-        ),
-
-        tabPanel(
-          title = i18n$t("opt_ideliv"),
-          fluidRow(
-            column(12, plotCustomOutput(ns('ideliv'))),
-            column(3, downloadButtonUI(ns('ideliv_plot')))
-          )
-        ),
-
-        tabPanel(
-          title = i18n$t("opt_opd_under5"),
-          fluidRow(
-            column(12, plotCustomOutput(ns('opd_total'))),
-            column(3, downloadButtonUI(ns('opd_total_plot')))
-          )
-        ),
-
-        tabPanel(
-          title = i18n$t("opt_custom_check"),
-          fluidRow(
-            column(3, selectizeInput(ns('indicator'),
-                                     label = i18n$t("title_indicator"),
-                                     choices = c('Select Indicator' = '', get_all_indicators())))
-          ),
-          fluidRow(
-            column(12, plotCustomOutput(ns('custom_check'))),
-            column(3, downloadButtonUI(ns('custom_check_plot')))
-          )
-        )
+        downloadCoverageUI(ns('custom'))
       )
     )
   )
@@ -94,121 +58,67 @@ adjustmentChangesServer <- function(id, cache, i18n) {
           generate_adjustment_values(adjustment = 'custom', k_factors = k_factors())
       })
 
-      output$live_births <- renderCustomPlot({
-        req(adjustments())
-        plot(adjustments(),
-             indicator = 'instlivebirths',
-             title = i18n$t("figure_live_births_outlier"))
-      })
-
-      output$penta1 <- renderCustomPlot({
-        req(adjustments())
-        plot(adjustments(),
-             indicator = 'penta1',
-             title = i18n$t("figure_penta_outlier"))
-      })
-
-      output$anc1 <- renderCustomPlot({
-        req(adjustments())
-        plot(adjustments(),
-             indicator = 'anc1',
-             title = i18n$t("figure_anc1_outlier"))
-      })
-
-      output$ideliv <- renderCustomPlot({
-        req(adjustments())
-        plot(adjustments(),
-             indicator = 'instdeliveries',
-             title = i18n$t("figure_ideliv_outlier"))
-      })
-
-      output$opd_total <- renderCustomPlot({
-        req(adjustments())
-        plot(adjustments(),
-             indicator = 'opd_total',
-             title = i18n$t("figure_opd_total_outlier"))
-      })
-
-      output$custom_check <- renderCustomPlot({
-        req(adjustments(), input$indicator)
-
-        plot(adjustments(),
-             indicator = input$indicator)
-      })
-
-      downloadPlot(
-        id = 'live_births_plot',
-        filename = reactive('live_births_plot'),
-        data = adjustments,
-        i18n = i18n,
-        plot_function = function() {
-          plot(adjustments(),
-               indicator = 'instlivebirths',
-               title = i18n$t("figure_live_births_outlier"))
-        }
+      downloadCoverageServer(
+        id = 'live_births',
+        filename = reactive('live_births'),
+        data_fn = adjustments,
+        indicator = 'instlivebirths',
+        title = i18n$t("figure_live_births_outlier"),
+        sheet_name = reactive(i18n$t("opt_live_births")),
+        i18n = i18n
       )
 
-      downloadPlot(
-        id = 'penta1_plot',
-        filename = reactive('penta1_plot'),
-        data = adjustments,
-        i18n = i18n,
-        plot_function = function() {
-          plot(adjustments(),
-               indicator = 'penta1',
-               title = i18n$t("figure_penta_outlier"))
-        }
+      downloadCoverageServer(
+        id = 'penta1',
+        filename = reactive('penta1'),
+        data_fn = adjustments,
+        indicator = 'penta1',
+        title = i18n$t("figure_penta_outlier"),
+        sheet_name = reactive(i18n$t("opt_penta1")),
+        i18n = i18n
       )
 
-      downloadPlot(
-        id = 'anc1_plot',
-        filename = reactive('anc1_plot'),
-        data = adjustments,
-        i18n = i18n,
-        plot_function = function() {
-          plot(adjustments(),
-               indicator = 'bcg',
-               title = i18n$t("figure_anc1_outlier"))
-        }
+      downloadCoverageServer(
+        id = 'anc1',
+        filename = reactive('anc1'),
+        data_fn = adjustments,
+        indicator = 'anc1',
+        title = i18n$t("figure_anc1_outlier"),
+        sheet_name = reactive(i18n$t("opt_anc1")),
+        i18n = i18n
       )
 
-      downloadPlot(
-        id = 'ideliv_plot',
-        filename = reactive('ideliv_plot'),
-        data = adjustments,
-        i18n = i18n,
-        plot_function = function() {
-          plot(adjustments(),
-               indicator = 'ideliv',
-               title = i18n$t("figure_ideliv_outlier"))
-        }
+      downloadCoverageServer(
+        id = 'ideliv',
+        filename = reactive('ideliv'),
+        data_fn = adjustments,
+        indicator = 'instdeliveries',
+        title = i18n$t("figure_ideliv_outlier"),
+        sheet_name = reactive(i18n$t("opt_ideliv")),
+        i18n = i18n
       )
 
-      downloadPlot(
-        id = 'opd_total_plot',
-        filename = reactive('opd_total_plot'),
-        data = adjustments,
-        i18n = i18n,
-        plot_function = function() {
-          plot(adjustments(),
-               indicator = 'opd_total',
-               title = i18n$t("figure_opd_total_outlier"))
-        }
+      downloadCoverageServer(
+        id = 'opd_total',
+        filename = reactive('opd_total'),
+        data_fn = adjustments,
+        indicator = 'opd_total',
+        title = i18n$t("figure_opd_total_outlier"),
+        sheet_name = reactive(i18n$t("opt_opd_under5")),
+        i18n = i18n
       )
 
-      downloadPlot(
-        id = 'custom_check_plot',
+      downloadCoverageServer(
+        id = 'custom',
         filename = reactive(paste0(input$indicator, '_plot')),
-        data = adjustments,
-        i18n = i18n,
-        plot_function = function() {
-          plot(adjustments(),
-               indicator = input$indicator)
-        }
+        data_fn = adjustments,
+        indicator = input$indicator,
+        sheet_name = reactive(i18n$t("opt_custom_check")),
+        i18n = i18n
       )
 
       contentHeaderServer(
-        'adjustment_changes',
+        'adjustment',
         cache = cache,
         objects = pageObjectsConfig(input),
         md_title = i18n$t("title_adjustment_changes"),

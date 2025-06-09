@@ -87,7 +87,9 @@ from \code{.rds} files.
 
 \item{\code{check_inequality_params}}{checks if inputs for inequality calculations are available}
 
-\item{\code{check_coverage_params}}{checks if inputs for coverage calculations are available
+\item{\code{check_coverage_params}}{checks if inputs for coverage calculations are available}
+
+\item{\code{check_mortality_params}}{checks if inputs for mortality calculations are available
 Update a field (with change tracking)}
 }
 \if{html}{\out{</div>}}
@@ -105,6 +107,13 @@ Update a field (with change tracking)}
 \item \href{#method-CacheConnection-calculate_coverage}{\code{CacheConnection$calculate_coverage()}}
 \item \href{#method-CacheConnection-get_mapping_data}{\code{CacheConnection$get_mapping_data()}}
 \item \href{#method-CacheConnection-calculate_health_system_comparison}{\code{CacheConnection$calculate_health_system_comparison()}}
+\item \href{#method-CacheConnection-create_mortality_summary}{\code{CacheConnection$create_mortality_summary()}}
+\item \href{#method-CacheConnection-create_mortality_ratios}{\code{CacheConnection$create_mortality_ratios()}}
+\item \href{#method-CacheConnection-lbr_mean}{\code{CacheConnection$lbr_mean()}}
+\item \href{#method-CacheConnection-summarise_completeness_ratio}{\code{CacheConnection$summarise_completeness_ratio()}}
+\item \href{#method-CacheConnection-filter_mortality_summary}{\code{CacheConnection$filter_mortality_summary()}}
+\item \href{#method-CacheConnection-compute_service_utilization}{\code{CacheConnection$compute_service_utilization()}}
+\item \href{#method-CacheConnection-filter_service_utilization}{\code{CacheConnection$filter_service_utilization()}}
 \item \href{#method-CacheConnection-get_denominator}{\code{CacheConnection$get_denominator()}}
 \item \href{#method-CacheConnection-reactive}{\code{CacheConnection$reactive()}}
 \item \href{#method-CacheConnection-set_language}{\code{CacheConnection$set_language()}}
@@ -323,6 +332,124 @@ Run coverage calculation using stored model parameters.
 \if{html}{\out{<div class="r">}}\preformatted{CacheConnection$calculate_health_system_comparison()}\if{html}{\out{</div>}}
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-CacheConnection-create_mortality_summary"></a>}}
+\if{latex}{\out{\hypertarget{method-CacheConnection-create_mortality_summary}{}}}
+\subsection{Method \code{create_mortality_summary()}}{
+Creates mortality summary
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CacheConnection$create_mortality_summary()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-CacheConnection-create_mortality_ratios"></a>}}
+\if{latex}{\out{\hypertarget{method-CacheConnection-create_mortality_ratios}{}}}
+\subsection{Method \code{create_mortality_ratios()}}{
+creates mortality ratios from the mortality summary
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CacheConnection$create_mortality_ratios(.data)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{.data}}{A \code{cd_mortality_summary} object}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-CacheConnection-lbr_mean"></a>}}
+\if{latex}{\out{\hypertarget{method-CacheConnection-lbr_mean}{}}}
+\subsection{Method \code{lbr_mean()}}{
+generates the mean institutional livebirths
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CacheConnection$lbr_mean()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-CacheConnection-summarise_completeness_ratio"></a>}}
+\if{latex}{\out{\hypertarget{method-CacheConnection-summarise_completeness_ratio}{}}}
+\subsection{Method \code{summarise_completeness_ratio()}}{
+creates mortality ratios completeness summary
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CacheConnection$summarise_completeness_ratio(.data, indicator)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{.data}}{A \code{cd_mortality_ratio} object}
+
+\item{\code{indicator}}{The indicator to generate the summary}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-CacheConnection-filter_mortality_summary"></a>}}
+\if{latex}{\out{\hypertarget{method-CacheConnection-filter_mortality_summary}{}}}
+\subsection{Method \code{filter_mortality_summary()}}{
+Return the appropriate summary based on the indicator type to plot.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CacheConnection$filter_mortality_summary(.data, indicator, map_years = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{.data}}{A \code{cd_mortality_summary} object.}
+
+\item{\code{indicator}}{Character. Indicator name.}
+
+\item{\code{map_years}}{the years to include in a map}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+Character. Either the maternal or vaccination denominator.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-CacheConnection-compute_service_utilization"></a>}}
+\if{latex}{\out{\hypertarget{method-CacheConnection-compute_service_utilization}{}}}
+\subsection{Method \code{compute_service_utilization()}}{
+Computed service utilization for various indicators.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CacheConnection$compute_service_utilization(admin_level)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{admin_level}}{The level to aggregate data at.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-CacheConnection-filter_service_utilization"></a>}}
+\if{latex}{\out{\hypertarget{method-CacheConnection-filter_service_utilization}{}}}
+\subsection{Method \code{filter_service_utilization()}}{
+Return the appropriate summary based on the indicator type to plot.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CacheConnection$filter_service_utilization(.data, indicator, map_years = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{.data}}{A \code{cd_service_utilization} object.}
+
+\item{\code{indicator}}{Character. Indicator name.}
+
+\item{\code{map_years}}{the years to include in a map}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CacheConnection-get_denominator"></a>}}

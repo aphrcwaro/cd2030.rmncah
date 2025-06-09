@@ -29,7 +29,7 @@ plot.cd_health_system_comparison <- function(x,
       y = 'ad1_ratio_hstaff_pop',
       x_label = 'Institutional delivery coverage rate (%)',
       y_label = "Number of core health workforce per 10,000 population",
-      title = 'Figure 7e1 - Institutional delivery coverage rate (%) by health workforce density by admin level 1',
+      title = 'Institutional delivery coverage rate (%) by health workforce density by admin level 1',
       caption = paste0('Denominator derived from', denominator, 'data')
     ),
     ratio_opd_u5_hstaff = list(
@@ -37,7 +37,7 @@ plot.cd_health_system_comparison <- function(x,
       y = 'ad1_ratio_hstaff_pop',
       x_label = 'Number of under-5 OPD visits per child per year',
       y_label = "Number of core health workforce per 10,000 population",
-      title = 'Figure 7e2 - Under-5 OPD Visits by health workforce density by admin level 1',
+      title = 'Under-5 OPD Visits by health workforce density by admin level 1',
       caption = NULL
     ),
     ratio_opd_u5_hos = list(
@@ -45,7 +45,7 @@ plot.cd_health_system_comparison <- function(x,
       y = 'ad1_ratio_hos_pop',
       x_label = 'Number of under-5 OPD visits per child per year',
       y_label = "Number of Hospitals per 100,000 population",
-      title = 'Figure 7e2 - Under-5 OPD Visits by hospital density by admin level 1',
+      title = 'Under-5 OPD Visits by hospital density by admin level 1',
       caption = NULL
     ),
     ratio_ipd_u5_bed = list(
@@ -53,7 +53,7 @@ plot.cd_health_system_comparison <- function(x,
       y = 'ad1_ratio_bed_pop',
       x_label = 'Number of Under-5 IPD Admission per 100 children per year',
       y_label = "Number of hospital beds per 10,000 population",
-      title = 'Figure 7e2 - Under-5 IPD Admissiong by hospital beds density by admin level 1',
+      title = 'Under-5 IPD Admissiong by hospital beds density by admin level 1',
       caption = NULL
     )
   )

@@ -55,7 +55,7 @@ plot.cd_population_metrics <- function(x, metric = c("population", "births"), ..
       x = "year",
       y_vars = c("un_population", "totpop_dhis2"),
       y_labels = c("UN Population (in 1000)", "DHIS-2 Population Projection (in 1000)"),
-      title = "Fig 2a: Total Population (in thousands), DHIS2 and UN projections",
+      title = "Total Population (in thousands), DHIS2 and UN projections",
       y_axis_title = "Population"
     )
   } else if (metric == "births") {
@@ -64,7 +64,7 @@ plot.cd_population_metrics <- function(x, metric = c("population", "births"), ..
       x = "year",
       y_vars = c("un_births", "totlivebirths_dhis2"),
       y_labels = c("UN Live Births (in 1000)", "DHIS-2 Live Births Projection (in 1000)"),
-      title = "Fig 2b: Total Live Births (in thousands), DHIS2 and UN projections",
+      title = "Total Live Births (in thousands), DHIS2 and UN projections",
       y_axis_title = "Population"
     )
   }

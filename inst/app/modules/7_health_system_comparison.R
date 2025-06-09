@@ -2,15 +2,17 @@ healthSystemComparisonUI <- function(id, i18n) {
   ns <- NS(id)
 
   contentDashboard(
-    dashboardId = ns('health_sys_national'),
+    dashboardId = ns('health_system'),
     dashboardTitle = i18n$t('title_health_system_comparison'),
     i18n = i18n,
+
+    include_report = TRUE,
 
     tabBox(
       title = i18n$t('title_health_system_comparison'),
       width = 12,
 
-      tabPanel(title = i18n$t("opt_cov_instdeliveries_bed"), downloadCoverageUI(ns('cov_instdeliveries_bed'))),
+      tabPanel(title = i18n$t("opt_cov_instdeliveries_hstaff"), downloadCoverageUI(ns('cov_instdeliveries_hstaff'))),
       tabPanel(title = i18n$t("opt_ratio_opd_u5_hstaff"), downloadCoverageUI(ns('ratio_opd_u5_hstaff'))),
       tabPanel(title = i18n$t("opt_ratio_opd_u5_hos"), downloadCoverageUI(ns('ratio_opd_u5_hos'))),
       tabPanel(title = i18n$t("opt_ratio_ipd_u5_bed"), downloadCoverageUI(ns('ratio_ipd_u5_bed')))
@@ -31,8 +33,8 @@ healthSystemComparisonServer <- function(id, cache, i18n) {
       })
 
       downloadCoverageServer(
-        id = 'cov_instdeliveries_bed',
-        filename = reactive(paste0('cov_instdeliveries_bed_', cache()$maternal_denominator)),
+        id = 'cov_instdeliveries_hstaff',
+        filename = reactive(paste0('cov_instdeliveries_hstaff_', cache()$maternal_denominator)),
         data_fn = comparison,
         indicator = 'cov_instdeliveries_hstaff',
         denominator = cache()$maternal_denominator,
@@ -64,6 +66,15 @@ healthSystemComparisonServer <- function(id, cache, i18n) {
         data_fn = comparison,
         indicator = 'ratio_ipd_u5_bed',
         sheet_name = reactive('Sheet 1'),
+        i18n = i18n
+      )
+
+      contentHeaderServer(
+        'health_system',
+        cache = cache,
+        objects = pageObjectsConfig(input),
+        md_title = i18n$t("title_national_coverage"),
+        md_file = '2_reporting_rate.md',
         i18n = i18n
       )
     }

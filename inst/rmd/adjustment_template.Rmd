@@ -1,0 +1,91 @@
+---
+title: "Data Adjustment for `r params$country` --- Countdown Analysis"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    highlight: kate
+  officedown::rdocx_document:
+    reference_docx: report-template.docx
+  pdf_document:
+    toc: false
+    latex_engine: lualatex
+params:
+  cache: NULL
+  country: NULL
+  adminlevel_1: NULL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  include = TRUE,
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  fig.width=7, 
+  fig.height=5, 
+  dpi=1200
+)
+
+library(cd2030.rmncah)
+library(dplyr)
+library(purrr)
+library(reactable)
+library(officedown)
+library(officer)
+
+cache <- params$cache
+
+data <- cache$countdown_data
+k_factors <- cache$k_factors
+```
+
+## Health Facility Data Adjustments {-}
+
+### Background
+
+Completeness of reporting affects analysis, especially if it is low or varies between 
+years. Extreme outliers can have a large impact, especially on subnational numbers.
+Several steps are necessary to obtain a clean data set for “endline” analysis, 
+including adjusting for incomplete reporting and correcting for extreme outliers. 
+These graphs show the impact on the numbers.
+
+```{r}
+adjustments <- data %>%
+  generate_adjustment_values(adjustment = 'custom', k_factors = !!k_factors)
+```
+
+### Health facility data adjustment: Numerators - reported live births
+
+```{r}
+plot(adjustments,
+     indicator = 'instlivebirths',
+     title = 'Comparison of number of live births before and after adjustments for completness and outliers') +
+  cd_report_theme()
+```
+
+### Health facility data adjustment: Numerators - reported Penta 1 doses
+
+```{r}
+plot(adjustments,
+     indicator = 'penta1',
+     title = 'Comparison of number of penta1 vaccination before and after adjustments for completness and outliers') +
+  cd_report_theme()
+```
+
+#### 📝 Notes 
+
+::: {custom-style="Style1"}
+
+---
+
+Consider the effect of the adjustment on live births in health facilities, and mention the difference in the number, as well as the percent increase in 2023; highlight the year with the greatest impact if there is one; interpret if the impact of the adjustment on coverage rates is is large or small
+
+Make the same description and interpretations for penta1 vaccinations 
+
+---
+
+:::

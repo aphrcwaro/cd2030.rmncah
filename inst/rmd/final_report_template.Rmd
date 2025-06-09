@@ -208,7 +208,7 @@ adjustments <- data %>%
 ```{r}
 plot(adjustments,
      indicator = 'ideliv',
-     title = 'Figure 1c: Comparison of number of live births before and after adjustments for completness and outliers') +
+     title = 'Comparison of number of live births before and after adjustments for completness and outliers') +
   cd_report_theme()
 ```
 
@@ -231,7 +231,7 @@ print_notes(cache, 'adjustment_changes', 'Live Births')
 ```{r}
 plot(adjustments,
      indicator = 'penta1',
-     title = 'Figure 1d: Comparison of number of penta1 vaccination before and after adjustments for completness and outliers') +
+     title = 'Comparison of number of penta1 vaccination before and after adjustments for completness and outliers') +
   cd_report_theme()
 ```
 
@@ -254,7 +254,7 @@ print_notes(cache, 'adjustment_changes', 'Penta1')
 ```{r}
 plot(adjustments,
      indicator = 'bcg',
-     title = 'Figure 1e: Comparison of number of BCG vaccination before and after adjustments for completness and outliers') +
+     title = 'Comparison of number of BCG vaccination before and after adjustments for completness and outliers') +
   cd_report_theme()
 ```
 
@@ -277,7 +277,7 @@ print_notes(cache, 'adjustment_changes', 'BCG')
 ```{r}
 plot(adjustments,
      indicator = 'measles1',
-     title = 'Figure 1f: Comparison of number of measles vaccination before and after adjustments for completness and outliers') +
+     title = 'Comparison of number of measles vaccination before and after adjustments for completness and outliers') +
   cd_report_theme()
 ```
 
@@ -811,7 +811,7 @@ or low education and women with higher education.
 
 ### Pentavalent 3 coverage by household wealth status
 
-```{r, fig.cap='Fig 4g: Pentavalent 3 coverage by wealth, recent surveys'}
+```{r, fig.cap='Pentavalent 3 coverage by wealth, recent surveys'}
 equiplot_wealth(wiq, 'penta3') +
   cd_report_theme()
 ```
@@ -833,7 +833,7 @@ print_notes(cache, 'equity_assessment', 'Penta 3', list(type = 'wiq'))
 
 ### Pentavalent 3 coverage by education of mother
 
-```{r, fig.cap='Fig 4h: Penta3 coverage by level of education of the mother, recent surveys'}
+```{r, fig.cap='Penta3 coverage by level of education of the mother, recent surveys'}
 equiplot_education(meduc, 'penta3') +
   cd_report_theme()
 ```
@@ -854,7 +854,7 @@ print_notes(cache, 'equity_assessment', 'Penta 3', list(type = 'meduc'))
 
 ### Pentavalent 3 coverage by place of residence
 
-```{r, fig.cap='Fig 4g: Penta3 coverage by place of residence, recent surveys'}
+```{r, fig.cap='Penta3 coverage by place of residence, recent surveys'}
 equiplot_area(area, 'penta3') +
   cd_report_theme()
 ```
@@ -875,7 +875,7 @@ print_notes(cache, 'equity_assessment', 'Penta 3', list(type = 'area'))
 
 ### Measles 1 coverage by household wealth status
 
-```{r, fig.cap='Fig 4g: Measles 1 coverage by wealth, recent surveys'}
+```{r, fig.cap='Measles 1 coverage by wealth, recent surveys'}
 equiplot_wealth(wiq, 'measles1') +
   cd_report_theme()
 ```
@@ -897,7 +897,7 @@ print_notes(cache, 'equity_assessment', 'Measles 1', list(type = 'wiq'))
 
 ### Measles 1 coverage by education of mothers
 
-```{r, fig.cap='Fig 4h: Measles 1coverage by level of education of the mother, recent surveys'}
+```{r, fig.cap='Measles 1coverage by level of education of the mother, recent surveys'}
 equiplot_education(meduc, 'measles1') +
   cd_report_theme()
 ```
@@ -918,7 +918,7 @@ print_notes(cache, 'equity_assessment', 'Measles 1', list(type = 'meduc'))
 
 ### Measles 1 coverage by place of residence
 
-```{r, fig.cap='Fig 4g: Measles 1 coverage by place of residence, recent surveys'}
+```{r, fig.cap='Measles 1 coverage by place of residence, recent surveys'}
 equiplot_area(area, 'measles1') +
   cd_report_theme()
 ```

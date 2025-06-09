@@ -20,6 +20,7 @@ reference:
       - load_wuenic_data
       - load_survey_data
       - load_equity_data
+      - load_fpet_data
       - save_data
       - save_dhis2_excel
       - save_dhis2_master_data
@@ -131,8 +132,10 @@ reference:
     contents:
     - create_mortality_summary
     - create_mortality_ratios
+    - filter_mortality_summary
     - summarise_completeness_ratio
-    - plot.cd_mortality_rate
+    - plot.cd_mortality_summary
+    - plot.cd_mortality_summary_filtered
     - plot.cd_mortality_ratio_summarised
 
   - title: "Calculate Health Utilization Metrics"
@@ -140,8 +143,11 @@ reference:
       To Calculate National and Sub-national metric of how services are Utilize
     contents:
     - compute_service_utilization
+    - filter_service_utilization
+    - filter_service_utilization_map
     - get_excel_version
-    - plot.cd_service_utilization
+    - plot.cd_service_utilization_map
+    - plot.cd_service_utilization_filtered
 
   - title: "Calculate Health System Metrics"
     contents:
