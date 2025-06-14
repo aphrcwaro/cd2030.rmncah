@@ -98,8 +98,9 @@ removeYearsServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'remove_years',
         cache = cache,
-        md_title = i18n$t("btn_remove_years"),
-        md_file = '2_reporting_rate.md'
+        path = 'numerator-adjustments',
+        section = 'sec-remove-years',
+        i18n = i18n
       )
     }
   )

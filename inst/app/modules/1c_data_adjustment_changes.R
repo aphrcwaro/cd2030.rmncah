@@ -120,9 +120,8 @@ adjustmentChangesServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'adjustment',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_adjustment_changes"),
-        md_file = '2_reporting_rate.md',
+        path = 'numerator-adjustments',
+        section = 'sec-dqa-adjust-outputs',
         i18n = i18n
       )
     }

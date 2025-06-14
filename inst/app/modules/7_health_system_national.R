@@ -56,6 +56,13 @@ healthSystemNationalServer <- function(id, cache, i18n) {
         },
         i18n = i18n
       )
+
+      contentHeaderServer(
+        'health_sys_national',
+        cache = cache,
+        path = 'health-systems-analyses',
+        i18n = i18n
+      )
     }
   )
 }

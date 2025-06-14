@@ -147,8 +147,8 @@ dhis2BoxServer <- function(id, i18n) {
 
       helpButtonServer(
         id = 'dhis2_download',
-        title = i18n$t("title_dhis2_download"),
-        md_file = 'load_data_dhis2_download.md'
+        path = 'downloading-data',
+        cache = cache
       )
 
       return(cache)

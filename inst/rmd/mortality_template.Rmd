@@ -54,7 +54,7 @@ plot(mortality_summary, indicator = 'mmr_inst') +
 
 ```{r}
 min_year <- min(mortality_summary$year)
-max_year <- max(mortality_summary$year)
+max_year <- robust_max(mortality_summary$year)
 
 years <- if (is.null(cache$mapping_years)) c(min_year, max_year) else cache$mapping_years
 mmr_plot <- mortality_summary %>% 

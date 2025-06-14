@@ -97,17 +97,16 @@ calculateRatiosServer <- function(id, cache, i18n) {
         filename = reactive('ratio_plot'),
         data = ratio_summary,
         i18n = i18n,
-        plot_function = function() {
-          plot(ratio_summary())
+        plot_function = function(data) {
+          plot(data)
         }
       )
 
       contentHeaderServer(
         'ratios',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_ratios"),
-        md_file = '2_calculate_ratios.md',
+        path = 'numerator-assessment',
+        section = 'sec-dqa-ratios',
         i18n = i18n
       )
     }

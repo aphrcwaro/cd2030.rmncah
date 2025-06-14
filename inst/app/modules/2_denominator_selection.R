@@ -141,9 +141,8 @@ denominatorSelectionServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'denominator_selection',
         cache = cache,
-        object = pageObjectsConfig(input),
-        md_title = i18n$t("title_denominator_selection"),
-        md_file = '2_reporting_rate.md',
+        path = 'denominator-assessment',
+        section = 'sec-denominator-selection',
         i18n = i18n
       )
     }

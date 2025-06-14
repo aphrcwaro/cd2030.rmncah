@@ -33,7 +33,7 @@
 #' @export
 calculate_threshold <- function(.data,
                                 denominator = c('dhis2', 'anc1', 'penta1', 'penta1derived'),
-                                indicator = c('maternal', 'vaccine')) {
+                                indicator = c('anc4', 'instdeliveries', 'vaccine')) {
   check_cd_indicator_coverage(.data)
   indicator <- arg_match(indicator)
   denominator <- arg_match(denominator)
@@ -43,16 +43,23 @@ calculate_threshold <- function(.data,
 
   admin_level_cols <- get_admin_columns(admin_level, region)
 
-  indicators <- if (indicator == "vaccine") {
-    "penta3|measles1|bcg"
-  } else {
-    "anc4|instdeliveries"
-  }
+  indicators <- switch(
+    indicator,
+    vaccine = 'penta3|measles1|bcg',
+    indicator
+  )
+
+  coverage <- switch (
+    indicator,
+    vaccine = 90,
+    anc4 = 70,
+    instdeliveries = 80
+  )
 
   threshold <- .data %>%
     select(year, any_of(admin_level_cols), matches(paste0('cov_(', indicators, ')_', denominator, '$'))) %>%
     summarise(
-      across(starts_with('cov_'), ~ mean(.x >= 90, na.rm = TRUE) * 100),
+      across(starts_with('cov_'), ~ mean(.x >= coverage, na.rm = TRUE) * 100),
       .by = year
     )
 
@@ -61,7 +68,8 @@ calculate_threshold <- function(.data,
     class = "cd_threshold",
     admin_level = admin_level,
     indicator = indicator,
-    region = region
+    region = region,
+    coverage = coverage
   )
 }
 

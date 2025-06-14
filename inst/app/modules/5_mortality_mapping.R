@@ -59,6 +59,13 @@ mortalityMappingServer <- function(id, cache, i18n) {
         i18n = i18n,
         sheet_name = reactive(i18n$t('opt_sbr_inst'))
       )
+
+      contentHeaderServer(
+        'mortality',
+        cache = cache,
+        path = 'maternal-mortality',
+        i18n = i18n
+      )
     }
   )
 }

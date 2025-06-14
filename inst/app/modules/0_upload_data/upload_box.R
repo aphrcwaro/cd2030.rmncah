@@ -95,8 +95,8 @@ uploadBoxServer <- function(id, i18n) {
 
       helpButtonServer(
         id = 'upload_data',
-        title = i18n$t('title_upload_data'),
-        md_file = 'load_data_upload_files.md'
+        path = 'loading-data',
+        cache = cache
       )
 
       return(cache)

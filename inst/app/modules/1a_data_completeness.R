@@ -181,7 +181,7 @@ dataCompletenessServer <- function(id, cache, i18n) {
         filename = reactive('checks_reporting_rate'),
         data = data,
         i18n = i18n,
-        excel_write_function = function(wb) {
+        excel_write_function = function(wb, data) {
           completeness_rate <- data() %>% calculate_completeness_summary()
           district_completeness_rate <- data() %>% calculate_district_completeness_summary()
 
@@ -204,13 +204,11 @@ dataCompletenessServer <- function(id, cache, i18n) {
         filename = reactive(paste0('checks_incomplete_districts_', input$indicator, '_', input$year)),
         data = incomplete_district,
         i18n = i18n,
-        excel_write_function = function(wb) {
-          district_incompletes_sum <- incomplete_district()
-
+        excel_write_function = function(wb, data) {
           sheet_name_1 <- i18n$t('title_districts_with_missing_data_1')
           addWorksheet(wb, sheet_name_1)
           writeData(wb, sheet = sheet_name_1, x = str_glue(i18n$t('title_districts_with_missing_indicator')), startCol = 1, startRow = 1)
-          writeData(wb, sheet = sheet_name_1, x = district_incompletes_sum, startCol = 1, startRow = 3)
+          writeData(wb, sheet = sheet_name_1, x = data, startCol = 1, startRow = 3)
         },
         label = 'btn_download_districts'
       )
@@ -218,9 +216,8 @@ dataCompletenessServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'data_completeness',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t('title_completeness'),
-        md_file = 'quality_checks_data_completeness.md',
+        path = 'numerator-assessment',
+        section = 'sec-dqa-data-completeness',
         i18n = i18n
       )
     }

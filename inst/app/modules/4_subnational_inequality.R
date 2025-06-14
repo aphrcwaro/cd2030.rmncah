@@ -135,9 +135,7 @@ subnationalInequalityServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'subnational_inequality',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_subnational_inequality"),
-        md_file = '2_reporting_rate.md',
+        path = 'subnational-inequality',
         i18n = i18n
       )
     }

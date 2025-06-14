@@ -308,7 +308,7 @@ plot_line_graph <- function(.data, x, y_vars, y_labels, title, y_axis_title, hli
   }
 
   # Determine max and min for dynamic scaling, accounting for negatives
-  y_max <- max(sapply(y_vars, function(var) max(.data[[var]], na.rm = TRUE)), na.rm = TRUE)
+  y_max <- robust_max(sapply(y_vars, function(var) robust_max(.data[[var]])))
   y_min <- min(sapply(y_vars, function(var) min(.data[[var]], na.rm = TRUE)), na.rm = TRUE)
 
   # Set y_min to 0 if all values are non-negative

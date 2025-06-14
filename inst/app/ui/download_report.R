@@ -49,8 +49,8 @@ downloadReportServer <- function(id, cache, i18n) {
               title = i18n$t('title_download_options'),
               selectizeInput(
                 ns('type'), i18n$t('title_report_type'),
-                choices = set_names(c('final_report', 'one_pager', 'admin_level_1_one_pager'),
-                                    c(i18n$t('opt_full_report'), i18n$t('opt_one_pager'), i18n$t('opt_admin_level_one_pager')))
+                choices = set_names(c('synthesis_report', 'admin_level_1_one_pager'),
+                                    c(i18n$t('opt_synthesis_report'), i18n$t('opt_admin_level_one_pager')))
               ),
 
               conditionalPanel(

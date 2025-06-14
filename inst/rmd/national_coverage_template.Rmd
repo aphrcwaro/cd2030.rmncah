@@ -229,8 +229,6 @@ indicator_coverage %>%
 #### Vaccines
 
 ```{r}
-indicator_coverage <- cache$calculate_indicator_coverage('adminlevel_1')
-
 indicator_coverage %>%
   calculate_threshold(indicator = 'vaccine', denominator = cache$denominator) %>% 
   plot()

@@ -118,7 +118,7 @@ get_all_indicators <- function() sort(list_c(get_indicator_groups()))
 get_indicator_without_opd_ipd <- function()  {
   groups <- get_indicator_groups()
   indicators <- sort(list_c(groups[!names(groups) %in% c("ipd", "opd")]))
-  indicators[!indicators %in% c('sba', "total_stillbirth", "stillbirth_f", "stillbirth_m", "maternal_deaths", "neonatal_deaths")]
+  indicators[!indicators %in% c('sba', "total_stillbirth", "stillbirth_f", "stillbirth_m", "maternal_deaths", "neonatal_deaths", 'under5_deaths', 'total_deaths')]
 }
 
 #' @title Get Named Indicator Vector

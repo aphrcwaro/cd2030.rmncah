@@ -85,7 +85,7 @@ Make your overall conclusion about the quality of the DHIS2 projection, especial
 :::
 
 
-## 4. Selection of the best denominator {-}
+## Selection of the best denominator {-}
 
 ### Background
 

@@ -9,19 +9,36 @@ helpButtonUI <- function(id, name) {
   )
 }
 
-helpButtonServer <- function(id, title, size = 'l', md_file) {
+helpButtonServer <- function(id, path, section = NULL, cache) {
+  stopifnot(is.reactive(cache))
+
   moduleServer(
     id = id,
     module = function(input, output, session) {
 
       observeEvent(input$help, {
-        showModal(modalDialog(
-          title = tags$div(class = "text-info", title),
-          size = size,
-          div(class = "modal-rmd-content", includeMarkdown(file.path('help', md_file))),
-          easyClose = TRUE,
-          fade = FALSE
-        ))
+        req(cache(), input$help)
+
+        lang_code <- switch(
+          cache()$language,
+          en = '',
+          fr = 'fr',
+          pt = 'pt'
+        )
+
+        # Construct the URL concisely
+        url <- paste0(
+          'https://aphrcwaro.github.io/rmncah_guide/',
+          ifelse(lang_code == '', '', paste0(lang_code, '/')),
+          'pages/',
+          path,
+          ifelse(lang_code == '', '', paste0('.', lang_code)),
+          '.html'
+        )
+        if (!is.null(section)) {
+          url <- paste0(url, '#', section)
+        }
+        browseURL(url)
       })
     }
   )

@@ -16,7 +16,8 @@ subnationalTargetUI <- function(id, i18n) {
       title = i18n$t('title_global_coverage'),
       width = 12,
 
-      tabPanel(title = i18n$t("opt_maternal_coverage"), downloadCoverageUI(ns('maternal'))),
+      tabPanel(title = i18n$t("opt_anc4"), downloadCoverageUI(ns('anc4'))),
+      tabPanel(title = i18n$t("opt_ideliv"), downloadCoverageUI(ns('ideliv'))),
       tabPanel(title = i18n$t("opt_vaccine_coverage"), downloadCoverageUI(ns('vaccine')))
     ),
 
@@ -50,10 +51,16 @@ subnationalTargetServer <- function(id, cache, i18n) {
         cache()$calculate_indicator_coverage('adminlevel_1', region())
       })
 
-      matternal_threshold <- reactive({
+      anc4_threshold <- reactive({
         req(indicator_coverage(), cache()$maternal_denominator)
         indicator_coverage() %>%
           calculate_threshold(indicator = 'maternal', denominator = cache()$maternal_denominator)
+      })
+
+      ideliv_threshold <- reactive({
+        req(indicator_coverage(), cache()$maternal_denominator)
+        indicator_coverage() %>%
+          calculate_threshold(indicator = 'instdeliveries', denominator = cache()$maternal_denominator)
       })
 
       vaccine_threshold <- reactive({
@@ -63,18 +70,26 @@ subnationalTargetServer <- function(id, cache, i18n) {
       })
 
       downloadCoverageServer(
-        id = 'vaccine',
-        filename = reactive(paste0('vaccine_global_target_', cache()$denominator)),
-        data_fn = vaccine_threshold,
-        sheet_name = reactive(i18n$t("opt_vaccine_coverage")),
+        id = 'anc4',
+        filename = reactive(paste0('anc4_target_', cache()$maternal_denominator)),
+        data_fn = anc4_threshold,
+        sheet_name = reactive(i18n$t("opt_anc4")),
         i18n = i18n
       )
 
       downloadCoverageServer(
-        id = 'maternal',
-        filename = reactive(paste0('maternal_global_target_', cache()$maternal_denominator)),
-        data_fn = matternal_threshold,
+        id = 'ideliv',
+        filename = reactive(paste0('ideliv_target_', cache()$maternal_denominator)),
+        data_fn = ideliv_threshold,
         sheet_name = reactive(i18n$t("opt_maternal_coverage")),
+        i18n = i18n
+      )
+
+      downloadCoverageServer(
+        id = 'vaccine',
+        filename = reactive(paste0('vaccine_global_target_', cache()$denominator)),
+        data_fn = vaccine_threshold,
+        sheet_name = reactive(i18n$t("opt_vaccine_coverage")),
         i18n = i18n
       )
 
@@ -109,9 +124,7 @@ subnationalTargetServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'low_reporting',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_coverage"),
-        md_file = '2_calculate_ratios.md',
+        path = 'subnational-global-coverage',
         i18n = i18n
       )
 

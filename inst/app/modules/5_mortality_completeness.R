@@ -62,9 +62,7 @@ mortalityCompletenessServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'mortality',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_national_coverage"),
-        md_file = '2_reporting_rate.md',
+        path = 'maternal-mortality',
         i18n = i18n
       )
     }

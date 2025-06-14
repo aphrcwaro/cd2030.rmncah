@@ -62,7 +62,7 @@ admin_level_1_inequality %>%
 ```{r}
 admin_level_1_mapping <- cache$get_mapping_data('adminlevel_1')
 min_year <- min(admin_level_1_mapping$year)
-max_year <- max(admin_level_1_mapping$year)
+max_year <- robust_max(admin_level_1_mapping$year)
 
 years <- if (is.null(cache$mapping_years)) c(min_year, max_year) else cache$mapping_years
 

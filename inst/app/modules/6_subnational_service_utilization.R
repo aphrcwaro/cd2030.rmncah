@@ -114,6 +114,13 @@ subnationalServiceUtilizationServer <- function(id, cache, i18n) {
         sheet_name = reactive(i18n$t("opt_deaths")),
         i18n = i18n
       )
+
+      contentHeaderServer(
+        'service_utilization',
+        cache = cache,
+        path = 'maternal-mortality',
+        i18n = i18n
+      )
     }
   )
 }

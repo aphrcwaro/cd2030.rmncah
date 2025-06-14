@@ -225,9 +225,8 @@ derivedCoverageServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'derived_coverage',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_derived_coverage"),
-        md_file = '2_reporting_rate.md',
+        path = 'denominator-assessment',
+        section = 'sec-derived-coverage',
         i18n = i18n
       )
     }

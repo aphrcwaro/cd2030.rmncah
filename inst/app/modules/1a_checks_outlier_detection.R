@@ -176,8 +176,8 @@ outlierDetectionServer <- function(id, cache, i18n) {
         filename = reactive('district_outlier_heatmap_plot'),
         data = outlier_summary,
         i18n = i18n,
-        plot_function = function() {
-          plot(outlier_summary(), 'heat_map', input$indicator)
+        plot_function = function(data) {
+          plot(data, 'heat_map', input$indicator)
         }
       )
 
@@ -186,8 +186,8 @@ outlierDetectionServer <- function(id, cache, i18n) {
         filename = reactive('indicator_bar_graph_plot'),
         data = outlier_summary,
         i18n = i18n,
-        plot_function = function() {
-          plot(outlier_summary(), 'indicator', input$indicator)
+        plot_function = function(data) {
+          plot(data, 'indicator', input$indicator)
         }
       )
 
@@ -196,8 +196,8 @@ outlierDetectionServer <- function(id, cache, i18n) {
         filename = reactive('region_bar_graph_plot'),
         data = outlier_summary,
         i18n = i18n,
-        plot_function = function() {
-          plot(outlier_summary(), 'region', input$indicator)
+        plot_function = function(data) {
+          plot(data, 'region', input$indicator)
         }
       )
 
@@ -206,7 +206,7 @@ outlierDetectionServer <- function(id, cache, i18n) {
         filename = reactive('checks_outlier_detection'),
         data = data,
         i18n = i18n,
-        excel_write_function = function(wb) {
+        excel_write_function = function(wb, data) {
           completeness_rate <- data() %>% calculate_outliers_summary()
           district_completeness_rate <- data() %>% calculate_district_outlier_summary()
 
@@ -228,7 +228,7 @@ outlierDetectionServer <- function(id, cache, i18n) {
         filename = reactive(paste0('checks_outlier_districts_', input$indicator, '_', input$year)),
         data = outlier_districts,
         i18n = i18n,
-        excel_write_function = function(wb) {
+        excel_write_function = function(wb, data) {
           district_outliers_sum <- outlier_districts()
 
           sheet_name_1 <- i18n$t('title_district_extreme_outlier')
@@ -242,9 +242,8 @@ outlierDetectionServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'outlier_detection',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t('title_outlier'),
-        md_file = 'quality_checks_outlier_detection.md',
+        path = 'numerator-assessment',
+        section = 'sec-dqa-outlier',
         i18n = i18n
       )
     }

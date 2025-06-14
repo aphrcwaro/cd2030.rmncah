@@ -21,6 +21,8 @@ reference:
       - load_survey_data
       - load_equity_data
       - load_fpet_data
+      - load_private_sector_data
+      - load_csection_estimates
       - save_data
       - save_dhis2_excel
       - save_dhis2_master_data
@@ -145,9 +147,11 @@ reference:
     - compute_service_utilization
     - filter_service_utilization
     - filter_service_utilization_map
+    - prepare_private_sector_plot_data
     - get_excel_version
     - plot.cd_service_utilization_map
     - plot.cd_service_utilization_filtered
+    - plot.cd_private_sector_plot_data
 
   - title: "Calculate Health System Metrics"
     contents:

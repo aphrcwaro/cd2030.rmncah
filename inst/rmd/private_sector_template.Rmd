@@ -1,0 +1,60 @@
+---
+title: "Public/Private Share for `r params$country`"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    highlight: kate
+  officedown::rdocx_document:
+    reference_docx: report-template.docx
+  pdf_document:
+    toc: false
+    latex_engine: lualatex
+params:
+  cache: NULL
+  adminlevel_1: NULL
+  country: NULL
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  include = TRUE,
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  fig.width=7, 
+  fig.height=5, 
+  dpi=1200
+)
+
+library(cd2030.rmncah)
+library(dplyr)
+library(purrr)
+library(reactable)
+library(officedown)
+library(officer)
+
+cache <- params$cache
+```
+
+## National Public Private Share
+
+```{r}
+prepare_private_sector_plot_data(cache$sector_national_estimates, cache$csection_national_estimates) %>% 
+  plot() +
+  cd_report_theme()
+```
+
+## Area Public Private Share
+
+```{r}
+prepare_private_sector_plot_data(cache$sector_area_estimates, cache$csection_area_estimates) %>% 
+  plot() +
+  cd_report_theme()
+```

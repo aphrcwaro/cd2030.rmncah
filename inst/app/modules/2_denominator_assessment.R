@@ -79,9 +79,8 @@ denominatorAssessmentServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'denominator_assessment',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_denominator_assessment"),
-        md_file = '2_reporting_rate.md',
+        path = 'denominator-assessment',
+        section = 'sec-denominator-assessment',
         i18n = i18n
       )
     }

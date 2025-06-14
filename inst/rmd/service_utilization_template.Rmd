@@ -58,7 +58,7 @@ service_utilization %>%
 ```{r, fig.cap='Figure 6b : map with OPD service use by children, by region'}
 admin1_service_utilization <- cache$compute_service_utilization('adminlevel_1')
 min_year <- min(admin1_service_utilization$year)
-max_year <- max(admin1_service_utilization$year)
+max_year <- robust_max(admin1_service_utilization$year)
 
 years <- if (is.null(cache$mapping_years)) c(min_year, max_year) else cache$mapping_years
 admin1_filtered <- admin1_service_utilization %>% 

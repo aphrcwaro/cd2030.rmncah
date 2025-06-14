@@ -97,8 +97,6 @@ list_missing_units <- function(.data,
   # admin_level_cols <- get_admin_columns('adminlevel_1', region)
   # admin_level_cols <- c(admin_level_cols, 'year', 'month')
 
-  # print(admin_level_cols)
-
   x <- .data %>%
     calculate_completeness_core(indicator, region) %>%
     # summarise(

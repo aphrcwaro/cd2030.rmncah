@@ -161,8 +161,8 @@ dataAdjustmentServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'data_adjustment',
         cache = cache,
-        md_title = i18n$t("title_data_adjustment"),
-        md_file = '2_reporting_rate.md',
+        path = 'numerator-adjustments',
+        section = 'sec-dqa-adjust-outputs',
         i18n = i18n
       )
     }

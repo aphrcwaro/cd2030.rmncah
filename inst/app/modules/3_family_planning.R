@@ -101,9 +101,8 @@ familyPlanningServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'national_coverage',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_coverage"),
-        md_file = '2_calculate_ratios.md',
+        path = 'denominator-assessment',
+        section = 'sec-nat-cov-fp',
         i18n = i18n
       )
     }

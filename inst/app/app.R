@@ -99,6 +99,7 @@ source('modules/6_subnational_service_utilization.R')
 source('modules/7_health_system_national.R')
 source('modules/7_health_system_subnational.R')
 source('modules/7_health_system_comparison.R')
+source('modules/7_private_sector.R')
 
 i18n <- init_i18n(translation_json_path = 'translation/translation.json')
 i18n$set_translation_language ('en')
@@ -235,6 +236,9 @@ ui <- dashboardPage(
                            icon = icon('balance-scale-right')),
                menuSubItem(i18n$t('title_health_system_comparison'),
                            tabName = 'health_system_comparison',
+                           icon = icon('user-slash')),
+               menuSubItem(i18n$t('title_private_sector'),
+                           tabName = 'private_sector',
                            icon = icon('user-slash'))
       )
     )
@@ -331,7 +335,8 @@ ui <- dashboardPage(
       tabItem(tabName = 'health_system_national', healthSystemNationalUI('health_system_national', i18n = i18n)),
       tabItem(tabName = 'health_system_subnational', healthSystemSubnationalUI('health_system_subnational', i18n = i18n)),
       tabItem(tabName = 'health_system_comparison', healthSystemComparisonUI('health_system_comparison', i18n = i18n)),
-      tabItem(tabName = 'fpet_projection', familyPlanningUI('fpet_projection', i18n = i18n))
+      tabItem(tabName = 'fpet_projection', familyPlanningUI('fpet_projection', i18n = i18n)),
+      tabItem(tabName = 'private_sector', privateSectorUI('private_sector', i18n = i18n))
     ),
     tags$script(src = 'script.js')
   )
@@ -393,6 +398,7 @@ server <- function(input, output, session) {
   healthSystemSubnationalServer('health_system_subnational', cache, i18n)
   healthSystemComparisonServer('health_system_comparison', cache, i18n)
   familyPlanningServer('fpet_projection', cache, i18n)
+  privateSectorServer('private_sector', cache, i18n)
   downloadReportServer('download_report', cache, i18n)
   saveCacheServe('save_cache', cache, i18n)
 

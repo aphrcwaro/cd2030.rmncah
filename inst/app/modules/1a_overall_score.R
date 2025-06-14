@@ -98,8 +98,8 @@ overallScoreServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'data_quality',
         cache = cache,
-        md_title = i18n$t("title_overall"),
-        md_file = '2_reporting_rate.md',
+        path = 'numerator-assessment',
+        section = 'sec-dqa-overall-score',
         i18n = i18n
       )
 

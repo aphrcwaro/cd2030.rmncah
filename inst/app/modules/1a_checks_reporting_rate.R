@@ -201,8 +201,8 @@ reportingRateServer <- function(id, cache, i18n) {
         filename = reactive('heatmap_plot'),
         data = subnational_rr,
         i18n = i18n,
-        plot_function = function() {
-          plot(subnational_rr(),
+        plot_function = function(data) {
+          plot(data,
                plot_type = 'heat_map',
                indicator = input$indicator,
                threshold = threshold())
@@ -214,8 +214,8 @@ reportingRateServer <- function(id, cache, i18n) {
         filename = reactive('bar_plot'),
         data = subnational_rr,
         i18n = i18n,
-        plot_function = function() {
-          plot(subnational_rr(),
+        plot_function = function(data) {
+          plot(data,
                plot_type = 'bar',
                indicator = input$indicator,
                threshold = threshold())
@@ -227,13 +227,11 @@ reportingRateServer <- function(id, cache, i18n) {
         filename = reactive('subnational_reporting_rate'),
         data = subnational_rr,
         i18n = i18n,
-        excel_write_function = function(wb) {
-          low_rr_national <- subnational_rr()
-
+        excel_write_function = function(wb, data) {
           sheet_name_1 <- i18n$t("title_average_rr")
           addWorksheet(wb, sheet_name_1)
           writeData(wb, sheet = sheet_name_1, x = i18n$t("table_reporting_rate"), startCol = 1, startRow = 1)
-          writeData(wb, sheet = sheet_name_1, x = low_rr_national, startCol = 1, startRow = 3)
+          writeData(wb, sheet = sheet_name_1, x = data, startCol = 1, startRow = 3)
         }
       )
 
@@ -242,13 +240,11 @@ reportingRateServer <- function(id, cache, i18n) {
         filename = reactive('subnational_reporting_rate'),
         data = subnational_rr,
         i18n = i18n,
-        excel_write_function = function(wb) {
-          low_rr_national <- subnational_rr()
-
+        excel_write_function = function(wb, data) {
           sheet_name_1 <- i18n$t("title_average_rr")
           addWorksheet(wb, sheet_name_1)
           writeData(wb, sheet = sheet_name_1, x = i18n$t("table_reporting_rate"), startCol = 1, startRow = 1)
-          writeData(wb, sheet = sheet_name_1, x = low_rr_national, startCol = 1, startRow = 3)
+          writeData(wb, sheet = sheet_name_1, x = data, startCol = 1, startRow = 3)
         }
       )
 
@@ -257,8 +253,8 @@ reportingRateServer <- function(id, cache, i18n) {
         filename = reactive('district_rr_plot'),
         data = district_rr,
         i18n = i18n,
-        plot_function = function() {
-          plot(district_rr())
+        plot_function = function(data) {
+          plot(data)
         }
       )
 
@@ -267,14 +263,12 @@ reportingRateServer <- function(id, cache, i18n) {
         filename = reactive('checks_reporting_rate'),
         data = district_rr,
         i18n = i18n,
-        excel_write_function = function(wb) {
-          district_rr_national <- district_rr()
-
+        excel_write_function = function(wb, data) {
           # Check if sheet exists; if not, add it
           sheet_name_2 <- str_glue(i18n$t("sheet_reporting_district"))
           addWorksheet(wb, sheet_name_2)
           writeData(wb, sheet = sheet_name_2, x = str_glue(i18n$t("table_district_reporting")), startRow = 1, startCol = 1)
-          writeData(wb, sheet = sheet_name_2, x = district_rr_national, startCol = 1, startRow = 3)
+          writeData(wb, sheet = sheet_name_2, x = data, startCol = 1, startRow = 3)
         }
       )
 
@@ -283,22 +277,19 @@ reportingRateServer <- function(id, cache, i18n) {
         filename = reactive(paste0('district_low_reporting_rate_', input$year)),
         data = district_low_rr,
         i18n = i18n,
-        excel_write_function = function(wb) {
-          low_districts <- district_low_rr()
-
+        excel_write_function = function(wb, data) {
           sheet_name_1 <- i18n$t("title_districts_low_reporting")
           addWorksheet(wb, sheet_name_1)
           writeData(wb, sheet = sheet_name_1, x = str_glue(i18n$t("table_district_reporting_year")), startCol = 1, startRow = 1)
-          writeData(wb, sheet = sheet_name_1, x = low_districts, startCol = 1, startRow = 3)
+          writeData(wb, sheet = sheet_name_1, x = data, startCol = 1, startRow = 3)
         }
       )
 
       contentHeaderServer(
         'reporting_rate',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_reporting"),
-        md_file = 'quality_checks_reporting_rate.md',
+        path = 'numerator-assessment',
+        section = 'sec-dqa-reporting-rate',
         i18n = i18n
       )
     }

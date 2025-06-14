@@ -163,9 +163,7 @@ subnationalMappingServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'subnational_mapping',
         cache = cache,
-        objects = pageObjectsConfig(input),
-        md_title = i18n$t("title_subnational_mapping"),
-        md_file = '2_reporting_rate.md',
+        path = 'national-subnational-mapping',
         i18n = i18n
       )
     }

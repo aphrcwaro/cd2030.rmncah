@@ -147,7 +147,7 @@ plot.cd_outlier_list <- function(x, region_name = NULL, ...) {
   med <- paste0(indicator, "_med")
   mad <- paste0(indicator, "_mad")
 
-  year = max(x$year)
+  year = robust_max(x$year)
 
   x %>%
     filter(!!sym(admin_level_col) == region_name) %>%

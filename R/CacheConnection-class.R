@@ -458,7 +458,6 @@ CacheConnection <- R6::R6Class(
     #' @description Set survey estimates.
     #' @param value Named numeric vector.
     set_survey_estimates = function(value) {
-      print(value)
       if (!is.numeric(value) || !all(c('anc1', 'anc4', 'penta1', 'penta3', 'measles1', 'bcg', 'ideliv', 'lbw', 'csection') %in% names(value))) {
         cd_abort(c('x' = 'Survey must be a numeric vector containing {.val anc1}, {.val penta1} and {.val penta3}'))
       }
@@ -543,7 +542,23 @@ CacheConnection <- R6::R6Class(
 
     #' @description Set map overlay mapping.
     #' @param value Data frame.
-    set_map_mapping = function(value) private$setter('map_mapping', value, is.data.frame)
+    set_map_mapping = function(value) private$setter('map_mapping', value, is.data.frame),
+
+    #' @description Set map overlay mapping.
+    #' @param value Data frame.
+    set_sector_national_estimates = function(value) private$setter('sector_national_estimates', value, is.data.frame),
+
+    #' @description Set map overlay mapping.
+    #' @param value Data frame.
+    set_sector_area_estimates = function(value) private$setter('sector_area_estimates', value, is.data.frame),
+
+    #' @description Set map overlay mapping.
+    #' @param value Data frame.
+    set_csection_national_estimates = function(value) private$setter('csection_national_estimates', value, is.data.frame),
+
+    #' @description Set map overlay mapping.
+    #' @param value Data frame.
+    set_csection_area_estimates = function(value) private$setter('csection_area_estimates', value, is.data.frame)
   ),
   active = list(
     #' @field language Get the UI language.
@@ -758,6 +773,18 @@ CacheConnection <- R6::R6Class(
     #' @field map_mapping Gets map mapping.
     map_mapping = function(value) private$getter('map_mapping', value),
 
+    #' @field sector_national_estimates Gets map mapping.
+    sector_national_estimates = function(value) private$getter('sector_national_estimates', value),
+
+    #' @field sector_area_estimates Gets map mapping.
+    sector_area_estimates = function(value) private$getter('sector_area_estimates', value),
+
+    #' @field csection_national_estimates Gets map mapping.
+    csection_national_estimates = function(value) private$getter('csection_national_estimates', value),
+
+    #' @field csection_ares_estimates Gets map mapping.
+    csection_area_estimates = function(value) private$getter('csection_area_estimates', value),
+
     #' @field check_inequality_params checks if inputs for inequality calculations are available
     check_inequality_params = function() {
       !is.null(self$adjusted_data) &&
@@ -811,6 +838,10 @@ CacheConnection <- R6::R6Class(
       survey_mapping = NULL,
       map_mapping = NULL,
       fpet_data = NULL,
+      sector_national_estimates = NULL,
+      sector_area_estimates = NULL,
+      csection_national_estimates = NULL,
+      csection_area_estimates = NULL,
       page_notes = tibble::tibble(
         page_id = character(),
         object_id = character(),

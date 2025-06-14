@@ -229,18 +229,11 @@
   "pt": "Tipo de relatório:"
 },
 {
-  "key": "opt_full_report",
-  "en": "Full Report",
-  "fr": "Rapport complet",
-  "pt": "Relatório completo"
+  "key": "opt_synthesis_report",
+  "en": "Synthesis Report",
+  "fr": "Rapport de synthès",
+  "pt": "Relatório de síntese"
 },
-{
-  "key": "opt_one_pager",
-  "en": "National One Pager",
-  "fr": "Page unique nationale",
-  "pt": "Resumo nacional"
-},
-
    {
   "key": "opt_admin_level_one_pager",
   "en": "Admin Level One Pager",
@@ -1388,6 +1381,12 @@
   "pt": "Carregar Pasta de Pesquisa"
 },
 {
+  "key": "title_upload_private",
+  "en": "Upload Sector Folder",
+  "fr": "Téléverser le dossier du secteur",
+  "pt": "Carregar pasta do setor"
+},
+{
   "key": "title_subnational_mapping_opt",
   "en": "Subnational Manual Data Mapping (Optional)",
   "fr": "Cartographie manuelle des données infranationales (optionnel)",
@@ -2448,6 +2447,24 @@
   "en": "FPET Projections Options",
   "fr": "Options de projection FPET",
   "pt": "Opções de Projeção do FPET"
-    }
+    },
+    {
+  "key": "title_private_sector",
+  "en": "Public/Private Share",
+  "fr": "Part publique/privée",
+  "pt": "Participação pública/privada"
+},
+{
+  "key": "opt_private_national",
+  "en": "National",
+  "fr": "National",
+  "pt": "Nacional"
+},
+{
+  "key": "opt_private_area",
+  "en": "Urban/Rural",
+  "fr": "Urbain/Rural",
+  "pt": "Urbano/Rural"
+}
   ]
 }

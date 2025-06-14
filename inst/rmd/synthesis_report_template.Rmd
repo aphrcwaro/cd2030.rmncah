@@ -1,0 +1,573 @@
+---
+title: "Countdown Analysis Report for `r params$country`"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    highlight: kate
+  officedown::rdocx_document:
+    reference_docx: report-template.docx
+  pdf_document:
+    toc: false
+    latex_engine: lualatex
+params:
+  cache: NULL
+  adminlevel_1: NULL
+  country: NULL
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  include = TRUE,
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  fig.width=7, 
+  fig.height=5, 
+  dpi=1200
+)
+
+library(cd2030.rmncah)
+library(dplyr)
+library(purrr)
+library(reactable)
+library(officedown)
+library(officer)
+
+cache <- params$cache
+data <- cache$countdown_data
+adjusted_data <- cache$adjusted_data
+country <- cache$country
+threshold <- cache$performance_threshold
+un_estimates <- cache$un_estimates
+survey_estimates <- cache$survey_estimates
+```
+
+### Analysis of reproductive, maternal, newborn, child and adolescent health indicators for 2019-2024: Synthesis chartbook Country Annual meeting (CAM), Nairobi, 16-20 June 2025 Countdown to 2030 in partnership with Kenya Ministry of Health, Global Financing Facility, WHO, WAHO, UNICEF
+
+> Country analytical team names and affiliation
+
+## KEY FINDINGS
+
+### 1. Health facility data quality assessment: numerators and denominators
+
+**NUMERATORS:** Routinely reported health facility data are an important data source for health indicators. The data are reported by health facilities on events such as immunizations given, or live births attended. As with any data, quality is an issue. Data are assessed for completeness of reporting by health facilities, extreme outliers and internal consistency. Appropriate adjustments are made to the data before use to compute statistics.
+
+#### Summary of reported health facility data quality, DHIS2, 2019-2024
+
+```{r}
+years <- unique(data$year)
+
+data %>%
+	calculate_overall_score(threshold, region = adminlevel_1) %>%
+	mutate(
+		type = case_when(
+			no %in% c("1a", "1b", "1c") ~ '1. Completeness of monthly facility reporting (mean of ANC, delivery, immunization, OPD)',
+			no %in% c("2a", "2b") ~ '2. Extreme outliers (mean of ANC, delivery, immunization, OPD)',
+			no %in% c("3a", "3b",'3c', '3d', '4') ~ '3. Consistency of annual reporting'
+		)
+	) %>%
+	as_grouped_data(groups = 'type') %>%
+	as_flextable() %>%
+	bold(j = 1, i = ~ !is.na(type), bold = TRUE, part = "body") %>%
+	bold(i = ~ is.na(type) & no =='4', bold = TRUE, part = "body") %>%
+	bold(part = "header", bold = TRUE) %>%
+	colformat_double(i = ~ is.na(type) & !no %in% c("3a", "3b"), j = as.character(years), digits = 0, big.mark = ",") %>%
+	colformat_double(i = ~ is.na(type) & no %in% c("3a", "3b"), j = as.character(years), digits = 2) %>%
+	bg(
+		i = ~ is.na(type) & !no %in% c("3a", "3b"),
+		j = as.character(years),
+		bg = function(x) {
+			result <- map_chr(as.list(x), ~ {
+				if (is.na(.x) || is.null(.x)) {
+					return("transparent")
+				} else if (.x >= threshold) {
+					return("seagreen")
+				} else if (.x >= 70 && .x < threshold) {
+					return("yellow")
+				} else if (.x < 70) {
+					return("red")
+				} else {
+					return("transparent")
+				}
+			})
+			return(result)
+		},
+		part = "body"
+	) %>%
+	bg(
+		i = ~ !is.na(type), part = "body",
+		bg = 'lightgoldenrodyellow'
+	) %>%
+	theme_vanilla() %>%
+	autofit()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- What is the overall quality of the data as assessed by the overall annual data quality score?
+- Is there a data quality pattern by year for which there is an explanation? 
+- Are there certain regions or other subnational units that are particularly problematic?
+- Are there certain reporting forms or services (e.g., antenatal care, labour and delivery, immunization) that are problematic? Was an adjustment done for incomplete reporting (provide the k value)?
+- Is there good consistency between reported numbers of ANC1 and penta1? If not, what could be the explanation?
+
+---
+
+:::
+
+Numerator: facility data quality  - example 1
+Explain the observation on data quality (one bullet)
+
+```{r}
+plot_comparison_anc1_penta1(data) +
+  cd_report_theme()
+```
+
+Numerator: facility data quality  - example 2
+Explain the observation on data quality (one bullet)
+
+```{r district-reporting-rates}
+plot(calculate_district_reporting_rate(data, threshold, region = adminlevel_1)) +
+  cd_report_theme()
+```
+
+
+**DENOMINATORS:** Service coverage is defined as the population who received the service (numerator) divided by the population who need the services: (the denominator). We test four options for denominator measures using institutional live births and Pent-3 immunization coverage (Figures 2c and 2d). The quality of the population projections in DHIS2 is assessed through consistency over time and comparison with the UN projections. Two denominators are also derived using near universal service such as ANC-1 and Penta-1. The most plausible is identified for use to generate other statistics.
+
+```{r}
+plot(prepare_population_metrics(adjusted_data, un_estimates = un_estimates), metric = 'births') +
+  cd_report_theme()
+```
+
+```{r}
+indicator_coverage <- cache$calculate_indicator_coverage('national')
+indicator_coverage %>% 
+  filter_indicator_coverage('instdeliveries', unname(survey_estimates['ideliv'])) %>% 
+  plot() +
+  cd_report_theme()
+```
+
+```{r}
+indicator_coverage %>% 
+  filter_indicator_coverage('penta3', unname(survey_estimates['penta3'])) %>% 
+  plot() +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- How well does the national projection of births align with the UN projection?
+- Which denominator methods performed best at the national level for the live births coverage and penta3 coverage? And for subnational level for the two indicators?
+- What denominators are selected for the maternal (instdeliveries) and vaccination (penta3) indicators in the coverage analyses? 
+
+---
+
+:::
+
+### 3. Equity
+
+#### Equity by wealth, education, rural-urban residence (from surveys)
+
+Institutional Deliveries
+
+```{r}
+equiplot_area(cache$area_survey, 'instlivebirths') +
+  cd_report_theme()
+```
+
+```{r}
+equiplot_wealth(cache$wiq_survey, 'instlivebirths') +
+  cd_report_theme()
+```
+
+```{r}
+equiplot_education(cache$education_survey, 'instlivebirths') +
+  cd_report_theme()
+```
+
+Penta 3
+
+```{r}
+equiplot_area(cache$area_survey, 'penta3') +
+  cd_report_theme()
+```
+
+```{r}
+equiplot_wealth(cache$wiq_survey, 'penta3') +
+  cd_report_theme()
+```
+
+```{r}
+equiplot_education(cache$education_survey, 'penta3') +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- Can you observe any systematic differences—such as specific groups consistently being left behind?
+- Are there observable patterns of inequality (e.g., linear, concentrated at the top or bottom)? If so, what potential strategies could be implemented to reduce these inequalities?
+- Are all subgroups experiencing increases or decreases in coverage/prevalence at the same pace?
+- Are inequalities changing over time?
+
+---
+
+:::
+
+#### Geographical inequalities: Health facility data 
+
+```{r}
+admin_level_1_inequality <- cache$calculate_inequality('adminlevel_1')
+
+admin_level_1_inequality %>% 
+  filter_inequality('instdeliveries') %>% 
+  plot() +
+  cd_report_theme()
+```
+
+```{r}
+admin_level_1_inequality %>% 
+  filter_inequality('penta3') %>% 
+  plot() +
+  cd_report_theme()
+```
+
+```{r}
+admin_level_1_mapping <- cache$get_mapping_data('adminlevel_1')
+max_year <- robust_max(admin_level_1_mapping$year)
+
+admin_level_1_mapping %>% 
+  filter_mapping_data('instdeliveries', denominator = cache$maternal_denominator,
+                      palette = 'Greens', plot_year = max_year) %>% 
+  plot() +
+  cd_report_theme()
+```
+
+```{r}
+admin_level_1_mapping %>% 
+  filter_mapping_data('penta3', denominator = cache$maternal_denominator,
+                      palette = 'Blues', plot_year = max_year) %>% 
+  plot() +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- How has coverage evolved over time?
+- Has there been any change in inequality? Are the data points becoming more or less dispersed over time? Are the MADM (Mean Absolute Deviation from the Median) estimates changing throughout the period?
+- Which regions or districts are the best and worst performers?
+
+---
+
+:::
+
+#### Percent of regions/provinces achieving high coverage targets
+
+```{r}
+indicator_coverage <- cache$calculate_indicator_coverage('adminlevel_1')
+
+indicator_coverage %>%
+  calculate_threshold(indicator = 'vaccine', denominator = cache$denominator) %>% 
+  plot()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- Has the proportion of regions or districts that achieved the target varied over time?
+
+---
+
+:::
+
+### 4. Institutional mortality
+
+#### Data quality metrics
+
+Ratio stillbirth to maternal deaths in the health facility data at national level
+
+```{r}
+mortality_summary <- cache$create_mortality_summary()
+plot(mortality_summary, indicator = 'ratio_md_sb') +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- A plausible ratio is in the range of 5 to 25 stillbirths per maternal death. Is the national ratio within the expected range?
+- What can be said about the top 3 and bottom 3 regions?
+- If the ratio is above 25, this may mean that maternal deaths are more underreported than stillbirths. If it is below 5, stillbirths are likely underreported. If the ratio is within the range, the reporting may be good if the mortality levels are in the expected range. If not, then both maternal deaths and stillbirths are underreported.
+
+---
+
+:::
+
+Estimated completeness of facility maternal death and stillbirth reporting
+
+
+```{r}
+mortality_ratio <- mortality_summary %>% 
+  cache$create_mortality_ratios()
+
+plot(cache$summarise_completeness_ratio(mortality_ratio, 'mmr')) +
+  cd_report_theme()
+```
+
+```{r}
+plot(cache$summarise_completeness_ratio(mortality_ratio, 'sbr')) +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- Comment on the completeness of reporting of institutional MMR and SBR based on the population MMR and the Community to Institutional ratio
+
+---
+
+:::
+
+#### Institutional Maternal Mortality Ratio (iMMR)
+
+```{r}
+plot(mortality_summary, indicator = 'mmr_inst') +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- What is the national iMMR? Is this as expected, e.g. in line with UN estimates? 
+- What are the 3 highest iMMR regions and the lowest iMMR regions? (name with level) Is this as expected, or does it suggest data quality issues? (are these more advanced regions where mortality is expected to be lower or are there less-developed regions with low mortality,. which could be an indication of major underreporting of deaths)
+
+---
+
+:::
+
+#### Institutional Still birth rate (iSBR)
+
+```{r}
+plot(mortality_summary, indicator = 'sbr_inst') +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- What can be said about the level and trend? Is this in line with what is expected based on UN estimates?
+- What are the 3 highest iSBR regions and the lowest iSBR regions? (name with level) Is this as expected, or does it suggest data quality issues? (are these more advanced regions where mortality is expected to be lower or are there less-developed regions with low mortality,. which could be an indication of major underreporting of deaths)
+
+---
+
+:::
+
+### 5. Curative health service utilization for sick children
+
+#### Outpatient and inpatient service utilization 
+
+```{r}
+service_utilization <- cache$compute_service_utilization('national')
+service_utilization %>% 
+  filter_service_utilization_map('opd') %>% 
+  plot() +
+  cd_report_theme()
+```
+
+```{r}
+service_utilization %>% 
+  filter_service_utilization_map('ipd') %>% 
+  plot() +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- What is the number of OPD visits per child per year during in 2024 and the trend over time?  Is it lower than 1 visit per year, which suggests low access? 
+- What can be said about the data quality for OPD & IPD visits? Is there consistency of reported numbers between years?
+- What is the number of IPD visits per 100 children per year during 2019-2024, is it increasing?  Is it lower than 2 per 100 children under-five, which suggests low access? 
+- What can be said about the OPD visits & admissions by region/province in 2024? How large is the difference between top and bottom regions? 
+
+---
+
+:::
+
+#### Regional/provincial service utilization
+
+```{r}
+admin1_service_utilization <- cache$compute_service_utilization('adminlevel_1')
+max_year <- robust_max(admin1_service_utilization$year)
+
+admin1_filtered <- admin1_service_utilization %>% 
+  cache$filter_service_utilization(indicator = 'opd', map_years = max_year)
+plot(admin1_filtered) +
+  cd_report_theme()
+```
+
+```{r}
+admin1_filtered <- admin1_service_utilization %>% 
+  cache$filter_service_utilization(indicator = 'ipd', map_years = max_year)
+plot(admin1_filtered) +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- What are the 3 regions with the highest OPD and IPD rates and the 3 regions with the lowest (region name with values)? Any reason? Potential data issues?
+
+---
+
+:::
+
+#### Case Fatality Rate among Under 5
+
+```{r}
+service_utilization %>% 
+  filter_service_utilization_map('cfr') %>% 
+  plot() +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- What is the case fatality among admissions under-five? What are the trends?
+- What does this say about the quality of care? 
+
+---
+
+:::
+
+### 6. Health system progress and performance
+
+#### Health system inputs
+
+```{r}
+national_metrics <- calculate_health_system_metrics(data, 'national')
+plot_national_health_metric(national_metrics, 'density') +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- Note on completeness of the data (private sector included)? 
+- What can be said about the national health system inputs? How do they compare to the benchmarks?
+Health Facility Density (Benchmark: 2)
+Bed density (Benchmark: 25)
+Health workforce density (Benchmark: 23 – needed to make major progress in reducing maternal and child mortality with high skilled birth attendance (WHO). 
+44.5 per 10,000 population to achieve universal health coverage
+
+---
+
+:::
+
+#### Health system inputs by region/province
+
+```{r}
+subnational_metrics <- calculate_health_system_metrics(data, 'adminlevel_1')
+
+plot(subnational_metrics, indicator = 'ratio_fac_pop',
+        national_score = national_metrics$ratio_fac_pop,
+        target = 2) +
+  cd_report_theme()
+```
+
+```{r}
+plot(subnational_metrics, indicator = 'ratio_hos_pop',
+        national_score = national_metrics$ratio_hos_pop,
+        target = 2) +
+  cd_report_theme()
+```
+
+```{r}
+plot(subnational_metrics, indicator = 'ratio_hstaff_pop',
+        national_score = national_metrics$ratio_hstaff_pop,
+        target = 23) +
+  cd_report_theme()
+```
+
+::: {custom-style="Style1"}
+
+---
+
+- How does the number of health facilities vary by admin1 units?
+- How does hospital density vary by admin1 units?
+- How does health workforce density vary by admin1 units?
+- What are the top and bottom admin1 units?, are they consistent across all indicators
+
+---
+
+:::
+
+#### Health system outputs by inputs at the subnational level
+
+```{r}
+comparison <- cache$calculate_health_system_comparison()
+plot(comparison, indicator = 'cov_instdeliveries_hstaff',
+        denominator = cache$maternal_denominator) +
+  cd_report_theme()
+```
+
+#### Interpretations 
+
+::: {custom-style="Style1"}
+
+---
+
+- The interpretation should focus on whether the obtained picture has validity. This may be posited if it confirms some expectations such as more developed regions doing better
+- Describe poor and good performing regions/provinces
+
+---
+
+:::

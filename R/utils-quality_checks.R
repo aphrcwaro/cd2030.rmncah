@@ -225,12 +225,12 @@ add_missing_column <- function(.data, indicators) {
 #' robust_max(c(-Inf, 0, 10)) # Returns 10
 #'
 #' @export
-robust_max <- function(x, fallback = NA_real_) {
-  if (all(is.na(x))) {
-    # Return the fallback value if all elements are NA
-    return(fallback)
-  }
+robust_max <- function(x, fallback = NA) {
+  finite_values <- x[is.finite(x)]
 
-  # Return the maximum value, ignoring NA values
-  max(x, na.rm = TRUE) # Use base::max for consistency
+  if (length(finite_values) == 0) {
+    return(fallback)
+  } else {
+    max(finite_values)
+  }
 }

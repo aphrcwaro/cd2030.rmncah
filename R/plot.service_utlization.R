@@ -32,7 +32,7 @@ plot.cd_service_utilization_map <- function(x, ...) {
       y1_label = 'Under-5',
       y2_label = 'All ages',
       title = 'IPD admissions',
-      y_label = 'Mean # of IPD admissions per person'
+      y_label = 'Mean # of IPD admissions per 100 persons'
     ),
     under5 = list(
       y1 = 'perc_opd_under5',
@@ -62,7 +62,7 @@ plot.cd_service_utilization_map <- function(x, ...) {
 
   labels_val <- labels[[indicator]]
 
-  max_y <- max(c(x[[labels_val$y1]], x[[labels_val$y2]]))
+  max_y <- robust_max(c(x[[labels_val$y1]], x[[labels_val$y2]]))
   limits <- c(0, max_y)
   breaks <- scales::pretty_breaks(n = 11)(limits)
 

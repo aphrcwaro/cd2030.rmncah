@@ -148,6 +148,10 @@ plot.cd_health_system_metric <- function(x,
 
   lab_options <- labels[[indicator]]
 
+  max_y <- robust_max(x[[indicator]])
+  limits <- c(0, max_y)
+  breaks <- scales::pretty_breaks(n = 6)(limits)
+
   nat_density <- paste0('National level density: ', round(national_score, 1))
   target_label <- paste0('Benchmark: ', round(as.numeric(target, 1)))
 
@@ -163,7 +167,7 @@ plot.cd_health_system_metric <- function(x,
 
   p +
     coord_flip() +
-    scale_y_continuous(limits = lab_options$ylim, breaks = lab_options$breaks) +
+    scale_y_continuous(limits = limits, breaks = breaks, expand = expansion(mult = c(0, 0.1))) +
     scale_colour_manual(values = set_names(
       c('#2c7fb8', 'maroon', 'green4'),
       c('Admin 1evel 1 Density', nat_density, target_label)

@@ -12,7 +12,7 @@ contentHeader <- function(id, title, i18n, include_report = FALSE, include_notes
   )
 }
 
-contentHeaderServer <- function(id, cache, objects = NULL, md_title, md_file, i18n) {
+contentHeaderServer <- function(id, cache, path, section = NULL, i18n) {
   stopifnot(is.reactive(cache))
 
   moduleServer(
@@ -29,9 +29,10 @@ contentHeaderServer <- function(id, cache, objects = NULL, md_title, md_file, i1
 
       helpButtonServer(
         id = 'get_help',
-        title = md_title,
-        size = 'l',
-        md_file = md_file)
+        path = path,
+        section = section,
+        cache = cache
+      )
 
       documentationButtonServer(
         id = 'add_notes',

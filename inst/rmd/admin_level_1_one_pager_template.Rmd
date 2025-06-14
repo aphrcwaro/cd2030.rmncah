@@ -56,9 +56,10 @@ library(officer)
 cache <- params$cache
 adminlevel_1 <- params$adminlevel_1
 
+threshold <- cache$threshold
 data <- cache$countdown_data
 country <- cache$country
-last_year <- max(data$year, na.rm = TRUE)
+last_year <- robust_max(data$year)
 admin1_cov <- cache$calculate_coverage('adminlevel_1')
 admin2_cov <- cache$calculate_coverage('district') %>% 
   filter(adminlevel_1 == !!adminlevel_1)
@@ -142,7 +143,7 @@ get_top_bottom_table <- function(.data, indicator = c('penta3', 'instdeliveries'
   
   indicator_col <- sym(paste0('cov_', indicator, '_', denominator))
   
-  max_year <- max(.data$year, na.rm = TRUE)
+  max_year <- robust_max(.data$year)
 
   .data %>% 
     select(year, district, !!indicator_col) %>% 
@@ -205,50 +206,55 @@ bind_rows(totals, table_data) %>%
 years <- unique(data$year)
 
 data %>%
-          calculate_overall_score(cache$threshold, region = adminlevel_1) %>%
-          mutate(
-            type = case_when(
-              no %in% c("1a", "1b", "1c") ~ '1. Completeness of monthly facility reporting (Immunization)',
-              no %in% c("2a", "2b") ~ '2. Extreme outliers (Common Vaccine antigens)',
-              no %in% c("3a", "3b",'3f', '3g') ~ '3. Consistency of annual reporting'
-            )
-          ) %>%
-          as_grouped_data(groups = 'type') %>%
-          as_flextable() %>%
-          bold(j = 1, i = ~ !is.na(type), bold = TRUE, part = "body") %>%
-          bold(part = "header", bold = TRUE) %>%
-          colformat_double(i = ~ is.na(type) & !no %in% c("3a", "3b"), j = as.character(years), digits = 0, big.mark = ",") %>%
-          colformat_double(i = ~ is.na(type) & no %in% c("3a", "3b"), j = as.character(years), digits = 2) %>%
-          bg(
-            i = ~ is.na(type) & !no %in% c("3a", "3b"),
-            j = as.character(years),
-            bg = function(x) {
-              # Use map to apply function to each cell
-              result <- map_chr(as.list(x), ~ {
-                if (is.na(.x) || is.null(.x) || !is.numeric(.x)) {
-                  return("transparent")
-                } else if (.x >= threshold) {
-                  return("seagreen")
-                } else if (.x >= 41 && .x < threshold) {
-                  return("yellow")
-                } else if (.x <= 40) {
-                  return("red")
-                } else {
-                  return("transparent")
-                }
-              })
-              return(result)
-            },
-            part = "body"
-          ) %>%
-          bg(
-            i = ~ !is.na(type), part = "body",
-            bg = 'lightgoldenrodyellow'
-          ) %>%
-   fontsize(size = 9) %>% 
-          theme_vanilla() %>%
-  set_table_properties(layout = "autofit") %>% 
-  set_caption(caption = 'Table 1: Summary reported immunization health facility data DHIS2')
+	calculate_overall_score(threshold, region = adminlevel_1) %>%
+   filter(!no %in% c('3a', '3b')) %>%
+	mutate(
+		type = case_when(
+			no %in% c("1a", "1b", "1c") ~ '1. Completeness of monthly facility reporting',
+			no %in% c("2a", "2b") ~ '2. Extreme outliers (ANC, delivery, immunization, OPD)',
+			no %in% c("3a", "3b",'3c', '3d', '4') ~ '3. Consistency of annual reporting'
+		),
+		`Data Quality Metrics` = case_when(
+      str_detect(`Data Quality Metrics`, 'facility reports') ~ '% of expected monthly reports',
+      str_detect(`Data Quality Metrics`, 'completeness') ~ '% of districts with complete report >= 90%',
+      str_detect(`Data Quality Metrics`, 'missing') ~ '% of districts with no missing values',
+      str_detect(`Data Quality Metrics`, 'outliers \\(national\\)') ~ '% of values not extreme outliers',
+      str_detect(`Data Quality Metrics`, 'outliers in') ~ '% of districts with no extreme outliers',
+      str_detect(`Data Quality Metrics`, 'anc1/penta1') ~ '% district with anc1/penta1 in expected',
+      str_detect(`Data Quality Metrics`, 'penta1/penta3') ~ '% district with penta1/penta3 in expected',
+      .default = `Data Quality Metrics`
+    )
+	) %>%
+	as_grouped_data(groups = 'type') %>%
+	as_flextable() %>%
+  bold(part = "header", bold = TRUE) %>%
+  fontsize(part = 'header', size = 7) %>%
+	bold(j = 1, i = ~ !is.na(type), bold = TRUE, part = "body") %>%
+	bold(i = ~ is.na(type) & no =='4', bold = TRUE, part = "body") %>%
+  fontsize(size = 7, part = 'body') %>% 
+	colformat_double(i = ~ is.na(type) & !no %in% c("3a", "3b"), j = as.character(years), digits = 0, big.mark = ",") %>%
+	colformat_double(i = ~ is.na(type) & no %in% c("3a", "3b"), j = as.character(years), digits = 2) %>%
+	# bg(
+	# 	i = ~ is.na(type) & !no %in% c("3a", "3b"),
+	# 	j = as.character(years),
+	# 	bg = function(x) {
+	# 		case_when(
+	# 		  is.na(x) | is.null(x) ~ "transparent",
+	# 		  x >= threshold ~ "seagreen",
+	# 		  x >= 70 & x < threshold ~ "yellow",
+	# 		  x < 70 ~ "red",
+	# 		  .default = "transparent" # Default case for anything else
+	# 		 )
+	# 	},
+	# 	part = "body"
+	# ) %>%
+	bg(
+		i = ~ !is.na(type), part = "body",
+		bg = 'lightgoldenrodyellow'
+	) %>%
+  fontsize(size = 7, part = 'body') %>% 
+	theme_vanilla() %>%
+	set_table_properties(layout = "autofit")
 ```
 
 
@@ -294,4 +300,4 @@ plot_subnational_comparison(admin1_cov, 'instdeliveries', denominator = cache$ge
 get_top_bottom_table(admin2_cov, 'instdeliveries', denominator = cache$get_denominator('instdeliveries'))
 ```
 
-<!---BLOCK_MULTICOL_STOP{widths: [3,4,4], space: 0.2, sep: true}--->
+<!---BLOCK_MULTICOL_STOP{widths: [4,4,4], space: 0.2, sep: true}--->

@@ -29,8 +29,9 @@ setupServer <- function(id, cache, i18n) {
       contentHeaderServer(
         'analysis_setup',
         cache = cache,
-        md_title = i18n$t("title_setup"),
-        md_file = '5_upload_data.md'
+        path = 'denominator-assessment',
+        section = 'sec-denom-analysis-setup',
+        i18n = i18n
       )
     }
   )

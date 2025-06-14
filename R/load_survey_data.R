@@ -243,3 +243,143 @@ load_fpet_data <- function(path = NULL, .data = NULL, country_iso = NULL) {
     filter(if (is.null(country_iso)) TRUE else iso3 == country_iso) %>%
     new_tibble(class = "cd_fpet_data")
 }
+
+#' Load and Prepare Private Sector Data
+#'
+#' Loads raw prevalence data for public/private sector analysis and applies
+#' internal preprocessing for c-section share calculation.
+#'
+#' @param path Optional. File path to a `.dta` file. Required if `.data` is not provided.
+#' @param .data Optional. A pre-loaded dataset. Used directly if provided.
+#' @param country_iso Required. ISO3 country code to filter the data.
+#' @param level Either `"national"` or `"area"` indicating the data level.
+#'
+#' @return A tibble of class `"cd_private_sector_data"` with a `"level"` attribute.
+#'
+#' @details
+#' This function:
+#' - Loads and filters data for the specified `country_iso`.
+#' - Assigns `"Public"` or `"Private"` to the `sector` column based on `indic` suffix.
+#' - Removes sector suffix from `indic`.
+#' - Computes number of c-sections (`num_csection`) and sector share of c-sections (`share_csection`)
+#'   within groupings defined by `iso` or `iso + area`.
+#' - If level is `"area"`, parses `level` string into `area = "Urban"` or `"Rural"`.
+#'
+#' @section Output columns:
+#' - `indic`: cleaned indicator name (without "pub"/"priv")
+#' - `sector`: `"Public"` or `"Private"`
+#' - `share_csection`: share of c-sections attributable to each sector
+#' - `area`: (only if `level == "area"`)
+#'
+#' @seealso [load_csection_estimates()], [prepare_private_sector_plot_data()]
+#'
+#' @examples
+#' \dontrun{
+#' dt <- load_private_sector_data(
+#'   path = "National estimates.dta",
+#'   country_iso = "KEN",
+#'   level = "national"
+#' )
+#' }
+#'
+#' @export
+load_private_sector_data  <- function(path = NULL, .data = NULL, country_iso, level = c('national', 'area')) {
+  check_required(country_iso)
+  level <- arg_match(level)
+  level_cols <- switch (
+    level,
+    national = NULL,
+    area = 'level'
+  )
+
+  data <- load_data_or_file(path, .data)
+
+  if (level == 'national' && 'level' %in% names(data)) {
+    cd_abort(c('x' = 'Area data loaded with the {.arg {level}} level.'))
+  }
+
+  if (level == 'area' && !'level' %in% names(data)) {
+    cd_abort(c('x' = 'National data loaded with the {.arg {level}} level.'))
+  }
+
+  data <- data %>%
+    filter(iso == country_iso) %>%
+    mutate(
+      sector = case_when(
+        str_ends(indic, 'pub') ~ 'Public',
+        str_ends(indic, 'priv') ~ 'Private'
+      ),
+      indic = str_remove(indic, '(pub|priv)$'),
+      num_csection = if_else(indic == 'csection', r_raw * N, NA_real_)
+    ) %>%
+    mutate(
+      total_csection = sum(if_else(indic == 'csection', num_csection, 0), na.rm = TRUE),
+      share_csection = num_csection / total_csection,
+      .by = level_cols
+    )
+
+  if (level == 'area') {
+    data <- data %>%
+      separate_wider_regex(level, patterns = c("\\d*", "\\s*", area = ".*"))
+  }
+
+  data %>%
+    new_tibble(class = "cd_private_sector_data", level = level)
+}
+
+#' Load C-section Share Estimates
+#'
+#' Loads c-section correction estimates for national or area-level adjustment.
+#'
+#' @param path Optional. File path to a `.dta` file. Required if `.data` is not provided.
+#' @param .data Optional. A pre-loaded dataset. Used directly if provided.
+#' @param country_iso Required. ISO3 country code to filter the data.
+#' @param level Either `"national"` or `"area"` indicating the data level.
+#'
+#' @return A tibble of class `"cd_csection_estimates"` with a `"level"` attribute.
+#'
+#' @details
+#' - Filters data for the specified `country_iso`.
+#' - Validates whether the data level matches `"national"` or `"area"`.
+#' - For `"area"` level, parses the `level` column to extract `area`.
+#' - Returns only relevant columns for merging (`iso`, `year`, `indic`, and either `national` or `area_est`).
+#'
+#' @seealso [load_private_sector_data()], [prepare_private_sector_plot_data()]
+#'
+#' @examples
+#' \dontrun{
+#' cs <- load_csection_estimates(
+#'   path = "csection_national.dta",
+#'   country_iso = "KEN",
+#'   level = "national"
+#' )
+#' }
+#'
+#' @export
+load_csection_estimates <- function(path = NULL, .data = NULL, country_iso, level = c('national', 'area')) {
+  check_required(country_iso)
+
+  data <- load_data_or_file(path, .data)
+
+  level <- arg_match(level)
+  if (level == 'national' && 'level' %in% names(data)) {
+    cd_abort(c('x' = 'Area data loaded with the {.arg {level}} level.'))
+  }
+
+  if (level == 'area' && !'level' %in% names(data)) {
+    cd_abort(c('x' = 'National data loaded with the {.arg {level}} level.'))
+  }
+
+  data <- data %>%
+    filter(iso == country_iso)
+
+  if (level == 'area') {
+    data <- data %>%
+      separate_wider_regex(level, patterns = c("\\d*", "\\s*", area = ".*"))
+  }
+
+  data %>%
+    select(iso, year, indic, any_of(c('area', 'national', 'area_est'))) %>%
+    new_tibble(class = "cd_csection_estimates", level = level)
+}
+

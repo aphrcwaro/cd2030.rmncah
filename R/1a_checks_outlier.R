@@ -195,6 +195,6 @@ calculate_outlier_core <- function(.data, indicators, admin_level = c('national'
 
   .data %>%
     filter(if (!is.null(region)) adminlevel_1 == region else TRUE) %>%
-    summarise(across(any_of(indicators), mean, na.rm = TRUE), .by = c(group_vars, 'year', 'month')) %>%
+    summarise(across(any_of(indicators), sum, na.rm = TRUE), .by = c(group_vars, 'year', 'month')) %>%
     add_outlier5std_column(indicators = indicators, group_by = group_vars)
 }

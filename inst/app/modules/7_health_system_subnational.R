@@ -79,6 +79,13 @@ healthSystemSubnationalServer <- function(id, cache, i18n) {
         i18n = i18n,
         sheet_name = reactive(i18n$t('opt_ratio_bed_pop'))
       )
+
+      contentHeaderServer(
+        'health_sys_national',
+        cache = cache,
+        path = 'health-systems-inputs',
+        i18n = i18n
+      )
     }
   )
 }
